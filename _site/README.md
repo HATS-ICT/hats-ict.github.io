@@ -2,6 +2,8 @@
 
 Website for the Human-inspired Adaptive Teaming Systems (HATS) Lab.
 
+URL: [https://hats-ict.github.io](https://hats-ict.github.io)
+
 ## Local Development
 
 ```bash
