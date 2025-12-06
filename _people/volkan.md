@@ -4,7 +4,7 @@ title: Research Lead, Principal Investigator
 category: pi  # pi, phd, masters, alumni
 order: 1
 photo: /assets/images/people/volkan.webp
-email: email@example.com
+email: ustun@ict.usc.edu
 google_scholar: https://scholar.google.com/citations?user=fmqi35EAAAAJ
 website: 
 hide: false

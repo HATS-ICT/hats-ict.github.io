@@ -9,6 +9,6 @@ google_scholar:
 website: https://www.linkedin.com/in/soham-hans-b6295215a/
 hide: false
 bio: >
-  Research interests: 
+  Scenerio Generation, Generative Models
 ---
 

@@ -9,6 +9,6 @@ google_scholar: https://scholar.google.com/citations?user=Z_z6HywAAAAJ
 website: https://yunzhe.wang/
 hide: false
 bio: >
-  Research interests: 
+  Tactics Generation, Multi-Agent Learning
 ---
 

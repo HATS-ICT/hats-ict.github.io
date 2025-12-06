@@ -9,6 +9,6 @@ google_scholar: https://scholar.google.com/citations?user=Jdmeyk0AAAAJ
 website:  
 hide: false
 bio: >
-  Research interests: 
+  Multi-Agent Learning
 ---
 
