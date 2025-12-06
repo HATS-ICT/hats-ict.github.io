@@ -1,0 +1,546 @@
+---
+permalink: /decoy/
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="DECOY: A Data-Driven Discretized CS:GO Simulation Environment for Strategic Multi-Agent Planning Research">
+  <meta name="description" content="DECOY is a novel multi-agent simulator that abstracts strategic, long-horizon planning in 3D terrains into high-level discretized simulation while preserving low-level environmental fidelity.">
+  <meta name="keywords" content="multi-agent simulation, CS:GO, tactical planning, waypoint navigation, game AI, reinforcement learning, strategic planning, DECOY">
+  <meta name="author" content="Yunzhe Wang, Volkan Ustun, Chris McGroarty">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- SEO Enhancement -->
+  <link rel="canonical" href="https://hats-ict.github.io/decoy">
+  <meta name="geo.region" content="US-CA">
+  <meta name="geo.placename" content="Los Angeles, California">
+  <meta name="geo.position" content="34.0522;-118.2437">
+  <meta name="ICBM" content="34.0522, -118.2437">
+  <meta name="distribution" content="global">
+  <meta name="rating" content="general">
+  <meta name="revisit-after" content="7 days">
+  <meta http-equiv="content-language" content="en-US">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="USC Institute for Creative Technologies">
+  <meta property="og:title" content="DECOY: A Data-Driven Discretized CS:GO Simulation Environment for Strategic Multi-Agent Planning Research">
+  <meta property="og:description" content="DECOY is a novel multi-agent simulator that abstracts strategic, long-horizon planning in 3D terrains into high-level discretized simulation while preserving low-level environmental fidelity.">
+  <meta property="og:url" content="https://hats-ict.github.io/decoy">
+  <meta property="og:image" content="https://hats-ict.github.io/decoy/projects/decoy/static/images/framework-diagram.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="DECOY Framework - Data-Driven Discretized Simulation Environment">
+  <meta property="article:published_time" content="2025-09-19T00:00:00.000Z">
+  <meta property="article:author" content="Yunzhe Wang">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="multi-agent simulation">
+  <meta property="article:tag" content="strategic planning">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@USC_ICT">
+  <meta name="twitter:creator" content="@yunzhe_wang">
+  <meta name="twitter:title" content="DECOY: A Data-Driven Discretized CS:GO Simulation Environment for Strategic Multi-Agent Planning Research">
+  <meta name="twitter:description" content="DECOY is a novel multi-agent simulator that abstracts strategic, long-horizon planning in 3D terrains into high-level discretized simulation while preserving low-level environmental fidelity.">
+  <meta name="twitter:image" content="https://hats-ict.github.io/decoy/projects/decoy/static/images/framework-diagram.webp">
+  <meta name="twitter:image:alt" content="DECOY Framework - Data-Driven Discretized Simulation Environment">
+
+  <!-- Academic/Research Specific -->
+  <meta name="citation_title" content="A Data-Driven Discretized CS:GO Simulation Environment to Facilitate Strategic Multi-Agent Planning Research">
+  <meta name="citation_author" content="Wang, Yunzhe">
+  <meta name="citation_author" content="Ustun, Volkan">
+  <meta name="citation_author" content="McGroarty, Chris">
+  <meta name="citation_publication_date" content="2025">
+  <meta name="citation_conference_title" content="Proceedings of the 2025 Winter Simulation Conference (WSC 2025)">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2509.06355">
+  
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#dc2626">
+  <meta name="msapplication-TileColor" content="#dc2626">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="DECOY Research">
+  <meta name="msapplication-tooltip" content="Data-Driven Discretized Multi-Agent Simulation">
+  <meta name="msapplication-starturl" content="/">
+  <meta name="coverage" content="Worldwide">
+  <meta name="target" content="all">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+
+  <title>DECOY: A Data-Driven Discretized CS:GO Simulation Environment for Strategic Multi-Agent Planning Research | WSC 2025</title>
+  
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="/projects/decoy/static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/projects/decoy/static/images/favicon.ico">
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="/projects/decoy/static/css/bulma.min.css">
+  <link rel="stylesheet" href="/projects/decoy/static/css/index.css">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="/projects/decoy/static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/projects/decoy/static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="/projects/decoy/static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="/projects/decoy/static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Font Awesome loaded via CSS CDN above -->
+  <script defer src="/projects/decoy/static/js/bulma-carousel.min.js"></script>
+  <script defer src="/projects/decoy/static/js/bulma-slider.min.js"></script>
+  <script defer src="/projects/decoy/static/js/index.js"></script>
+  
+  <!-- Structured Data for Academic Papers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "A Data-Driven Discretized CS:GO Simulation Environment to Facilitate Strategic Multi-Agent Planning Research",
+    "description": "DECOY is a novel multi-agent simulator that abstracts strategic, long-horizon planning in 3D terrains into high-level discretized simulation while preserving low-level environmental fidelity.",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Yunzhe Wang",
+        "affiliation": [
+          {
+            "@type": "Organization",
+            "name": "University of Southern California"
+          },
+          {
+            "@type": "Organization",
+            "name": "USC Institute for Creative Technologies"
+          }
+        ]
+      },
+      {
+        "@type": "Person",
+        "name": "Volkan Ustun",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "USC Institute for Creative Technologies"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Chris McGroarty",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "U.S. Army Combat Capabilities Development Command"
+        }
+      }
+    ],
+    "datePublished": "2025-09-19",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Proceedings of the 2025 Winter Simulation Conference (WSC 2025)"
+    },
+    "url": "https://hats-ict.github.io/decoy",
+    "image": "https://hats-ict.github.io/decoy/projects/decoy/static/images/framework-diagram.webp",
+    "keywords": ["multi-agent simulation", "CS:GO", "tactical planning", "waypoint navigation", "game AI", "reinforcement learning", "strategic planning", "DECOY"],
+    "abstract": "Modern simulation environments for complex multi-agent interactions must balance high-fidelity detail with computational efficiency. We present DECOY, a novel multi-agent simulator that abstracts strategic, long-horizon planning in 3D terrains into high-level discretized simulation while preserving low-level environmental fidelity. Using Counter-Strike: Global Offensive (CS:GO) as a testbed, our framework accurately simulates gameplay using only movement decisions as tactical positioning—without explicitly modeling low-level mechanics such as aiming and shooting.",
+    "citation": "@inproceedings{wang2025decoy, title={A Data-Driven Discretized CS:GO Simulation Environment to Facilitate Strategic Multi-Agent Planning Research}, author={Wang, Yunzhe and Ustun, Volkan and McGroarty, Chris}, booktitle={Proceedings of the 2025 Winter Simulation Conference}, year={2025}}",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://hats-ict.github.io/decoy"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Multi-Agent Systems"
+      },
+      {
+        "@type": "Thing", 
+        "name": "Game AI"
+      },
+      {
+        "@type": "Thing", 
+        "name": "Strategic Planning"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Website/Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "USC Institute for Creative Technologies",
+    "url": "https://ict.usc.edu",
+    "logo": "https://hats-ict.github.io/decoy/projects/decoy/static/images/favicon.ico",
+    "sameAs": [
+      "https://twitter.com/USC_ICT",
+      "https://github.com/HATS-ICT"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- More Works Dropdown -->
+  <div class="more-works-container">
+    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works">
+      <i class="fas fa-flask"></i>
+      More Works
+      <i class="fas fa-chevron-down dropdown-arrow"></i>
+    </button>
+    <div class="more-works-dropdown" id="moreWorksDropdown">
+      <div class="works-list">
+        <a href="https://hats-ict.github.io/peba-asi/" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>Implicit Behavioral Alignment of Language Agents in High-Stakes Crowd Simulations</h5>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">A Data-Driven Discretized CS:GO Simulation Environment to Facilitate Strategic Multi-Agent Planning Research</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/yunzhe-wang/" target="_blank">Yunzhe Wang</a><sup>1,2</sup>,</span>
+                <span class="author-block">
+                  <a href="https://www.linkedin.com/in/volkan-ustun-9883a74/" target="_blank">Volkan Ustun</a><sup>1</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://www.warfighterpodcast.com/guests/chris-mcgroarty/" target="_blank">Chris McGroarty</a><sup>3</sup>
+                  </span>
+                  </div>
+
+                  <div class="is-size-6 publication-authors" style="margin-top: 0.5rem;">
+                    <span class="author-block"><sup>1</sup>USC Institute for Creative Technologies &nbsp;&nbsp; <sup>2</sup>Dept. of Computer Science, USC &nbsp;&nbsp; <sup>3</sup>U.S. Army DEVCOM</span>
+                  </div>
+                  
+                  <div class="is-size-5 publication-authors" style="margin-top: 0.5rem;">
+                    <span class="author-block"><strong>WSC 2025</strong></span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/2509.06355" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                  <span class="link-block">
+                    <a href="https://github.com/HATS-ICT/decoy" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2509.06355" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Framework overview-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="/projects/decoy/static/images/framework-diagram.webp" alt="DECOY Framework Overview - Data-Driven Discretized Simulation Pipeline" loading="lazy" style="width: 100%; height: auto;"/>
+      <h2 class="subtitle has-text-left">
+        DECOY framework overview: (1) CS:GO gameplay data is collected and processed into structured events; (2) A waypoint network discretizes the continuous 3D environment into navigable nodes; (3) Neural predictive models trained on real tournament data reconstruct damage and outcome events; (4) The resulting simulation enables efficient multi-agent strategic planning research.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End framework overview -->
+
+<!-- Demo video -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="demo" autoplay controls muted loop playsinline height="100%" preload="auto" style="width: 100%;">
+        <source src="/projects/decoy/static/videos/decoy_demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="subtitle has-text-left" style="margin-top: 1rem;">
+        DECOY simulator demonstration: Multi-agent tactical gameplay simulation in a discretized CS:GO environment
+      </p>
+    </div>
+  </div>
+</section>
+<!-- End demo video -->
+
+<!-- Waypoint Generation video -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="waypoint-gen" autoplay controls muted loop playsinline height="100%" preload="auto" style="width: 100%;">
+        <source src="/projects/decoy/static/videos/waypoint_gen.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="subtitle has-text-left" style="margin-top: 1rem;">
+        Automatic waypoint generation: The system converts continuous 3D terrain into a navigable waypoint network, preserving spatial relationships while simplifying the state-action space
+      </p>
+    </div>
+  </div>
+</section>
+<!-- End waypoint generation video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Modern simulation environments for complex multi-agent interactions must balance high-fidelity detail with computational efficiency. We present <strong>DECOY</strong>, a novel multi-agent simulator that abstracts strategic, long-horizon planning in 3D terrains into high-level discretized simulation while preserving low-level environmental fidelity. Using Counter-Strike: Global Offensive (CS:GO) as a testbed, our framework accurately simulates gameplay using only movement decisions as tactical positioning—without explicitly modeling low-level mechanics such as aiming and shooting. Central to our approach is a <strong>waypoint system</strong> that simplifies and discretizes continuous states and actions, paired with <strong>neural predictive and generative models</strong> trained on real CS:GO tournament data to reconstruct event outcomes. Extensive evaluations show that replays generated from human data in DECOY closely match those observed in the original game. Our publicly available simulation environment provides a valuable tool for advancing research in strategic multi-agent planning and behavior generation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Key Takeaways -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Key Takeaways</h2>
+        <div class="content has-text-left">
+          
+          <div class="takeaway-item">
+            <h3 class="title is-5"><span class="takeaway-number">1.</span> Bridging High-Fidelity and Computational Efficiency</h3>
+            <p class="has-text-justified">
+              DECOY addresses a critical challenge in multi-agent research: existing high-fidelity simulators (like StarCraft II and Dota 2) require enormous computational resources for training. By abstracting tactical decisions into a waypoint-based system, DECOY enables efficient simulation without sacrificing strategic realism—making multi-agent planning research more accessible.
+            </p>
+          </div>
+          
+          <div class="takeaway-item">
+            <h3 class="title is-5"><span class="takeaway-number">2.</span> Data-Driven Event Modeling</h3>
+            <p class="has-text-justified">
+              Rather than explicitly simulating low-level mechanics like aiming and shooting, DECOY uses neural models trained on real CS:GO tournament data to predict damage events and outcomes. This approach achieves <b>91% alignment</b> with original match outcomes and <b>0.961 correlation</b> in health point trajectories—demonstrating that strategic-level simulation can faithfully capture gameplay dynamics.
+            </p>
+          </div>
+          
+          <div class="takeaway-item">
+            <h3 class="title is-5"><span class="takeaway-number">3.</span> Waypoint-Based State Discretization</h3>
+            <p class="has-text-justified">
+              The waypoint system transforms continuous 3D environments into navigable graph structures, dramatically reducing the state-action space complexity. This discretization preserves spatial relationships and tactical considerations while enabling efficient planning algorithms—a technique applicable beyond gaming to real-world tactical scenarios.
+            </p>
+          </div>
+          
+          <div class="takeaway-item">
+            <h3 class="title is-5"><span class="takeaway-number">4.</span> Extensibility to Real-World Domains</h3>
+            <p class="has-text-justified">
+              While grounded in CS:GO mechanics, DECOY's framework—combining waypoint networks with learned event models—can extend to diverse real-world tactical and strategic domains. With advances in 3D scene reconstruction and motion capture, similar approaches could support research in emergency response, search and rescue, and team coordination scenarios.
+            </p>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End key takeaways -->
+
+
+<!-- Simulation Results -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-4 has-text-left">High-Fidelity Replay Reconstruction</h2>
+        <div class="content">
+          <div class="columns is-vcentered">
+            <div class="column is-full has-text-justified">
+              <p>
+                DECOY demonstrates strong alignment with original CS:GO gameplay across multiple metrics. The simulation achieves:
+              </p>
+              <ul>
+                <li><strong>91.0%</strong> match outcome alignment with original game results</li>
+                <li><strong>0.961</strong> correlation in health point trajectories over time</li>
+                <li><strong>0.809</strong> correlation in death timing predictions (MAE: 12.8 seconds)</li>
+                <li><strong>2.35 RMSE</strong> in health point reconstruction</li>
+              </ul>
+              <p style="margin-top: 1rem;">
+                These results validate that the waypoint-based discretization combined with neural event prediction can faithfully capture the strategic dynamics of complex multi-agent engagements, enabling meaningful research on tactical decision-making without requiring full-fidelity simulation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End simulation results -->
+
+
+<!-- Authors -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Authors</h2>
+        <div class="content">
+          <div class="columns is-multiline is-centered is-gapless">
+            <div class="column is-4">
+              <div class="has-text-centered" style="padding: 2rem 1rem; background-color: rgba(245, 245, 245, 0.5);">
+                <a href="https://www.linkedin.com/in/yunzhe-wang/" target="_blank">
+                  <figure class="image is-128x128" style="margin: 0 auto 1rem auto;">
+                    <img class="is-rounded" src="/projects/decoy/static/images/yunzhe.webp" alt="Yunzhe Wang" loading="lazy" style="width: 128px; height: 128px; object-fit: cover;"/>
+                  </figure>
+                </a>
+                <div class="author-info">
+                  <h4 class="title is-5" style="margin-bottom: 1.25rem; margin-top: 0;">
+                    <a href="https://www.linkedin.com/in/yunzhe-wang/" target="_blank">Yunzhe Wang</a>
+                  </h4>
+                  <p class="subtitle is-6" style="margin-bottom: 0;">PhD Student, Computer Science<br>USC & USC ICT</p>
+                </div>
+              </div>
+            </div>
+            <div class="column is-4">
+              <div class="has-text-centered" style="padding: 2rem 1rem; background-color: rgba(245, 245, 245, 0.5);">
+                <a href="https://www.linkedin.com/in/volkan-ustun-9883a74/" target="_blank">
+                  <figure class="image is-128x128" style="margin: 0 auto 1rem auto;">
+                    <img class="is-rounded" src="/projects/decoy/static/images/volkan.webp" alt="Volkan Ustun" loading="lazy" style="width: 128px; height: 128px; object-fit: cover;"/>
+                  </figure>
+                </a>
+                <div class="author-info">
+                  <h4 class="title is-5" style="margin-bottom: 1.25rem; margin-top: 0;">
+                    <a href="https://www.linkedin.com/in/volkan-ustun-9883a74/" target="_blank">Volkan Ustun</a>
+                  </h4>
+                  <p class="subtitle is-6" style="margin-bottom: 0;">Director, Cognitive Architecture<br>USC ICT</p>
+                </div>
+              </div>
+            </div>
+            <div class="column is-4">
+              <div class="has-text-centered" style="padding: 2rem 1rem; background-color: rgba(245, 245, 245, 0.5);">
+                <a href="https://www.warfighterpodcast.com/guests/chris-mcgroarty/" target="_blank">
+                  <figure class="image is-128x128" style="margin: 0 auto 1rem auto;">
+                    <img class="is-rounded" src="/projects/decoy/static/images/chris.webp" alt="Chris McGroarty" loading="lazy" style="width: 128px; height: 128px; object-fit: cover;"/>
+                  </figure>
+                </a>
+                <div class="author-info">
+                  <h4 class="title is-5" style="margin-bottom: 1.25rem; margin-top: 0;">
+                    <a href="https://www.warfighterpodcast.com/guests/chris-mcgroarty/" target="_blank">Chris McGroarty</a>
+                  </h4>
+                  <p class="subtitle is-6" style="margin-bottom: 0;">U.S. Army Combat Capabilities<br>Development Command</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End authors -->
+
+<!--BibTex citation -->
+  <section class="section hero is-light" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@inproceedings{wang2025decoy,
+  title={A Data-Driven Discretized CS:GO Simulation Environment to Facilitate Strategic Multi-Agent Planning Research},
+  author={Wang, Yunzhe and Ustun, Volkan and McGroarty, Chris},
+  booktitle={Proceedings of the 2025 Winter Simulation Conference},
+  year={2025}
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
