@@ -1,84 +1,73 @@
 # HATS Lab Website
 
-Official website for the Human-inspired Adaptive Teaming Systems (HATS) Lab.
+Website for the Human-inspired Adaptive Teaming Systems (HATS) Lab.
 
-## About
-
-The HATS Lab focuses on building autonomous synthetic characters and Non-Player Characters (NPCs) for military training simulations using Multi-agent Reinforcement Learning (MARL), Graph Neural Networks (GNNs), and cognitive architectures.
-
-## Website Structure
-
-- `index.html` - Homepage with lab intro, people preview, news, and recent publications
-- `people.html` - Team members, students, and alumni
-- `publications.html` - Complete list of lab publications with feature images
-- `contact.html` - Contact information and location
-
-## Setup
-
-This site uses Jekyll and GitHub Pages. To run locally:
+## Local Development
 
 ```bash
 bundle install
 bundle exec jekyll serve
 ```
 
-Visit `http://localhost:4000` to view the site.
+Visit `http://localhost:4000`
 
-## Configuration
+## Adding People
 
-Edit `_config.yml` to update:
-- Lab information
-- Institution name
-- Contact email
-- Navigation items
+Create `_people/name.md`:
 
-## Adding Content
+```yaml
+---
+name: Full Name
+title: Job Title
+category: staff  # pi, staff, phd, masters, alumni
+order: 10
+photo: /assets/images/people/name.webp
+email: email@usc.edu
+google_scholar: https://scholar.google.com/...
+website: https://...
+github: https://github.com/...
+linkedin: https://linkedin.com/in/...
+hide: false
+bio: >
+  Research interests: ...
+---
+```
 
-### Adding Team Members
+## Adding Publications
 
-#### Homepage (index.html)
-Add to the people grid with profile photos.
+Create `_publications/YYYY-slug.md`:
 
-#### People Page (people.html)
-Add detailed person cards with bios and links.
+```yaml
+---
+title: "Paper Title"
+authors: "Author 1, Author 2"
+venue: "Conference Name"
+venueshort: "CONF"
+year: 2025
+date: 2025-01-01
+thumbnail: /assets/images/work/slug.webp  # or /assets/images/empty-paper.webp
+pdf: "https://..."
+arxiv: "https://arxiv.org/abs/..."
+code: "https://github.com/..."
+dataset: "https://..."
+website: "https://..."
+slides: "https://..."
+video: "https://..."
+hide: false
+---
+```
 
-### Adding Publications
+## Adding News
 
-Edit `publications.html` and add a new publication item with:
-- Feature image (left side, 200x150px display size)
-- Title, authors, venue
-- Abstract
-- Links (PDF, arXiv, code, etc.)
+Edit `_data/news.yml`:
 
-### Adding News
-
-Edit the news section in `index.html` to add lab updates.
+```yaml
+- date: 2025-01-15
+  headline: "News headline here"
+```
 
 ## Images
 
-Place images in `assets/images/`:
-
-### Logo
-- `logo.png` - Lab logo (recommended: 200x200px PNG with transparent background)
-
-### Profile Photos
-- `volkan-ustun.jpg` - Dr. Volkan Ustun
-- `researcher1.jpg`, `researcher2.jpg`, etc.
-- Recommended size: 400x400px
-
-### Publication Feature Images
-- `paper1.jpg`, `paper2.jpg`, etc.
-- Recommended size: 600x400px
-- These appear on the left side of each publication
-
-## Customization
-
-The site uses a clean, modern design appropriate for an academic lab. To customize:
-
-- **Colors**: Edit CSS variables in `assets/css/main.css`
-- **Fonts**: Currently using Inter from Google Fonts
-- **Layout**: Modify `_layouts/default.html`
-
-## License
-
-© 2024 HATS Lab. All rights reserved.
+- People photos: `assets/images/people/`
+- Publication thumbnails: `assets/images/work/`
+- Default placeholder: `assets/images/empty-paper.webp`
