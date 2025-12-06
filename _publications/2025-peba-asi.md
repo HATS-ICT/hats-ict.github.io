@@ -12,5 +12,6 @@ code: "https://github.com/HATS-ICT/PersonaEvolve"
 website: "https://hats-ict.github.io/peba-asi/"
 slides: 
 video: 
+hide: false
 ---
 

@@ -7,7 +7,7 @@ title: People
     <div class="max-w-6xl mx-auto px-6">
         
         <!-- Principal Investigator -->
-        {% assign pi = site.people | where: "category", "pi" | sort: "order" %}
+        {% assign pi = site.people | where: "category", "pi" | where_exp: "p", "p.hide != true" | sort: "order" %}
         {% if pi.size > 0 %}
         <div class="mb-16">
             <h2 class="font-display text-2xl font-semibold text-slate-900 mb-8 flex items-center gap-3">
@@ -63,7 +63,7 @@ title: People
         {% endif %}
 
         <!-- Ph.D. Students -->
-        {% assign phd_students = site.people | where: "category", "phd" | sort: "order" %}
+        {% assign phd_students = site.people | where: "category", "phd" | where_exp: "p", "p.hide != true" | sort: "order" %}
         {% if phd_students.size > 0 %}
         <div class="mb-16">
             <h2 class="font-display text-2xl font-semibold text-slate-900 mb-8 flex items-center gap-3">
@@ -104,7 +104,7 @@ title: People
         {% endif %}
 
         <!-- Master's Students -->
-        {% assign masters_students = site.people | where: "category", "masters" | sort: "order" %}
+        {% assign masters_students = site.people | where: "category", "masters" | where_exp: "p", "p.hide != true" | sort: "order" %}
         {% if masters_students.size > 0 %}
         <div class="mb-16">
             <h2 class="font-display text-2xl font-semibold text-slate-900 mb-8 flex items-center gap-3">
@@ -145,7 +145,7 @@ title: People
         {% endif %}
 
         <!-- Alumni -->
-        {% assign alumni = site.people | where: "category", "alumni" | sort: "order" %}
+        {% assign alumni = site.people | where: "category", "alumni" | where_exp: "p", "p.hide != true" | sort: "order" %}
         {% if alumni.size > 0 %}
         <div class="mb-16">
             <h2 class="font-display text-2xl font-semibold text-slate-900 mb-8 flex items-center gap-3">

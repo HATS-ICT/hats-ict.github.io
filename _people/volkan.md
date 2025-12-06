@@ -7,6 +7,7 @@ photo: /assets/images/people/volkan.webp
 email: email@example.com
 google_scholar: https://scholar.google.com/citations?user=fmqi35EAAAAJ
 website: 
+hide: false
 bio: >
   Dr. Ustun leads the HATS Lab with expertise in cognitive architectures, 
   multi-agent systems, and reinforcement learning. His research focuses on 
