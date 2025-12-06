@@ -1,0 +1,37 @@
+title: HATS Lab
+description: Human-inspired Adaptive Teaming Systems
+url: https://hats-ict.github.io
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Site settings
+lab_name: HATS Lab
+lab_full_name: Human-inspired Adaptive Teaming Systems
+research_lead: Dr. Volkan Ustun
+institution: Your Institution Name
+email: contact@hatslab.edu
+
+# Navigation
+navigation:
+  - title: Home
+    url: /
+  - title: People
+    url: /people
+  - title: Publications
+    url: /publications
+  - title: Contact
+    url: /contact
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+

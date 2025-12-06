@@ -1,0 +1,619 @@
+---
+permalink: /peba-asi/
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Implicit Behavioral Alignment of Language Agents in High-Stakes Crowd Simulations - Yunzhe Wang, Gale M. Lucas, Burcin Becerik-Gerber, Volkan Ustun">
+  <meta name="description" content="PEBA framework addresses the Behavior-Realism Gap in LLM-driven social simulations through persona-environment behavioral alignment for high-stakes scenarios.">
+  <meta name="keywords" content="behavioral alignment, language agents, crowd simulation, active shooter incident, generative agents, LLM optimization, social simulation, PEBA, PersonaEvolve">
+  <meta name="author" content="Yunzhe Wang, Gale M. Lucas, Burcin Becerik-Gerber, Volkan Ustun">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- SEO Enhancement -->
+  <link rel="canonical" href="https://hats-ict.github.io/PEBA-ASI">
+  <meta name="geo.region" content="US-CA">
+  <meta name="geo.placename" content="Los Angeles, California">
+  <meta name="geo.position" content="34.0522;-118.2437">
+  <meta name="ICBM" content="34.0522, -118.2437">
+  <meta name="distribution" content="global">
+  <meta name="rating" content="general">
+  <meta name="revisit-after" content="7 days">
+  <meta http-equiv="content-language" content="en-US">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="USC Institute for Creative Technologies">
+  <meta property="og:title" content="Implicit Behavioral Alignment of Language Agents in High-Stakes Crowd Simulations">
+  <meta property="og:description" content="PEBA framework addresses the Behavior-Realism Gap in LLM-driven social simulations through persona-environment behavioral alignment for high-stakes scenarios.">
+  <meta property="og:url" content="https://hats-ict.github.io/PEBA-ASI">
+  <meta property="og:image" content="https://hats-ict.github.io/PEBA-ASI//projects/peba-asi/static/images/social_preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Implicit Behavioral Alignment of Language Agents in High-Stakes Crowd Simulations - Research Preview">
+  <meta property="article:published_time" content="2025-09-19T00:00:00.000Z">
+  <meta property="article:author" content="Yunzhe Wang">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="behavioral alignment">
+  <meta property="article:tag" content="language agents">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@USC_ICT">
+  <meta name="twitter:creator" content="@yunzhe_wang">
+  <meta name="twitter:title" content="Implicit Behavioral Alignment of Language Agents in High-Stakes Crowd Simulations">
+  <meta name="twitter:description" content="PEBA framework addresses the Behavior-Realism Gap in LLM-driven social simulations through persona-environment behavioral alignment for high-stakes scenarios.">
+  <meta name="twitter:image" content="https://hats-ict.github.io/PEBA-ASI//projects/peba-asi/static/images/social_preview.png">
+  <meta name="twitter:image:alt" content="Implicit Behavioral Alignment of Language Agents in High-Stakes Crowd Simulations - Research Preview">
+
+  <!-- Academic/Research Specific -->
+  <meta name="citation_title" content="Implicit Behavioral Alignment of Language Agents in High-Stakes Crowd Simulations">
+  <meta name="citation_author" content="Wang, Yunzhe">
+  <meta name="citation_author" content="Lucas, Gale M.">
+  <meta name="citation_author" content="Becerik-Gerber, Burcin">
+  <meta name="citation_author" content="Ustun, Volkan">
+  <meta name="citation_publication_date" content="2025">
+  <meta name="citation_conference_title" content="Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP 2025)">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2509.16457">
+  
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="PEBA Research">
+  <meta name="msapplication-tooltip" content="Behavioral Alignment for Language Agents">
+  <meta name="msapplication-starturl" content="/">
+  <meta name="coverage" content="Worldwide">
+  <meta name="target" content="all">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+
+  <title>PEBA: Implicit Behavioral Alignment of Language Agents in High-Stakes Crowd Simulations | EMNLP 2025</title>
+  
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="/projects/peba-asi/static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/projects/peba-asi/static/images/favicon.ico">
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="/projects/peba-asi/static/css/bulma.min.css">
+  <link rel="stylesheet" href="/projects/peba-asi/static/css/index.css">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="/projects/peba-asi/static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/projects/peba-asi/static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="/projects/peba-asi/static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="/projects/peba-asi/static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <!-- Font Awesome loaded via CSS CDN above -->
+  <script defer src="/projects/peba-asi/static/js/bulma-carousel.min.js"></script>
+  <script defer src="/projects/peba-asi/static/js/bulma-slider.min.js"></script>
+  <script defer src="/projects/peba-asi/static/js/index.js"></script>
+  
+  <!-- Structured Data for Academic Papers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Implicit Behavioral Alignment of Language Agents in High-Stakes Crowd Simulations",
+    "description": "PEBA framework addresses the Behavior-Realism Gap in LLM-driven social simulations through persona-environment behavioral alignment for high-stakes scenarios.",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Yunzhe Wang",
+        "affiliation": [
+          {
+            "@type": "Organization",
+            "name": "University of Southern California"
+          },
+          {
+            "@type": "Organization",
+            "name": "USC Institute for Creative Technologies"
+          }
+        ]
+      },
+      {
+        "@type": "Person",
+        "name": "Gale M. Lucas",
+        "affiliation": [
+          {
+            "@type": "Organization",
+            "name": "University of Southern California"
+          },
+          {
+            "@type": "Organization",
+            "name": "USC Institute for Creative Technologies"
+          }
+        ]
+      },
+      {
+        "@type": "Person",
+        "name": "Burcin Becerik-Gerber",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "University of Southern California"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "Volkan Ustun",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "USC Institute for Creative Technologies"
+        }
+      }
+    ],
+    "datePublished": "2025-09-19",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP 2025)"
+    },
+    "url": "https://hats-ict.github.io/PEBA-ASI",
+    "image": "https://hats-ict.github.io/PEBA-ASI//projects/peba-asi/static/images/social_preview.png",
+    "keywords": ["behavioral alignment", "language agents", "crowd simulation", "active shooter incident", "generative agents", "LLM optimization", "social simulation", "PEBA", "PersonaEvolve"],
+    "abstract": "Language-driven generative agents have enabled large-scale social simulations with transformative uses, from interpersonal training to aiding global policy-making. However, recent studies indicate that generative agent behaviors often deviate from expert expectations and real-world data—a phenomenon we term the Behavior-Realism Gap. To address this, we introduce a theoretical framework called Persona-Environment Behavioral Alignment (PEBA), formulated as a distribution matching problem grounded in Lewin's behavior equation stating that behavior is a function of the person and their environment. Leveraging PEBA, we propose PersonaEvolve (PEvo), an LLM-based optimization algorithm that iteratively refines agent personas, implicitly aligning their collective behaviors with realistic expert benchmarks within a specified environmental context.",
+    "citation": "@article{Wang2025PEBA, title={Implicit Behavioral Alignment of Language Agents in High-Stakes Crowd Simulations}, author={Yunzhe Wang and Gale M. Lucas and Burcin Becerik-Gerber and Volkan Ustun}, journal={Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP 2025)}, year={2025}, url={https://arxiv.org/abs/2509.16457}}",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://hats-ict.github.io/PEBA-ASI"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Computational Linguistics"
+      },
+      {
+        "@type": "Thing", 
+        "name": "Social Simulation"
+      },
+      {
+        "@type": "Thing", 
+        "name": "Crowd Behavior Modeling"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Website/Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "USC Institute for Creative Technologies",
+    "url": "https://ict.usc.edu",
+    "logo": "https://hats-ict.github.io/PEBA-ASI//projects/peba-asi/static/images/favicon.ico",
+    "sameAs": [
+      "https://twitter.com/USC_ICT",
+      "https://github.com/HATS-ICT"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- More Works Dropdown -->
+  <div class="more-works-container">
+    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works">
+      <i class="fas fa-flask"></i>
+      More Works
+      <i class="fas fa-chevron-down dropdown-arrow"></i>
+    </button>
+    <div class="more-works-dropdown" id="moreWorksDropdown">
+      <div class="works-list">
+        <a href="https://www.sciencedirect.com/science/article/pii/S2666165925000353" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>Elicitation and verification of learning via experts (EVOLVE) for creating a theoretical framework for active shooter incidents</h5>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+        <a href="https://arxiv.org/abs/2407.10441" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>Enhancing Building Safety Design for Active Shooter Incidents: Exploration of Building Exit Parameters using Reinforcement Learning-Based Simulations</h5>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+        <a href="https://www.nature.com/articles/s41598-022-04922-8" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>The impact of security countermeasures on human behavior during active shooter incidents</h5>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Implicit Behavioral Alignment of Language Agents in High-Stakes Crowd Simulations</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/yunzhe-wang/" target="_blank">Yunzhe Wang</a>,</span>
+                <span class="author-block">
+                  <a href="https://www.linkedin.com/in/gale-m-lucas-phd/" target="_blank">Gale M. Lucas</a>,</span>
+                  <span class="author-block">
+                    <a href="https://www.linkedin.com/in/burcin-becerik-gerber-5001345/" target="_blank">Burcin Becerik-Gerber</a>,</span>
+                  <span class="author-block">
+                    <a href="https://www.linkedin.com/in/volkan-ustun-9883a74/" target="_blank">Volkan Ustun</a>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">University of Southern California & USC Institute for Creative Technologies<br>EMNLP 2025</span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/2509.16457.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                  <span class="link-block">
+                    <a href="https://github.com/HATS-ICT/PEBA-ASI" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2509.16457" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Framework overview-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="/projects/peba-asi/static/images/framework.webp" alt="PEBA Framework Overview - Persona-Environment Behavioral Alignment workflow" loading="lazy" style="width: 100%; height: auto;"/>
+      <h2 class="subtitle has-text-left">
+        PEBA-PEvo workflow: Language agents with initial personas populate a school environment. Each agent autonomously observes, updates memories, and uses LLM reasoning to generate trajectories. An LLM classifier maps trajectories to behavior classes, creating a simulated crowd distribution compared against expert benchmarks. The resulting Behavior-Realism Gap guides persona updates for contributing agents, iteratively closing the gap.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End framework overview -->
+
+<!-- Demo video -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="demo" autoplay controls muted loop playsinline height="100%" preload="auto" style="width: 100%;">
+        <source src="/projects/peba-asi/static/videos/demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="subtitle has-text-left" style="margin-top: 1rem;">
+        Our Unity-based interactive simulation environment for Active Shooter Incidents using LLM-driven generative agents
+      </p>
+    </div>
+  </div>
+</section>
+<!-- End demo video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Language-driven generative agents have enabled large-scale social simulations with transformative uses, from interpersonal training to aiding global policy-making. However, recent studies indicate that generative agent behaviors often deviate from expert expectations and real-world data—a phenomenon we term the <strong>Behavior-Realism Gap</strong>. To address this, we introduce a theoretical framework called <strong>Persona-Environment Behavioral Alignment (PEBA)</strong>, formulated as a distribution matching problem grounded in Lewin's behavior equation stating that behavior is a function of the person and their environment. Leveraging PEBA, we propose <strong>PersonaEvolve (PEvo)</strong>, an LLM-based optimization algorithm that iteratively refines agent personas, implicitly aligning their collective behaviors with realistic expert benchmarks within a specified environmental context. We validate PEvo in an active shooter incident simulation we developed, achieving an <strong>84% average reduction</strong> in distributional divergence compared to no steering and a <strong>34% improvement</strong> over explicit instruction baselines. Results also show PEvo-refined personas generalize to novel, related simulation scenarios. Our method greatly enhances behavioral realism and reliability in high-stakes social simulations. More broadly, the PEBA-PEvo framework provides a principled approach to developing trustworthy LLM-driven social simulations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Key Takeaways -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Key Takeaways</h2>
+        <div class="content has-text-left">
+          
+          <div class="takeaway-item">
+            <h3 class="title is-5"><span class="takeaway-number">1.</span> Generative Agents Enable Scalable Social Science</h3>
+            <p class="has-text-justified">
+              LLM-driven generative agents make it possible to simulate and test social theories at scale, offering a practical realization of 
+              <a href="https://www.degruyterbrill.com/document/doi/10.1515/9781400842872/html" target="_blank">Generative Social Science</a>, 
+              enabling research on scenarios that are otherwise infeasible or unethical with human participants.
+            </p>
+          </div>
+          
+          <div class="takeaway-item">
+            <h3 class="title is-5"><span class="takeaway-number">2.</span> Unity-Based Active Shooter Incident Simulator</h3>
+            <p class="has-text-justified">
+              We developed a Unity-based <b>Active Shooter Incident</b> simulation to explore high-stakes crowd dynamics, providing a flexible environment for testing generative agent behaviors under stress.
+            </p>
+          </div>
+          
+          <div class="takeaway-item">
+            <h3 class="title is-5"><span class="takeaway-number">3.</span> Closing the Behavior-Realism Gap with PEBA–PEvo</h3>
+            <p class="has-text-justified">
+              To address the <b>Behavioral-Realism Gap</b>, we introduced the PEBA-PEvo framework, which refines agent personas for implicit alignment with expert behavioral distributions in critical simulations.
+            </p>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End key takeaways -->
+
+
+<!-- Implicit vs Explicit Enforcing -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-4 has-text-left">Implicit Enforcing Achieves Superior Contextual Realism</h2>
+        <div class="content">
+          <div class="columns">
+            <div class="column is-full">
+              <img src="/projects/peba-asi/static/images/table1.webp" alt="Performance comparison between implicit and explicit enforcing" loading="lazy"/>
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column is-full has-text-justified">
+              <p>
+                We evaluate three behavior enforcing approaches: (1) <strong>No Enforcing</strong>, where agents act solely according to initial personas, exposing the raw behavior-realism gap; (2) <strong>Explicit Enforcing</strong>, which directly instructs agents to perform specific behaviors (e.g., "always choose Hide"), but harms contextual realism as agents follow orders regardless of environmental context; and (3) <strong>Implicit Enforcing (PEVO)</strong>, which iteratively refines agent personas (e.g., updating a security guard to "former combat medic with high assertiveness") to naturally elicit target behaviors through emergent reasoning. Across four LLM models, PEVO achieves superior behavioral alignment, reducing the average distributional gap from 0.47 (no steering) to 0.16—an 84% improvement over baselines and 34% over explicit methods. The implicit approach preserves contextual realism by allowing agents to reason naturally about their environment while achieving the desired collective behavior distribution.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End implicit vs explicit -->
+
+<!-- Transferability -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-4 has-text-left">Learned Persona Pools are Cross-Environment Transferable</h2>
+        <div class="content">
+          <div class="columns">
+            <div class="column is-half has-text-justified">
+              <p>
+                We tested personas optimized in school environments by transferring them to a novel office building scenario. Transferred personas achieved a 97.5% reduction in KL divergence compared to unoptimized baselines. While fully retrained personas performed slightly better, transferred personas retained 57% of the optimization benefit, demonstrating effective cross-environment generalization.
+              </p>
+            </div>
+            <div class="columns is-vcentered">  
+              <div class="column">
+                <img src="/projects/peba-asi/static/images/table2.webp" alt="Cross-environment transfer performance" loading="lazy"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End transferability -->
+
+<!-- Cost Efficiency -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-4 has-text-left">PEVO is Cost-Effective and Model-Dependent in Efficiency</h2>
+        <div class="content">
+          <div class="columns is-vcentered">
+            <div class="column is-half">
+              <img src="/projects/peba-asi/static/images/convergence.webp" alt="Convergence analysis showing rapid alignment across iterations" loading="lazy"/>
+            </div>
+            <div class="column is-half">
+              <img src="/projects/peba-asi/static/images/cost_analysis.webp" alt="Cost efficiency analysis across LLM models" loading="lazy"/>
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column is-full has-text-justified">
+              <p>
+                Cost analysis reveals that prompt tokens dominate usage (over 95% of total), making model pricing the primary driver of expense. Per iteration, GPT-4.1 Mini is most expensive (~$0.60), while DeepSeek-V3 is most economical (~$0.20), with GPT-4o Mini and Gemini 2.5 Flash falling between. When normalized by KL improvement per dollar, DeepSeek-V3 and Gemini 2.5 Flash provide roughly three times the efficiency of both GPT variants. Even the most expensive model requires under $10 for complete 15-iteration optimization, while a shortened 7-iteration run (achieving 90% of attainable alignment) halves this cost. This demonstrates that behavioral alignment with PEVO is not only more accurate but also economically practical for medium-scale crowd simulations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End cost efficiency -->
+
+
+<!-- Authors -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Authors</h2>
+        <div class="content">
+          <div class="columns is-multiline is-centered is-gapless">
+            <div class="column is-3">
+              <div class="has-text-centered" style="padding: 2rem 1rem; background-color: rgba(245, 245, 245, 0.5);">
+                <a href="https://www.linkedin.com/in/yunzhe-wang/" target="_blank">
+                  <figure class="image is-128x128" style="margin: 0 auto 1rem auto;">
+                    <img class="is-rounded" src="/projects/peba-asi/static/images/yunzhe.webp" alt="Yunzhe Wang" loading="lazy" style="width: 128px; height: 128px; object-fit: cover;"/>
+                  </figure>
+                </a>
+                <div class="author-info">
+                  <h4 class="title is-5" style="margin-bottom: 1.25rem; margin-top: 0;">
+                    <a href="https://www.linkedin.com/in/yunzhe-wang/" target="_blank">Yunzhe Wang</a>
+                  </h4>
+                  <p class="subtitle is-6" style="margin-bottom: 0;">PhD Student, Computer Science</p>
+                </div>
+              </div>
+            </div>
+            <div class="column is-3">
+              <div class="has-text-centered" style="padding: 2rem 1rem; background-color: rgba(245, 245, 245, 0.5);;">
+                <a href="https://www.linkedin.com/in/gale-m-lucas-phd/" target="_blank">
+                  <figure class="image is-128x128" style="margin: 0 auto 1rem auto;">
+                    <img class="is-rounded" src="/projects/peba-asi/static/images/gale.webp" alt="Gale M. Lucas" loading="lazy" style="width: 128px; height: 128px; object-fit: cover;"/>
+                  </figure>
+                </a>
+                <div class="author-info">
+                  <h4 class="title is-5" style="margin-bottom: 1.25rem; margin-top: 0;">
+                    <a href="https://www.linkedin.com/in/gale-m-lucas-phd/" target="_blank">Gale M. Lucas</a>
+                  </h4>
+                  <p class="subtitle is-6" style="margin-bottom: 0;">Research Associate Professor, Computer Science, Civil and Environmental Engineering, and Psychology</p>
+                </div>
+              </div>
+            </div>
+            <div class="column is-3">
+              <div class="has-text-centered" style="padding: 2rem 1rem; background-color: rgba(245, 245, 245, 0.5);">
+                <a href="https://www.linkedin.com/in/burcin-becerik-gerber-5001345/" target="_blank">
+                  <figure class="image is-128x128" style="margin: 0 auto 1rem auto;">
+                    <img class="is-rounded" src="/projects/peba-asi/static/images/burcin.webp" alt="Burcin Becerik-Gerber" loading="lazy" style="width: 128px; height: 128px; object-fit: cover;"/>
+                  </figure>
+                </a>
+                <div class="author-info">
+                  <h4 class="title is-5" style="margin-bottom: 1.25rem; margin-top: 0;">
+                    <a href="https://www.linkedin.com/in/burcin-becerik-gerber-5001345/" target="_blank">Burcin Becerik-Gerber</a>
+                  </h4>
+                  <p class="subtitle is-6" style="margin-bottom: 0;">Professor, Civil and Environmental Engineering</p>
+                </div>
+              </div>
+            </div>
+            <div class="column is-3">
+              <div class="has-text-centered" style="padding: 2rem 1rem; background-color: rgba(245, 245, 245, 0.5);">
+                <a href="https://www.linkedin.com/in/volkan-ustun-9883a74/" target="_blank">
+                  <figure class="image is-128x128" style="margin: 0 auto 1rem auto;">
+                    <img class="is-rounded" src="/projects/peba-asi/static/images/volkan.webp" alt="Volkan Ustun" loading="lazy" style="width: 128px; height: 128px; object-fit: cover;"/>
+                  </figure>
+                </a>
+                <div class="author-info">
+                  <h4 class="title is-5" style="margin-bottom: 1.25rem; margin-top: 0;">
+                    <a href="https://www.linkedin.com/in/volkan-ustun-9883a74/" target="_blank">Volkan Ustun</a>
+                  </h4>
+                  <p class="subtitle is-6" style="margin-bottom: 0;">Director, Cognitive Architecture</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End authors -->
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@inproceedings{wang2025implicit,
+  title={Implicit Behavioral Alignment of Language Agents in High-Stakes Crowd Simulations},
+  author={Wang, Yunzhe and Lucas, Gale M and Becerik-Gerber, Burcin and Ustun, Volkan},
+  booktitle={Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing},
+  year={2025},
+  publisher={Association for Computational Linguistics}
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="{{ '/' | relative_url }}">
+                        <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="HATS Lab Logo" class="logo-image">
+                        <div class="logo-text-group">
+                            <span class="logo-text">HATS</span>
+                            <span class="logo-subtitle">Lab</span>
+                        </div>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    {% for item in site.navigation %}
+                    <a href="{{ item.url | relative_url }}" {% if page.url == item.url %}class="active"{% endif %}>
+                        {{ item.title }}
+                    </a>
+                    {% endfor %}
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        {{ content }}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>{{ site.lab_full_name }}</h3>
+                    <p>{{ site.institution }}</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: {{ site.email }}</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links</h3>
+                    <div class="footer-links">
+                        {% for item in site.navigation %}
+                        <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; {{ 'now' | date: "%Y" }} {{ site.lab_name }}. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

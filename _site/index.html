@@ -1,50 +1,179 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | HATS Lab</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="/">
+                        <img src="/assets/images/logo.png" alt="HATS Lab Logo" class="logo-image">
+                        <div class="logo-text-group">
+                            <span class="logo-text">HATS</span>
+                            <span class="logo-subtitle">Lab</span>
+                        </div>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    
+                    <a href="/" class="active">
+                        Home
+                    </a>
+                    
+                    <a href="/people" >
+                        People
+                    </a>
+                    
+                    <a href="/publications" >
+                        Publications
+                    </a>
+                    
+                    <a href="/contact" >
+                        Contact
+                    </a>
+                    
+                </nav>
+            </div>
+        </div>
+    </header>
 
-<!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>hats-ict.github.io</title>
-<meta name="generator" content="Jekyll v3.10.0" />
-<meta property="og:title" content="hats-ict.github.io" />
-<meta property="og:locale" content="en_US" />
-<link rel="canonical" href="http://localhost:4000/" />
-<meta property="og:url" content="http://localhost:4000/" />
-<meta property="og:site_name" content="hats-ict.github.io" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="hats-ict.github.io" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","headline":"hats-ict.github.io","name":"hats-ict.github.io","url":"http://localhost:4000/"}</script>
-<!-- End Jekyll SEO tag -->
-
-    <link rel="stylesheet" href="/assets/css/style.css?v=dbdd506307d83af989877e36dfb7e33a3d6cc58e">
-    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
-
-<!-- Setup Google Analytics -->
-
-
-
-<!-- You can set your favicon here -->
-<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
-
-<!-- end custom head snippets -->
-
-  </head>
-  <body>
-    <div class="container-lg px-3 my-5 markdown-body">
-      
-      <h1><a href="http://localhost:4000/">hats-ict.github.io</a></h1>
-      
-
-      <p>”# hats-ict.github.io”</p>
-
-
-      
+    <main>
+        <section class="intro">
+    <div class="container">
+        <div class="intro-content">
+            <h1>HATS Lab</h1>
+            <h2 class="subtitle">Human-inspired Adaptive Teaming Systems</h2>
+            <p class="lead">We develop autonomous synthetic characters and intelligent agents for military training simulations using multi-agent reinforcement learning, graph neural networks, and cognitive architectures.</p>
+        </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
-    <script>anchors.add();</script>
-  </body>
+</section>
+
+<section class="people-preview">
+    <div class="container">
+        <h2>People</h2>
+        <div class="people-grid-home">
+            <div class="person-card-home">
+                <div class="person-photo-home">
+                    <img src="/assets/images/volkan-ustun.jpg" alt="Dr. Volkan Ustun">
+                </div>
+                <div class="person-info-home">
+                    <h3>Dr. Volkan Ustun</h3>
+                    <p class="person-role">Research Lead, Principal Investigator</p>
+                </div>
+            </div>
+            <div class="person-card-home">
+                <div class="person-photo-home">
+                    <img src="/assets/images/researcher1.jpg" alt="Researcher Name">
+                </div>
+                <div class="person-info-home">
+                    <h3>Researcher Name</h3>
+                    <p class="person-role">Ph.D. Student</p>
+                </div>
+            </div>
+            <div class="person-card-home">
+                <div class="person-photo-home">
+                    <img src="/assets/images/researcher2.jpg" alt="Researcher Name">
+                </div>
+                <div class="person-info-home">
+                    <h3>Researcher Name</h3>
+                    <p class="person-role">Ph.D. Student</p>
+                </div>
+            </div>
+            <div class="person-card-home">
+                <div class="person-photo-home">
+                    <img src="/assets/images/researcher3.jpg" alt="Researcher Name">
+                </div>
+                <div class="person-info-home">
+                    <h3>Researcher Name</h3>
+                    <p class="person-role">Master's Student</p>
+                </div>
+            </div>
+        </div>
+        <p class="view-more"><a href="/people">View all team members →</a></p>
+    </div>
+</section>
+
+<section class="news">
+    <div class="container">
+        <h2>News</h2>
+        <ul class="news-list">
+            <li><strong>Oct 2024:</strong> New paper accepted at Conference Name 2024</li>
+            <li><strong>Sep 2024:</strong> Welcome new Ph.D. student joining the lab</li>
+            <li><strong>Aug 2024:</strong> Dr. Ustun presents at Workshop Name</li>
+            <li><strong>Jul 2024:</strong> Lab receives new research grant</li>
+            <li><strong>Jun 2024:</strong> Paper published in Journal Name</li>
+        </ul>
+    </div>
+</section>
+
+<section class="publications-preview">
+    <div class="container">
+        <h2>Recent Publications</h2>
+        <ul class="pub-list">
+            <li>
+                <strong>Enhanced Multi-Agent Reinforcement Learning for Military Training Simulations</strong><br>
+                Author 1, Author 2, Author 3<br>
+                <em>Conference/Journal Name 2024</em>
+                [<a href="#">Paper</a>] [<a href="#">Code</a>]
+            </li>
+            <li>
+                <strong>Graph Neural Networks for Tactical Decision Making in Multi-Agent Systems</strong><br>
+                Author 1, Author 2, Author 3, Author 4<br>
+                <em>Conference/Journal Name 2024</em>
+                [<a href="#">Paper</a>]
+            </li>
+            <li>
+                <strong>Sigma Cognitive Architecture for Synthetic Character Behavior</strong><br>
+                Author 1, Author 2<br>
+                <em>Conference/Journal Name 2023</em>
+                [<a href="#">Paper</a>] [<a href="#">Slides</a>]
+            </li>
+        </ul>
+        <p class="view-more"><a href="/publications">View all publications →</a></p>
+    </div>
+</section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Human-inspired Adaptive Teaming Systems</h3>
+                    <p>Your Institution Name</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: contact@hatslab.edu</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links</h3>
+                    <div class="footer-links">
+                        
+                        <a href="/">Home</a>
+                        
+                        <a href="/people">People</a>
+                        
+                        <a href="/publications">Publications</a>
+                        
+                        <a href="/contact">Contact</a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 HATS Lab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
 </html>
+

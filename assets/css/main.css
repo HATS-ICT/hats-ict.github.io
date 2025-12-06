@@ -1,0 +1,748 @@
+/* ==========================================
+   HATS Lab Website Styles
+   Clean, modern academic design
+   ========================================== */
+
+/* === CSS Variables === */
+:root {
+    --primary-color: #2563eb;
+    --text-dark: #1f2937;
+    --text-body: #4b5563;
+    --text-light: #6b7280;
+    --border-color: #d1d5db;
+    --bg-light: #f9fafb;
+    --bg-white: #ffffff;
+    --max-width: 960px;
+    --spacing-unit: 1rem;
+}
+
+/* === Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text-body);
+    line-height: 1.6;
+    background-color: var(--bg-white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.25rem; font-weight: 700; }
+h2 { font-size: 1.5rem; font-weight: 600; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-top: 2rem; }
+h3 { font-size: 1.25rem; font-weight: 600; }
+h4 { font-size: 1.125rem; }
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul, ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* === Container === */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* === Header === */
+.site-header {
+    background-color: var(--bg-white);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+}
+
+.logo-text-group {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.logo-subtitle {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--text-light);
+}
+
+.main-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.main-nav a {
+    color: var(--text-body);
+    font-size: 0.95rem;
+}
+
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+
+.main-nav a.active {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+/* === Intro Section === */
+.intro {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.intro-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    border-bottom: none;
+}
+
+.intro-content .subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    border-bottom: none;
+    margin-top: 0;
+}
+
+.intro-content .lead {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--text-body);
+    max-width: 800px;
+    margin-bottom: 0;
+}
+
+/* === Sections === */
+section {
+    padding: 2.5rem 0;
+}
+
+section:first-of-type {
+    padding-top: 3rem;
+}
+
+/* === About Section === */
+.about {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.about-content {
+    max-width: 800px;
+    line-height: 1.7;
+}
+
+.about-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* === People Preview (Homepage) === */
+.people-preview {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.people-grid-home {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.person-card-home {
+    text-align: center;
+}
+
+.person-photo-home {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1rem;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-light);
+}
+
+.person-photo-home img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.person-info-home h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
+    border-bottom: none;
+    margin-top: 0;
+}
+
+.person-role {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+.view-more {
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+/* === Publications Preview === */
+.publications-preview {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pub-list {
+    max-width: 800px;
+    margin-bottom: 1.5rem;
+    list-style: none;
+    margin-left: 0;
+}
+
+.pub-list li {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.pub-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* === Publications Page with Images === */
+.publication-list-detailed {
+    max-width: 900px;
+    margin-bottom: 3rem;
+}
+
+.publication-item-image {
+    display: flex;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.publication-item-image:last-child {
+    border-bottom: none;
+}
+
+.pub-image {
+    width: 200px;
+    height: 150px;
+    flex-shrink: 0;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-light);
+    overflow: hidden;
+}
+
+.pub-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pub-content {
+    flex: 1;
+}
+
+.pub-title {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    border-bottom: none;
+    margin-top: 0;
+}
+
+.pub-authors {
+    color: var(--text-body);
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+}
+
+.pub-venue {
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.pub-abstract {
+    color: var(--text-body);
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.pub-links {
+    font-size: 0.9rem;
+}
+
+.pub-links a {
+    margin-right: 0.25rem;
+}
+
+/* === News Section === */
+.news {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.news-list {
+    max-width: 800px;
+    list-style: none;
+    margin-left: 0;
+    margin-bottom: 0;
+}
+
+.news-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.news-list li:last-child {
+    border-bottom: none;
+}
+
+/* === Footer === */
+.site-footer {
+    background-color: var(--bg-light);
+    border-top: 1px solid var(--border-color);
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-section h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    border-bottom: none;
+    margin-top: 0;
+}
+
+.footer-section p {
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+    color: var(--text-body);
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.footer-links a {
+    color: var(--text-body);
+    font-size: 0.9rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-bottom p {
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+/* === Page Header === */
+.page-header {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+    border-bottom: none;
+}
+
+.page-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-light);
+    font-weight: 400;
+}
+
+/* === Content Section === */
+.content-section {
+    padding: 2.5rem 0;
+}
+
+/* === Research Detail Page === */
+.research-detail {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+}
+
+.research-detail h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.research-detail ul {
+    margin-left: 2rem;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.project-card:last-child {
+    border-bottom: none;
+}
+
+.project-card h3 {
+    margin-bottom: 0.75rem;
+    border-bottom: none;
+    margin-top: 0;
+}
+
+.project-card p {
+    margin-bottom: 0;
+}
+
+/* === Research Images === */
+.research-images {
+    max-width: 1000px;
+    margin: 3rem auto 0;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.research-image {
+    background-color: var(--bg-light);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.research-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-light);
+}
+
+.image-caption {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-bottom: 0;
+}
+
+/* === People Page === */
+.people-section {
+    margin-bottom: 4rem;
+}
+
+.person-card {
+    display: flex;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 0;
+}
+
+.person-card.featured {
+    padding: 2rem 0;
+}
+
+.person-card .person-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    flex-shrink: 0;
+    background-color: var(--bg-light);
+}
+
+.person-card .person-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.person-info h3 {
+    margin-bottom: 0.25rem;
+}
+
+.person-title {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.person-bio {
+    color: var(--text-body);
+    margin-bottom: 1rem;
+}
+
+.person-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.person-links a {
+    font-size: 0.9rem;
+}
+
+.person-links a:not(:last-child)::after {
+    content: " | ";
+    color: var(--text-light);
+    margin: 0 0.5rem;
+}
+
+.people-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.people-grid .person-card {
+    flex-direction: column;
+    text-align: left;
+    padding: 1.5rem 0;
+}
+
+.people-grid .person-photo {
+    margin: 0 0 1rem 0;
+}
+
+.people-grid .person-links {
+    justify-content: flex-start;
+}
+
+/* === Alumni === */
+.alumni-list {
+    max-width: 800px;
+}
+
+.alumni-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.alumni-item:last-child {
+    border-bottom: none;
+}
+
+/* === Year Headings === */
+.content-section h2 {
+    font-size: 1.5rem;
+    margin: 2.5rem 0 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.content-section h2:first-of-type {
+    margin-top: 0;
+}
+
+.pub-abstract {
+    color: var(--text-body);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* === Contact Page === */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-info h2 {
+    margin-bottom: 0.5rem;
+}
+
+.contact-full-name {
+    color: var(--text-light);
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+}
+
+.contact-item {
+    margin-bottom: 2rem;
+}
+
+.contact-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.contact-item p {
+    margin-bottom: 0.5rem;
+}
+
+.map-placeholder {
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .main-nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .intro-content h1 {
+        font-size: 2rem;
+    }
+
+    .intro-content .subtitle {
+        font-size: 1.125rem;
+    }
+
+    .people-grid-home {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .publication-item-image {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .pub-image {
+        width: 100%;
+        height: 180px;
+    }
+
+    h2 {
+        font-size: 1.375rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .person-card {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .person-card .person-photo {
+        margin: 0 0 1rem 0;
+    }
+
+    .people-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 15px;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    h1 { font-size: 1.875rem; }
+    h2 { font-size: 1.25rem; }
+    h3 { font-size: 1.125rem; }
+}
+
