@@ -3,67 +3,125 @@ layout: default
 title: Home
 ---
 
-<section class="intro">
-    <div class="container">
-        <div class="intro-content">
-            <h1>HATS Lab</h1>
-            <h2 class="subtitle">Human-inspired Adaptive Teaming Systems</h2>
-            <p class="lead">We develop autonomous synthetic characters and intelligent agents for military training simulations using multi-agent reinforcement learning, graph neural networks, and cognitive architectures.</p>
+<!-- Hero Section -->
+<section class="relative py-20 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-3xl animate-slide-up" style="animation-delay: 0.1s;">
+            <h1 class="font-display text-5xl md:text-6xl font-bold text-slate-900 mb-4 leading-tight">
+                HATS <span class="bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">Lab</span>
+            </h1>
+            <h2 class="font-display text-xl md:text-2xl font-medium text-slate-500 mb-8">
+                Human-inspired Adaptive Teaming Systems
+            </h2>
+            <p class="text-lg text-slate-600 leading-relaxed max-w-2xl">
+                We develop autonomous synthetic characters and intelligent agents for military training simulations using multi-agent reinforcement learning, graph neural networks, and cognitive architectures.
+            </p>
         </div>
     </div>
 </section>
 
-<section class="people-preview">
-    <div class="container">
-        <h2>People</h2>
-        <div class="people-grid-home">
+<!-- People Preview -->
+<section class="py-16 bg-white/60 backdrop-blur-sm border-y border-slate-100">
+    <div class="max-w-6xl mx-auto px-6">
+        <h2 class="font-display text-2xl font-semibold text-slate-900 mb-8 flex items-center gap-3">
+            <span class="w-10 h-1 bg-primary-500 rounded-full"></span>
+            People
+        </h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
             {% assign featured_people = site.people | where_exp: "p", "p.category != 'alumni'" | sort: "order" | limit: 4 %}
             {% for person in featured_people limit: 4 %}
-            <div class="person-card-home">
-                <div class="person-photo-home">
-                    <img src="{{ person.photo | default: '/assets/images/placeholder-profile.jpg' | relative_url }}" alt="{{ person.name }}">
+            <div class="text-center animate-slide-up" style="animation-delay: {{ forloop.index | times: 0.1 }}s;">
+                <div class="relative w-32 h-32 mx-auto mb-4 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm">
+                    <img src="{{ person.photo | default: '/assets/images/empty-people.jpg' | relative_url }}" 
+                         alt="{{ person.name }}"
+                         class="w-full h-full object-cover">
                 </div>
-                <div class="person-info-home">
-                    <h3>{{ person.name }}</h3>
-                    <p class="person-role">{{ person.title }}</p>
+                <h3 class="font-display font-semibold text-slate-900">{{ person.name }}</h3>
+                <p class="text-sm text-slate-500 mt-1">{{ person.title }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <a href="{{ '/people' | relative_url }}" 
+           class="inline-flex items-center gap-2 text-primary-600 font-medium">
+            View all team members →
+        </a>
+    </div>
+</section>
+
+<!-- News Section -->
+<section class="py-16">
+    <div class="max-w-6xl mx-auto px-6">
+        <h2 class="font-display text-2xl font-semibold text-slate-900 mb-8 flex items-center gap-3">
+            <span class="w-10 h-1 bg-accent-500 rounded-full"></span>
+            News
+        </h2>
+        
+        <ul class="space-y-4 max-w-3xl">
+            {% for item in site.data.news limit: 5 %}
+            <li class="flex gap-4 p-4 rounded-lg bg-white/60 border border-slate-100 animate-slide-up" style="animation-delay: {{ forloop.index | times: 0.1 }}s;">
+                <span class="flex-shrink-0 font-mono text-sm font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-md h-fit">
+                    {{ item.date | date: "%b %Y" }}
+                </span>
+                <span class="text-slate-700">{{ item.headline }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+<!-- Publications Preview -->
+<section class="py-16 bg-white/60 backdrop-blur-sm border-y border-slate-100">
+    <div class="max-w-6xl mx-auto px-6">
+        <h2 class="font-display text-2xl font-semibold text-slate-900 mb-8 flex items-center gap-3">
+            <span class="w-10 h-1 bg-primary-500 rounded-full"></span>
+            Recent Publications
+        </h2>
+        
+        <div class="space-y-6 max-w-4xl mb-8">
+            {% assign recent_pubs = site.publications | sort: "date" | reverse %}
+            {% for pub in recent_pubs limit: 3 %}
+            <div class="p-6 rounded-xl bg-white border border-slate-100 shadow-sm animate-slide-up" style="animation-delay: {{ forloop.index | times: 0.1 }}s;">
+                <h3 class="font-display font-semibold text-slate-900 text-lg mb-2">
+                    {{ pub.title }}
+                </h3>
+                <p class="text-slate-600 text-sm mb-2">{{ pub.authors }}</p>
+                <p class="text-slate-500 text-sm italic mb-4">{{ pub.venue }}, {{ pub.year }}</p>
+                
+                <div class="flex flex-wrap gap-2">
+                    {% if pub.pdf %}
+                    <a href="{{ pub.pdf }}" class="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-primary-700 bg-primary-50 rounded-md hover:bg-primary-100 transition-colors">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        Paper
+                    </a>
+                    {% endif %}
+                    {% if pub.code %}
+                    <a href="{{ pub.code }}" class="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-slate-700 bg-slate-100 rounded-md hover:bg-slate-200 transition-colors">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                        Code
+                    </a>
+                    {% endif %}
+                    {% if pub.slides %}
+                    <a href="{{ pub.slides }}" class="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-slate-700 bg-slate-100 rounded-md hover:bg-slate-200 transition-colors">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                        </svg>
+                        Slides
+                    </a>
+                    {% endif %}
                 </div>
             </div>
             {% endfor %}
         </div>
-        <p class="view-more"><a href="{{ '/people' | relative_url }}">View all team members →</a></p>
-    </div>
-</section>
-
-<section class="news">
-    <div class="container">
-        <h2>News</h2>
-        <ul class="news-list">
-            {% for item in site.data.news limit: 5 %}
-            <li><strong>{{ item.date | date: "%b %Y" }}:</strong> {{ item.headline }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-</section>
-
-<section class="publications-preview">
-    <div class="container">
-        <h2>Recent Publications</h2>
-        <ul class="pub-list">
-            {% assign recent_pubs = site.publications | sort: "date" | reverse %}
-            {% for pub in recent_pubs limit: 3 %}
-            <li>
-                <strong>{{ pub.title }}</strong><br>
-                {{ pub.authors }}<br>
-                <em>{{ pub.venue }}, {{ pub.year }}</em>
-                {% if pub.pdf or pub.code %}
-                <br>
-                {% if pub.pdf %}[<a href="{{ pub.pdf }}">Paper</a>]{% endif %}
-                {% if pub.code %}[<a href="{{ pub.code }}">Code</a>]{% endif %}
-                {% if pub.slides %}[<a href="{{ pub.slides }}">Slides</a>]{% endif %}
-                {% endif %}
-            </li>
-            {% endfor %}
-        </ul>
-        <p class="view-more"><a href="{{ '/publications' | relative_url }}">View all publications →</a></p>
+        
+        <a href="{{ '/publications' | relative_url }}" 
+           class="inline-flex items-center gap-2 text-primary-600 font-medium">
+            View all publications →
+        </a>
     </div>
 </section>

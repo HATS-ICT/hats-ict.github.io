@@ -8,6 +8,6 @@ email: yunzhewa@usc.edu
 google_scholar: https://scholar.google.com/citations?user=Z_z6HywAAAAJ
 website: https://yunzhe.wang/
 bio: >
-  Research interests: Cognitive architectures, decision support systems
+  Research interests: 
 ---
 
