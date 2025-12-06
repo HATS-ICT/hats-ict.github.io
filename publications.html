@@ -3,160 +3,41 @@ layout: default
 title: Publications
 ---
 
-<section class="page-header">
+<section class="content-section">
     <div class="container">
-        <h1>Publications</h1>
-        <p class="page-subtitle">Our contributions to multi-agent systems, reinforcement learning, and cognitive architectures</p>
+        {% assign publications_by_year = site.publications | sort: "date" | reverse | group_by_exp: "pub", "pub.year" %}
+        
+        {% for year_group in publications_by_year %}
+        <h2>{{ year_group.name }}</h2>
+        <div class="publication-list-detailed">
+            {% for pub in year_group.items %}
+            <div class="publication-item-image">
+                <div class="pub-image">
+                    <img src="{{ pub.thumbnail | default: '/assets/images/paper-placeholder.jpg' | relative_url }}" alt="Paper thumbnail">
+                </div>
+                <div class="pub-content">
+                    <h3 class="pub-title">{{ pub.title }}</h3>
+                    <p class="pub-authors">{{ pub.authors }}</p>
+                    <p class="pub-venue">
+                        {{ pub.venue }}{% if pub.venueshort %} <span class="venue-short">({{ pub.venueshort }})</span>{% endif %}, {{ pub.year }}
+                    </p>
+                    {% if pub.abstract %}<p class="pub-abstract">{{ pub.abstract }}</p>{% endif %}
+                    <div class="pub-links">
+                        {% if pub.pdf %}<a href="{{ pub.pdf }}" class="pub-link">PDF</a>{% endif %}
+                        {% if pub.arxiv %}<a href="{{ pub.arxiv }}" class="pub-link">arXiv</a>{% endif %}
+                        {% if pub.code %}<a href="{{ pub.code }}" class="pub-link">Code</a>{% endif %}
+                        {% if pub.website %}<a href="{{ pub.website }}" class="pub-link">Website</a>{% endif %}
+                        {% if pub.slides %}<a href="{{ pub.slides }}" class="pub-link">Slides</a>{% endif %}
+                        {% if pub.video %}<a href="{{ pub.video }}" class="pub-link">Video</a>{% endif %}
+                        {% if pub.doi %}<a href="{{ pub.doi }}" class="pub-link">DOI</a>{% endif %}
+                        {% if pub.bibtex %}<a href="{{ pub.bibtex }}" class="pub-link">BibTeX</a>{% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
     </div>
 </section>
 
-<section class="content-section">
-    <div class="container">
-        <h2>2024</h2>
-        <div class="publication-list-detailed">
-            <div class="publication-item-image">
-                <div class="pub-image">
-                    <img src="{{ '/assets/images/paper1.jpg' | relative_url }}" alt="Paper thumbnail">
-                </div>
-                <div class="pub-content">
-                    <h3 class="pub-title">Enhanced Multi-Agent Reinforcement Learning for Military Training Simulations</h3>
-                    <p class="pub-authors">Author One, Author Two, Author Three, Volkan Ustun</p>
-                    <p class="pub-venue">International Conference on Machine Learning (ICML), 2024</p>
-                    <p class="pub-abstract">This paper presents an enhanced MARL framework that incorporates domain knowledge and hierarchical structures to improve training efficiency and behavior realism in military simulations...</p>
-                    <div class="pub-links">
-                        <a href="#">PDF</a> | 
-                        <a href="#">arXiv</a> | 
-                        <a href="#">Code</a> | 
-                        <a href="#">BibTeX</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="publication-item-image">
-                <div class="pub-image">
-                    <img src="{{ '/assets/images/paper2.jpg' | relative_url }}" alt="Paper thumbnail">
-                </div>
-                <div class="pub-content">
-                    <h3 class="pub-title">Graph Neural Networks for Tactical Decision Making in Multi-Agent Systems</h3>
-                    <p class="pub-authors">Author One, Author Two, Author Three, Author Four, Volkan Ustun</p>
-                    <p class="pub-venue">Neural Information Processing Systems (NeurIPS), 2024</p>
-                    <p class="pub-abstract">We propose a novel approach that leverages graph neural networks to model complex relationships and communication patterns in multi-agent tactical scenarios...</p>
-                    <div class="pub-links">
-                        <a href="#">PDF</a> | 
-                        <a href="#">arXiv</a> | 
-                        <a href="#">Code</a> | 
-                        <a href="#">BibTeX</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="publication-item-image">
-                <div class="pub-image">
-                    <img src="{{ '/assets/images/paper3.jpg' | relative_url }}" alt="Paper thumbnail">
-                </div>
-                <div class="pub-content">
-                    <h3 class="pub-title">Domain Knowledge Integration in Multi-Agent Reinforcement Learning</h3>
-                    <p class="pub-authors">Author One, Author Two, Volkan Ustun</p>
-                    <p class="pub-venue">Conference on Autonomous Agents and Multiagent Systems (AAMAS), 2024</p>
-                    <p class="pub-abstract">This work explores methods for incorporating military tactics, hierarchies, and operational procedures into MARL frameworks to accelerate learning and improve performance...</p>
-                    <div class="pub-links">
-                        <a href="#">PDF</a> | 
-                        <a href="#">Slides</a> | 
-                        <a href="#">BibTeX</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <h2>2023</h2>
-        <div class="publication-list-detailed">
-            <div class="publication-item-image">
-                <div class="pub-image">
-                    <img src="{{ '/assets/images/paper4.jpg' | relative_url }}" alt="Paper thumbnail">
-                </div>
-                <div class="pub-content">
-                    <h3 class="pub-title">Sigma Cognitive Architecture for Synthetic Character Behavior</h3>
-                    <p class="pub-authors">Volkan Ustun, Author Two</p>
-                    <p class="pub-venue">Conference on Cognitive Systems (CogSys), 2023</p>
-                    <p class="pub-abstract">We present the Sigma cognitive architecture and demonstrate its application in creating believable synthetic characters for military training simulations...</p>
-                    <div class="pub-links">
-                        <a href="#">PDF</a> | 
-                        <a href="#">Slides</a> | 
-                        <a href="#">Video</a> | 
-                        <a href="#">BibTeX</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="publication-item-image">
-                <div class="pub-image">
-                    <img src="{{ '/assets/images/paper5.jpg' | relative_url }}" alt="Paper thumbnail">
-                </div>
-                <div class="pub-content">
-                    <h3 class="pub-title">Adaptive Non-Player Characters in Unity-Based Training Environments</h3>
-                    <p class="pub-authors">Author One, Author Two, Author Three, Volkan Ustun</p>
-                    <p class="pub-venue">IEEE Conference on Games (CoG), 2023</p>
-                    <p class="pub-abstract">This paper describes our approach to creating adaptive NPCs using reinforcement learning in Unity-based geo-specific training environments...</p>
-                    <div class="pub-links">
-                        <a href="#">PDF</a> | 
-                        <a href="#">Code</a> | 
-                        <a href="#">BibTeX</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="publication-item-image">
-                <div class="pub-image">
-                    <img src="{{ '/assets/images/paper6.jpg' | relative_url }}" alt="Paper thumbnail">
-                </div>
-                <div class="pub-content">
-                    <h3 class="pub-title">Decision Support Systems for Military Command and Control</h3>
-                    <p class="pub-authors">Author One, Volkan Ustun, Author Three</p>
-                    <p class="pub-venue">Journal of Defense Modeling and Simulation, 2023</p>
-                    <p class="pub-abstract">We develop interactive decision support systems that generate courses of action and propose tactics to aid commanders in gaining decision advantage...</p>
-                    <div class="pub-links">
-                        <a href="#">PDF</a> | 
-                        <a href="#">DOI</a> | 
-                        <a href="#">BibTeX</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <h2>2022</h2>
-        <div class="publication-list-detailed">
-            <div class="publication-item-image">
-                <div class="pub-image">
-                    <img src="{{ '/assets/images/paper7.jpg' | relative_url }}" alt="Paper thumbnail">
-                </div>
-                <div class="pub-content">
-                    <h3 class="pub-title">Experiential Learning for Synthetic Entities in Military Simulations</h3>
-                    <p class="pub-authors">Volkan Ustun, Author Two, Author Three</p>
-                    <p class="pub-venue">International Conference on Intelligent Robots and Systems (IROS), 2022</p>
-                    <p class="pub-abstract">We argue for the importance of experiential learning in developing credible synthetic entities and present a framework for integrating learning capabilities into simulation systems...</p>
-                    <div class="pub-links">
-                        <a href="#">PDF</a> | 
-                        <a href="#">BibTeX</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="publication-item-image">
-                <div class="pub-image">
-                    <img src="{{ '/assets/images/paper8.jpg' | relative_url }}" alt="Paper thumbnail">
-                </div>
-                <div class="pub-content">
-                    <h3 class="pub-title">Multi-Agent Coordination in Complex Training Scenarios</h3>
-                    <p class="pub-authors">Author One, Author Two, Volkan Ustun</p>
-                    <p class="pub-venue">Conference on Autonomous Agents and Multiagent Systems (AAMAS), 2022</p>
-                    <p class="pub-abstract">This paper explores coordination mechanisms for teams of autonomous agents in complex military training scenarios using game-theoretic approaches...</p>
-                    <div class="pub-links">
-                        <a href="#">PDF</a> | 
-                        <a href="#">Slides</a> | 
-                        <a href="#">BibTeX</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </section>

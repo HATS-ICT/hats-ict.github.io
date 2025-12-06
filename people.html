@@ -3,134 +3,101 @@ layout: default
 title: People
 ---
 
-<section class="page-header">
-    <div class="container">
-        <h1>People</h1>
-        <p class="page-subtitle">Meet the researchers driving innovation in autonomous systems and artificial intelligence</p>
-    </div>
-</section>
-
 <section class="content-section">
     <div class="container">
+        <!-- Principal Investigator -->
+        {% assign pi = site.people | where: "category", "pi" | sort: "order" %}
+        {% if pi.size > 0 %}
         <h2 class="section-title">Principal Investigator</h2>
         <div class="people-section">
+            {% for person in pi %}
             <div class="person-card featured">
                 <div class="person-photo">
-                    <img src="{{ '/assets/images/placeholder-profile.jpg' | relative_url }}" alt="Dr. Volkan Ustun">
+                    <img src="{{ person.photo | default: '/assets/images/placeholder-profile.jpg' | relative_url }}" alt="{{ person.name }}">
                 </div>
                 <div class="person-info">
-                    <h3>Dr. Volkan Ustun</h3>
-                    <p class="person-title">Research Lead, Principal Investigator</p>
-                    <p class="person-bio">Dr. Ustun leads the HATS Lab with expertise in cognitive architectures, multi-agent systems, and reinforcement learning. His research focuses on creating intelligent synthetic entities for military training simulations and decision support systems.</p>
+                    <h3>{{ person.name }}</h3>
+                    <p class="person-title">{{ person.title }}</p>
+                    {% if person.bio %}<p class="person-bio">{{ person.bio }}</p>{% endif %}
                     <div class="person-links">
-                        <a href="mailto:email@example.com">Email</a>
-                        <a href="#">Google Scholar</a>
-                        <a href="#">Personal Website</a>
+                        {% if person.email %}<a href="mailto:{{ person.email }}">Email</a>{% endif %}
+                        {% if person.google_scholar %}<a href="{{ person.google_scholar }}">Google Scholar</a>{% endif %}
+                        {% if person.website %}<a href="{{ person.website }}">Personal Website</a>{% endif %}
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
+        {% endif %}
 
+        <!-- Ph.D. Students -->
+        {% assign phd_students = site.people | where: "category", "phd" | sort: "order" %}
+        {% if phd_students.size > 0 %}
         <h2 class="section-title">Ph.D. Students</h2>
         <div class="people-section">
             <div class="people-grid">
+                {% for person in phd_students %}
                 <div class="person-card">
                     <div class="person-photo">
-                        <img src="{{ '/assets/images/placeholder-profile.jpg' | relative_url }}" alt="Ph.D. Student">
+                        <img src="{{ person.photo | default: '/assets/images/placeholder-profile.jpg' | relative_url }}" alt="{{ person.name }}">
                     </div>
                     <div class="person-info">
-                        <h3>Student Name</h3>
-                        <p class="person-title">Ph.D. Student</p>
-                        <p class="person-bio">Research interests: Multi-agent reinforcement learning, graph neural networks</p>
+                        <h3>{{ person.name }}</h3>
+                        <p class="person-title">{{ person.title }}</p>
+                        {% if person.bio %}<p class="person-bio">{{ person.bio }}</p>{% endif %}
                         <div class="person-links">
-                            <a href="mailto:email@example.com">Email</a>
-                            <a href="#">Google Scholar</a>
+                            {% if person.email %}<a href="mailto:{{ person.email }}">Email</a>{% endif %}
+                            {% if person.google_scholar %}<a href="{{ person.google_scholar }}">Google Scholar</a>{% endif %}
+                            {% if person.website %}<a href="{{ person.website }}">Website</a>{% endif %}
                         </div>
                     </div>
                 </div>
-
-                <div class="person-card">
-                    <div class="person-photo">
-                        <img src="{{ '/assets/images/placeholder-profile.jpg' | relative_url }}" alt="Ph.D. Student">
-                    </div>
-                    <div class="person-info">
-                        <h3>Student Name</h3>
-                        <p class="person-title">Ph.D. Student</p>
-                        <p class="person-bio">Research interests: Cognitive architectures, decision support systems</p>
-                        <div class="person-links">
-                            <a href="mailto:email@example.com">Email</a>
-                            <a href="#">Google Scholar</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="person-card">
-                    <div class="person-photo">
-                        <img src="{{ '/assets/images/placeholder-profile.jpg' | relative_url }}" alt="Ph.D. Student">
-                    </div>
-                    <div class="person-info">
-                        <h3>Student Name</h3>
-                        <p class="person-title">Ph.D. Student</p>
-                        <p class="person-bio">Research interests: Game theory, autonomous agents</p>
-                        <div class="person-links">
-                            <a href="mailto:email@example.com">Email</a>
-                            <a href="#">Website</a>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
+        {% endif %}
 
+        <!-- Master's Students -->
+        {% assign masters_students = site.people | where: "category", "masters" | sort: "order" %}
+        {% if masters_students.size > 0 %}
         <h2 class="section-title">Master's Students</h2>
         <div class="people-section">
             <div class="people-grid">
+                {% for person in masters_students %}
                 <div class="person-card">
                     <div class="person-photo">
-                        <img src="{{ '/assets/images/placeholder-profile.jpg' | relative_url }}" alt="Master's Student">
+                        <img src="{{ person.photo | default: '/assets/images/placeholder-profile.jpg' | relative_url }}" alt="{{ person.name }}">
                     </div>
                     <div class="person-info">
-                        <h3>Student Name</h3>
-                        <p class="person-title">Master's Student</p>
-                        <p class="person-bio">Research interests: Machine learning, simulation environments</p>
+                        <h3>{{ person.name }}</h3>
+                        <p class="person-title">{{ person.title }}</p>
+                        {% if person.bio %}<p class="person-bio">{{ person.bio }}</p>{% endif %}
                         <div class="person-links">
-                            <a href="mailto:email@example.com">Email</a>
+                            {% if person.email %}<a href="mailto:{{ person.email }}">Email</a>{% endif %}
+                            {% if person.google_scholar %}<a href="{{ person.google_scholar }}">Google Scholar</a>{% endif %}
+                            {% if person.website %}<a href="{{ person.website }}">Website</a>{% endif %}
                         </div>
                     </div>
                 </div>
-
-                <div class="person-card">
-                    <div class="person-photo">
-                        <img src="{{ '/assets/images/placeholder-profile.jpg' | relative_url }}" alt="Master's Student">
-                    </div>
-                    <div class="person-info">
-                        <h3>Student Name</h3>
-                        <p class="person-title">Master's Student</p>
-                        <p class="person-bio">Research interests: Deep learning, computer vision</p>
-                        <div class="person-links">
-                            <a href="mailto:email@example.com">Email</a>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
+        {% endif %}
 
+        <!-- Alumni -->
+        {% assign alumni = site.people | where: "category", "alumni" | sort: "order" %}
+        {% if alumni.size > 0 %}
         <h2 class="section-title">Alumni</h2>
         <div class="people-section">
             <div class="alumni-list">
+                {% for person in alumni %}
                 <div class="alumni-item">
-                    <strong>Alumni Name</strong> - Ph.D., 2023<br>
-                    <em>Now: Position at Company/University</em>
+                    <strong>{{ person.name }}</strong> - {{ person.title }}<br>
+                    {% if person.current_position %}<em>Now: {{ person.current_position }}</em>{% endif %}
                 </div>
-                <div class="alumni-item">
-                    <strong>Alumni Name</strong> - Master's, 2023<br>
-                    <em>Now: Position at Company/University</em>
-                </div>
-                <div class="alumni-item">
-                    <strong>Alumni Name</strong> - Master's, 2022<br>
-                    <em>Now: Position at Company/University</em>
-                </div>
+                {% endfor %}
             </div>
         </div>
+        {% endif %}
     </div>
 </section>
-

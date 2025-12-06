@@ -17,42 +17,18 @@ title: Home
     <div class="container">
         <h2>People</h2>
         <div class="people-grid-home">
+            {% assign featured_people = site.people | where_exp: "p", "p.category != 'alumni'" | sort: "order" | limit: 4 %}
+            {% for person in featured_people limit: 4 %}
             <div class="person-card-home">
                 <div class="person-photo-home">
-                    <img src="{{ '/assets/images/volkan-ustun.jpg' | relative_url }}" alt="Dr. Volkan Ustun">
+                    <img src="{{ person.photo | default: '/assets/images/placeholder-profile.jpg' | relative_url }}" alt="{{ person.name }}">
                 </div>
                 <div class="person-info-home">
-                    <h3>Dr. Volkan Ustun</h3>
-                    <p class="person-role">Research Lead, Principal Investigator</p>
+                    <h3>{{ person.name }}</h3>
+                    <p class="person-role">{{ person.title }}</p>
                 </div>
             </div>
-            <div class="person-card-home">
-                <div class="person-photo-home">
-                    <img src="{{ '/assets/images/researcher1.jpg' | relative_url }}" alt="Researcher Name">
-                </div>
-                <div class="person-info-home">
-                    <h3>Researcher Name</h3>
-                    <p class="person-role">Ph.D. Student</p>
-                </div>
-            </div>
-            <div class="person-card-home">
-                <div class="person-photo-home">
-                    <img src="{{ '/assets/images/researcher2.jpg' | relative_url }}" alt="Researcher Name">
-                </div>
-                <div class="person-info-home">
-                    <h3>Researcher Name</h3>
-                    <p class="person-role">Ph.D. Student</p>
-                </div>
-            </div>
-            <div class="person-card-home">
-                <div class="person-photo-home">
-                    <img src="{{ '/assets/images/researcher3.jpg' | relative_url }}" alt="Researcher Name">
-                </div>
-                <div class="person-info-home">
-                    <h3>Researcher Name</h3>
-                    <p class="person-role">Master's Student</p>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <p class="view-more"><a href="{{ '/people' | relative_url }}">View all team members →</a></p>
     </div>
@@ -62,11 +38,9 @@ title: Home
     <div class="container">
         <h2>News</h2>
         <ul class="news-list">
-            <li><strong>Oct 2024:</strong> New paper accepted at Conference Name 2024</li>
-            <li><strong>Sep 2024:</strong> Welcome new Ph.D. student joining the lab</li>
-            <li><strong>Aug 2024:</strong> Dr. Ustun presents at Workshop Name</li>
-            <li><strong>Jul 2024:</strong> Lab receives new research grant</li>
-            <li><strong>Jun 2024:</strong> Paper published in Journal Name</li>
+            {% for item in site.data.news limit: 5 %}
+            <li><strong>{{ item.date | date: "%b %Y" }}:</strong> {{ item.headline }}</li>
+            {% endfor %}
         </ul>
     </div>
 </section>
@@ -75,24 +49,20 @@ title: Home
     <div class="container">
         <h2>Recent Publications</h2>
         <ul class="pub-list">
+            {% assign recent_pubs = site.publications | sort: "date" | reverse %}
+            {% for pub in recent_pubs limit: 3 %}
             <li>
-                <strong>Enhanced Multi-Agent Reinforcement Learning for Military Training Simulations</strong><br>
-                Author 1, Author 2, Author 3<br>
-                <em>Conference/Journal Name 2024</em>
-                [<a href="#">Paper</a>] [<a href="#">Code</a>]
+                <strong>{{ pub.title }}</strong><br>
+                {{ pub.authors }}<br>
+                <em>{{ pub.venue }}, {{ pub.year }}</em>
+                {% if pub.pdf or pub.code %}
+                <br>
+                {% if pub.pdf %}[<a href="{{ pub.pdf }}">Paper</a>]{% endif %}
+                {% if pub.code %}[<a href="{{ pub.code }}">Code</a>]{% endif %}
+                {% if pub.slides %}[<a href="{{ pub.slides }}">Slides</a>]{% endif %}
+                {% endif %}
             </li>
-            <li>
-                <strong>Graph Neural Networks for Tactical Decision Making in Multi-Agent Systems</strong><br>
-                Author 1, Author 2, Author 3, Author 4<br>
-                <em>Conference/Journal Name 2024</em>
-                [<a href="#">Paper</a>]
-            </li>
-            <li>
-                <strong>Sigma Cognitive Architecture for Synthetic Character Behavior</strong><br>
-                Author 1, Author 2<br>
-                <em>Conference/Journal Name 2023</em>
-                [<a href="#">Paper</a>] [<a href="#">Slides</a>]
-            </li>
+            {% endfor %}
         </ul>
         <p class="view-more"><a href="{{ '/publications' | relative_url }}">View all publications →</a></p>
     </div>

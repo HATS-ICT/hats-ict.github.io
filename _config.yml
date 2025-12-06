@@ -17,6 +17,28 @@ research_lead: Dr. Volkan Ustun
 institution: Your Institution Name
 email: contact@hatslab.edu
 
+# Collections
+collections:
+  people:
+    output: false
+    sort_by: order
+  publications:
+    output: false
+    sort_by: date
+
+# Default values for collections
+defaults:
+  - scope:
+      path: ""
+      type: "people"
+    values:
+      layout: null
+  - scope:
+      path: ""
+      type: "publications"
+    values:
+      layout: null
+
 # Navigation
 navigation:
   - title: Home
@@ -25,8 +47,6 @@ navigation:
     url: /people
   - title: Publications
     url: /publications
-  - title: Contact
-    url: /contact
 
 # Exclude from processing
 exclude:
