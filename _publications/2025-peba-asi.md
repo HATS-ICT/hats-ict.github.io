@@ -9,7 +9,7 @@ thumbnail: /assets/images/work/peba-asi.webp
 pdf: "https://aclanthology.org/2025.emnlp-main.1562.pdf"
 arxiv: "https://arxiv.org/abs/2509.16457"
 code: "https://github.com/HATS-ICT/PersonaEvolve"
-website: "https://hats-ict.github.io/peba-asi/"
+website: /peba-asi/
 slides: 
 video: 
 hide: false

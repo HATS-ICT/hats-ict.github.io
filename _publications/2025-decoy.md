@@ -9,7 +9,7 @@ thumbnail: /assets/images/work/decoy.webp
 pdf: "https://arxiv.org/pdf/2509.06355"
 arxiv: "https://arxiv.org/abs/2509.06355"
 code: "https://github.com/HATS-ICT/decoy"
-website: https://hats-ict.github.io/decoy/
+website: /decoy/
 slides: 
 video: 
 hide: false
