@@ -1,0 +1,676 @@
+---
+permalink: /gameplayqa/
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GameplayQA: Decision-Dense POV-Synced Multi-Video Understanding of 3D Virtual Agents</title>
+  <meta name="description" content="GameplayQA is a benchmarking framework for evaluating agentic-centric perception and reasoning through decision-dense, POV-synced multi-video understanding of 3D virtual agents.">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Source Sans 3"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef5ff',
+              100: '#d9e8ff',
+              200: '#bcd7ff',
+              300: '#8ebfff',
+              400: '#599cff',
+              500: '#3478ff',
+              600: '#1a57f5',
+              700: '#1443e1',
+              800: '#1736b6',
+              900: '#19328f',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Academicons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <link rel="stylesheet" href="/projects/gameplayqa/static/css/style.css">
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+
+  <!-- ===== HEADER / NAVBAR ===== -->
+  <header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+    <div class="max-w-6xl mx-auto flex items-center justify-end px-6 h-16">
+      <nav class="flex items-center gap-1">
+        <a href="/gameplayqa/" class="nav-link active">Home</a>
+        <a href="/gameplayqa/leaderboard.html" class="nav-link">Leaderboard</a>
+        <a href="/gameplayqa/statistics.html" class="nav-link">Statistics</a>
+
+        <!-- Related Work Dropdown -->
+        <div class="relative ml-2" id="related-dropdown">
+          <button onclick="toggleRelated()" class="nav-link inline-flex items-center gap-1">
+            Related Work
+            <i class="fas fa-chevron-down text-[10px] transition-transform duration-200" id="related-arrow"></i>
+          </button>
+          <div id="related-menu" class="absolute right-0 top-full mt-2 w-80 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible translate-y-1 transition-all duration-200 overflow-hidden">
+            <div class="p-2">
+              <a href="https://hats-ict.github.io/decoy/" target="_blank" class="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors group">
+                <div class="flex-1 min-w-0">
+                  <p class="text-sm font-semibold text-gray-900 group-hover:text-brand-600 transition-colors">DECOY</p>
+                  <p class="text-xs text-gray-500 mt-0.5 line-clamp-2">Data-Driven Discretized CS:GO Simulation for Multi-Agent Planning</p>
+                </div>
+                <i class="fas fa-arrow-up-right-from-square text-xs text-gray-300 mt-1 shrink-0"></i>
+              </a>
+              <a href="https://hats-ict.github.io/peba-asi/" target="_blank" class="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors group">
+                <div class="flex-1 min-w-0">
+                  <p class="text-sm font-semibold text-gray-900 group-hover:text-brand-600 transition-colors">PEBA-ASI</p>
+                  <p class="text-xs text-gray-500 mt-0.5 line-clamp-2">Implicit Behavioral Alignment of Language Agents in High-Stakes Crowd Simulations</p>
+                </div>
+                <i class="fas fa-arrow-up-right-from-square text-xs text-gray-300 mt-1 shrink-0"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="pt-28 pb-12 px-6">
+      <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <img src="/projects/gameplayqa/static/images/logo.png" alt="GameplayQA logo" class="w-14 h-14 object-contain drop-shadow-sm">
+            <span class="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-600">GameplayQA</span>
+          </div>
+
+          <h1 class="text-lg sm:text-xl lg:text-[1.375rem] font-semibold leading-relaxed text-gray-500">
+            A Benchmarking Framework for Decision-Dense POV-Synced Multi-Video Understanding of 3D Virtual Agents
+          </h1>
+
+          <div class="mt-5 flex flex-wrap gap-x-3 gap-y-1 text-[0.9375rem] text-gray-700">
+            <a href="https://www.linkedin.com/in/yunzhe-wang/" target="_blank" class="author-name">Yunzhe Wang</a>
+            <a href="#" target="_blank" class="author-name">Runhui Xu</a>
+            <a href="#" target="_blank" class="author-name">Kexin Zheng</a>
+            <a href="#" target="_blank" class="author-name">Tianyi Zhang</a>
+            <a href="#" target="_blank" class="author-name">Jayavibhav Niranjan Kogundi</a>
+            <a href="#" target="_blank" class="author-name">Soham Hans</a>
+            <a href="https://www.linkedin.com/in/volkan-ustun-9883a74/" target="_blank" class="author-name">Volkan Ustun</a>
+          </div>
+
+          <p class="mt-1.5 text-sm text-gray-400 font-medium">University of Southern California</p>
+
+          <div class="mt-5 flex flex-wrap gap-2">
+            <a href="#" class="action-btn">
+              <i class="ai ai-arxiv"></i>
+              <span>arXiv</span>
+            </a>
+            <a href="#" class="action-btn">
+              <i class="fab fa-github"></i>
+              <span>Benchmark Code</span>
+            </a>
+            <a href="#" class="action-btn">
+              <i class="fab fa-github"></i>
+              <span>Annotation Software</span>
+            </a>
+            <a href="#" class="action-btn">
+              🤗
+              <span>Dataset</span>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <img src="/projects/gameplayqa/static/images/framework.webp" alt="GameplayQA framework overview" class="w-full rounded-xl">
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== DECISION DENSITY ===== -->
+    <section class="py-20 px-6" id="decision-density">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="section-title">Decision Density</h2>
+        <p class="mt-4 text-center text-gray-500 max-w-3xl mx-auto leading-relaxed">
+          We operationalize <strong class="text-gray-700">decision density</strong> as the temporal frequency of semantic labels&mdash;actions, states, and events&mdash;that constitute the necessary information stream for an agent&rsquo;s planning and reaction loop.
+        </p>
+
+        <div class="mt-10 max-w-3xl mx-auto">
+          <div class="bg-gray-50 rounded-xl border border-gray-200 p-8 text-center">
+            <p class="text-sm text-gray-500 mb-3">Density metric</p>
+            <p class="text-3xl font-bold text-gray-900 font-mono tracking-tight">
+              &rho; = N<sub class="text-lg">labels</sub> / T<sub class="text-lg">seconds</sub>
+            </p>
+            <div class="mt-6 flex items-center justify-center gap-3">
+              <span class="text-sm text-gray-500">2,709 labels</span>
+              <span class="text-gray-300">/</span>
+              <span class="text-sm text-gray-500">2,219.41 seconds</span>
+              <span class="text-gray-300">=</span>
+              <span class="text-2xl font-extrabold text-brand-600">1.22 <span class="text-base font-semibold">Hz</span></span>
+            </div>
+          </div>
+
+          <div class="mt-8 grid grid-cols-3 sm:grid-cols-6 gap-3">
+            <div class="bg-white rounded-lg border border-gray-200 p-3 text-center">
+              <p class="text-xs font-bold text-brand-600 uppercase tracking-wide">SA</p>
+              <p class="text-lg font-bold text-gray-900 mt-1">24.3%</p>
+              <p class="text-[10px] text-gray-400">Self-Action</p>
+            </div>
+            <div class="bg-white rounded-lg border border-gray-200 p-3 text-center">
+              <p class="text-xs font-bold text-brand-600 uppercase tracking-wide">SS</p>
+              <p class="text-lg font-bold text-gray-900 mt-1">26.9%</p>
+              <p class="text-[10px] text-gray-400">Self-State</p>
+            </div>
+            <div class="bg-white rounded-lg border border-gray-200 p-3 text-center">
+              <p class="text-xs font-bold text-brand-600 uppercase tracking-wide">OA</p>
+              <p class="text-lg font-bold text-gray-900 mt-1">5.9%</p>
+              <p class="text-[10px] text-gray-400">Other-Action</p>
+            </div>
+            <div class="bg-white rounded-lg border border-gray-200 p-3 text-center">
+              <p class="text-xs font-bold text-brand-600 uppercase tracking-wide">OS</p>
+              <p class="text-lg font-bold text-gray-900 mt-1">7.0%</p>
+              <p class="text-[10px] text-gray-400">Other-State</p>
+            </div>
+            <div class="bg-white rounded-lg border border-gray-200 p-3 text-center">
+              <p class="text-xs font-bold text-brand-600 uppercase tracking-wide">WO</p>
+              <p class="text-lg font-bold text-gray-900 mt-1">20.5%</p>
+              <p class="text-[10px] text-gray-400">World-Object</p>
+            </div>
+            <div class="bg-white rounded-lg border border-gray-200 p-3 text-center">
+              <p class="text-xs font-bold text-brand-600 uppercase tracking-wide">WE</p>
+              <p class="text-lg font-bold text-gray-900 mt-1">15.4%</p>
+              <p class="text-[10px] text-gray-400">World-Event</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SELF-OTHER-WORLD REASONING TAXONOMY ===== -->
+    <section class="py-20 px-6 bg-gray-50/70" id="taxonomy">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="section-title mb-10">Self-Other-World Reasoning Taxonomy</h2>
+        <div class="grid lg:grid-cols-2 gap-10 items-start">
+          <div>
+            <p class="text-gray-500 leading-relaxed">
+              We organize perception around a triadic <strong class="text-gray-700">Self&ndash;Other&ndash;World</strong> entity decomposition. For each entity, we distinguish dynamic and static properties&mdash;<em>Action</em> vs. <em>State</em> for agents, <em>Object</em> vs. <em>Event</em> for the world&mdash;yielding six primitive label types.
+            </p>
+            <p class="mt-4 text-gray-500 leading-relaxed">
+              These primitives compose into <strong class="text-gray-700">15 task categories</strong> across three cognitive levels:
+            </p>
+            <ul class="mt-4 space-y-3">
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-brand-50 text-brand-600 text-xs font-bold flex items-center justify-center">L1</span>
+                <span class="text-sm text-gray-600"><strong class="text-gray-800">Single-reference perception</strong> &mdash; basic recognition of actions, states, objects, and events within a single video segment.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-amber-50 text-amber-600 text-xs font-bold flex items-center justify-center">L2</span>
+                <span class="text-sm text-gray-600"><strong class="text-gray-800">Temporal reasoning</strong> &mdash; cross-entity referring, time localization, ordering, and intent identification grounded to specific time windows.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-purple-50 text-purple-600 text-xs font-bold flex items-center justify-center">L3</span>
+                <span class="text-sm text-gray-600"><strong class="text-gray-800">Cross-video understanding</strong> &mdash; sync-referring, cross-video ordering, and POV identification across synchronized multi-POV footage.</span>
+              </li>
+            </ul>
+          </div>
+          <figure>
+            <img src="/projects/gameplayqa/static/images/sow.webp" alt="Self-Other-World reasoning taxonomy" class="w-full rounded-xl border border-gray-200 shadow-sm">
+            <figcaption class="mt-4 text-sm text-gray-500 leading-relaxed">
+              <strong class="text-gray-700">Question taxonomy of GameplayQA.</strong> Questions are organized along two axes: <em>Entity</em> (Self, Other, World) and <em>Temporal Nature</em>, yielding six primitive label types that compose into 15 task categories across three cognitive levels.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ANNOTATION SOFTWARE ===== -->
+    <section class="py-20 px-6" id="annotation-software">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="section-title mb-10">Annotation Software</h2>
+        <div class="grid lg:grid-cols-2 gap-10 items-start">
+          <div>
+            <p class="text-gray-500 leading-relaxed">
+              We developed a <strong class="text-gray-700">custom multi-track timeline annotation tool</strong> purpose-built for dense, synchronized multi-POV gameplay captioning.
+            </p>
+            <p class="mt-4 text-gray-500 leading-relaxed">
+              The software supports concurrent labeling across six entity tracks with overlapping temporal spans, enabling annotators to efficiently capture the high-frequency state transitions characteristic of 3D gameplay.
+            </p>
+            <ul class="mt-6 space-y-3">
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center"><i class="fas fa-layer-group text-xs"></i></span>
+                <span class="text-sm text-gray-600"><strong class="text-gray-800">Six parallel tracks</strong> for SA, SS, OA, OS, WO, WE with independent temporal spans</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center"><i class="fas fa-video text-xs"></i></span>
+                <span class="text-sm text-gray-600"><strong class="text-gray-800">Synchronized multi-POV playback</strong> for cross-video temporal alignment</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center"><i class="fas fa-robot text-xs"></i></span>
+                <span class="text-sm text-gray-600"><strong class="text-gray-800">AI-assisted pre-labeling</strong> with human-in-the-loop verification and refinement</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center"><i class="fas fa-circle-xmark text-xs"></i></span>
+                <span class="text-sm text-gray-600"><strong class="text-gray-800">Negative label support</strong> for structured hallucination-inducing distractor candidates</span>
+              </li>
+            </ul>
+          </div>
+          <figure>
+            <div class="w-full rounded-xl border border-gray-200 shadow-sm overflow-hidden bg-gray-900">
+              <video class="w-full" controls muted playsinline preload="metadata">
+                <source src="/projects/gameplayqa/static/videos/annotation_demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <figcaption class="mt-4 text-sm text-gray-500 leading-relaxed">
+              <strong class="text-gray-700">Annotation tool demo.</strong> The interface supports dense multi-track timeline captioning with synchronized multi-POV video playback.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXAMPLE QUESTIONS (Slider) ===== -->
+    <section class="py-20 px-6" id="examples">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="section-title">Example Questions</h2>
+        <p class="mt-4 text-center text-gray-500 max-w-2xl mx-auto">
+          Browse diagnostic QA pairs across cognitive levels. Each slide pairs a gameplay video clip with its corresponding question.
+        </p>
+
+        <!-- Slider container -->
+        <div class="mt-12 relative">
+          <div id="qa-slider" class="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+            <!-- Slides wrapper -->
+            <div id="qa-slides" class="flex transition-transform duration-500 ease-in-out">
+
+              <!-- Slide 1 -->
+              <div class="qa-slide w-full flex-shrink-0">
+                <div class="grid md:grid-cols-2 gap-0">
+                  <div class="bg-gray-900 flex items-center justify-center aspect-video md:aspect-auto">
+                    <video class="w-full h-full object-cover" muted loop playsinline preload="metadata">
+                      <source src="/projects/gameplayqa/static/videos/example_1.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="p-6 sm:p-8 flex flex-col justify-center">
+                    <span class="qa-code">L1 &middot; SA-Identify</span>
+                    <p class="mt-3 text-gray-900 font-semibold leading-snug">What weapon is the player currently holding at timestamp 0:12?</p>
+                    <ul class="mt-4 space-y-2">
+                      <li class="qa-option correct"><span class="qa-letter">A</span> AK-47</li>
+                      <li class="qa-option"><span class="qa-letter">B</span> M4A1-S</li>
+                      <li class="qa-option"><span class="qa-letter">C</span> AWP</li>
+                      <li class="qa-option"><span class="qa-letter">D</span> Desert Eagle</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="qa-slide w-full flex-shrink-0">
+                <div class="grid md:grid-cols-2 gap-0">
+                  <div class="bg-gray-900 flex items-center justify-center aspect-video md:aspect-auto">
+                    <video class="w-full h-full object-cover" muted loop playsinline preload="metadata">
+                      <source src="/projects/gameplayqa/static/videos/example_2.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="p-6 sm:p-8 flex flex-col justify-center">
+                    <span class="qa-code">L2 &middot; OA-Temporal</span>
+                    <p class="mt-3 text-gray-900 font-semibold leading-snug">Which action did the enemy agent perform immediately before throwing the flashbang?</p>
+                    <ul class="mt-4 space-y-2">
+                      <li class="qa-option"><span class="qa-letter">A</span> Switched to knife</li>
+                      <li class="qa-option correct"><span class="qa-letter">B</span> Stopped moving behind cover</li>
+                      <li class="qa-option"><span class="qa-letter">C</span> Reloaded rifle</li>
+                      <li class="qa-option"><span class="qa-letter">D</span> Jumped onto the box</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="qa-slide w-full flex-shrink-0">
+                <div class="grid md:grid-cols-2 gap-0">
+                  <div class="bg-gray-900 flex items-center justify-center aspect-video md:aspect-auto">
+                    <video class="w-full h-full object-cover" muted loop playsinline preload="metadata">
+                      <source src="/projects/gameplayqa/static/videos/example_3.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="p-6 sm:p-8 flex flex-col justify-center">
+                    <span class="qa-code">L2 &middot; WE-Change</span>
+                    <p class="mt-3 text-gray-900 font-semibold leading-snug">What world event occurred between 0:08 and 0:15 in the gameplay clip?</p>
+                    <ul class="mt-4 space-y-2">
+                      <li class="qa-option"><span class="qa-letter">A</span> Bomb was planted at site A</li>
+                      <li class="qa-option"><span class="qa-letter">B</span> Round timer expired</li>
+                      <li class="qa-option correct"><span class="qa-letter">C</span> Smoke grenade detonated at mid</li>
+                      <li class="qa-option"><span class="qa-letter">D</span> Teammate was eliminated</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="qa-slide w-full flex-shrink-0">
+                <div class="grid md:grid-cols-2 gap-0">
+                  <div class="bg-gray-900 flex items-center justify-center aspect-video md:aspect-auto">
+                    <video class="w-full h-full object-cover" muted loop playsinline preload="metadata">
+                      <source src="/projects/gameplayqa/static/videos/example_4.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="p-6 sm:p-8 flex flex-col justify-center">
+                    <span class="qa-code">L3 &middot; Cross-Video</span>
+                    <p class="mt-3 text-gray-900 font-semibold leading-snug">Comparing Player 1's and Player 2's POVs, which agent initiated the engagement at bombsite B?</p>
+                    <ul class="mt-4 space-y-2">
+                      <li class="qa-option"><span class="qa-letter">A</span> Player 1 (CT side)</li>
+                      <li class="qa-option correct"><span class="qa-letter">B</span> Player 2 (T side)</li>
+                      <li class="qa-option"><span class="qa-letter">C</span> A third unseen agent</li>
+                      <li class="qa-option"><span class="qa-letter">D</span> Neither &mdash; it was simultaneous</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Slider controls -->
+          <button onclick="slideQA(-1)" class="slider-btn left-0 -translate-x-1/2" aria-label="Previous slide">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button onclick="slideQA(1)" class="slider-btn right-0 translate-x-1/2" aria-label="Next slide">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+
+          <!-- Dots -->
+          <div class="flex justify-center gap-2 mt-6" id="qa-dots"></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== LEADERBOARD ===== -->
+    <section class="py-20 px-6 bg-gray-50/70" id="leaderboard">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="section-title">Leaderboard</h2>
+        <p class="mt-4 text-center text-gray-500 max-w-3xl mx-auto leading-relaxed">
+          Model performance across task categories. Click any column header to sort. <span class="inline-block w-3 h-3 rounded-sm bg-amber-100 border border-amber-300 align-middle"></span> = best, <span class="inline-block w-3 h-3 rounded-sm bg-gray-100 border border-gray-300 align-middle"></span> = second best.
+        </p>
+        <div class="mt-10 overflow-x-auto rounded-xl border border-gray-200 shadow-sm bg-white">
+          <table class="w-full text-sm" id="leaderboard-table">
+            <thead>
+              <tr class="bg-gray-50 border-b border-gray-200">
+                <th class="lb-th sticky left-0 bg-gray-50 z-10 min-w-[160px]" data-col="model">Model</th>
+                <th class="lb-th" data-col="all">All</th>
+                <th class="lb-th lb-group-start" data-col="actrec" title="Action Recognition">ActRec</th>
+                <th class="lb-th" data-col="starec" title="State Recognition">StaRec</th>
+                <th class="lb-th" data-col="objrec" title="Object Recognition">ObjRec</th>
+                <th class="lb-th" data-col="evtrec" title="Event Recognition">EvtRec</th>
+                <th class="lb-th lb-group-end" data-col="soc" title="Static Object Count">SOC</th>
+                <th class="lb-th lb-group-start" data-col="xent" title="Cross-Entity Referring">X-Ent</th>
+                <th class="lb-th" data-col="tsref" title="Timestamp Referring">TsRef</th>
+                <th class="lb-th" data-col="timloc" title="Time Localization">TimLoc</th>
+                <th class="lb-th" data-col="absrec" title="Absence Recognition">AbsRec</th>
+                <th class="lb-th" data-col="occcnt" title="Occurrence Count">OccCnt</th>
+                <th class="lb-th" data-col="order" title="Ordering">Order</th>
+                <th class="lb-th lb-group-end" data-col="intent" title="Intent Identification">Intent</th>
+                <th class="lb-th lb-group-start" data-col="syncref" title="Sync-Referring">SyncRef</th>
+                <th class="lb-th" data-col="xvord" title="Cross-Video Ordering">X-VOrd</th>
+                <th class="lb-th lb-group-end" data-col="povid" title="POV Identification">POV-ID</th>
+              </tr>
+              <tr class="bg-gray-50/50 border-b border-gray-100 text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                <td class="px-3 py-1 sticky left-0 bg-gray-50/50 z-10"></td>
+                <td class="px-3 py-1"></td>
+                <td class="px-3 py-1 text-center" colspan="5">L1 &middot; Single Reference</td>
+                <td class="px-3 py-1 text-center" colspan="7">L2 &middot; Temporal</td>
+                <td class="px-3 py-1 text-center" colspan="3">L3 &middot; Cross-Video</td>
+              </tr>
+            </thead>
+            <tbody id="leaderboard-body"></tbody>
+          </table>
+        </div>
+        <div class="mt-6 text-center">
+          <a href="/gameplayqa/leaderboard.html" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 hover:text-brand-700 transition-colors">
+            View full leaderboard with all metrics
+            <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ERROR SOURCE ANALYSIS ===== -->
+    <section class="py-20 px-6" id="error-analysis">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="section-title">Error Source Analysis</h2>
+        <p class="mt-4 text-center text-gray-500 max-w-3xl mx-auto leading-relaxed">
+          Fine-grained error analysis across four dimensions reveals that models fail primarily on temporal and cross-video grounding rather than scene-level perception, and that game pace, video length, and number of synchronized perspectives all compound errors.
+        </p>
+        <div class="mt-12 grid md:grid-cols-2 gap-8">
+
+          <!-- Chart 1: Error Rate by Distractor Type -->
+          <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+            <h3 class="text-sm font-bold text-gray-900 mb-1">Error Rate by Distractor Type</h3>
+            <p class="text-xs text-gray-400 mb-4">Cross-video and temporal distractors cause the most errors</p>
+            <div id="chart-distractor" class="w-full" style="height:260px;"></div>
+          </div>
+
+          <!-- Chart 2: Error Rate by Game -->
+          <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+            <h3 class="text-sm font-bold text-gray-900 mb-1">Error Rate by Game</h3>
+            <p class="text-xs text-gray-400 mb-4">Fast-paced shooters are the hardest</p>
+            <div id="chart-game" class="w-full" style="height:260px;"></div>
+          </div>
+
+          <!-- Chart 3: Error Rate by Video Duration -->
+          <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+            <h3 class="text-sm font-bold text-gray-900 mb-1">Error Rate by Video Duration</h3>
+            <p class="text-xs text-gray-400 mb-4">Error increases with video length</p>
+            <div id="chart-duration" class="w-full" style="height:260px;"></div>
+          </div>
+
+          <!-- Chart 4: Error Rate by Number of Videos -->
+          <div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+            <h3 class="text-sm font-bold text-gray-900 mb-1">Error Rate by Number of Videos</h3>
+            <p class="text-xs text-gray-400 mb-4">Error scales with number of synchronized videos</p>
+            <div id="chart-numvideos" class="w-full" style="height:260px;"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LANGUAGE PRIOR AND TEMPORAL ABLATION ===== -->
+    <section class="py-20 px-6 bg-gray-50/70" id="ablation">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="section-title">Language Prior and Temporal Ablation</h2>
+        <p class="mt-4 text-center text-gray-500 max-w-3xl mx-auto leading-relaxed">
+          To disentangle visual grounding from temporal reasoning, we evaluate GPT-5 Mini under degraded input conditions: no video, a single random frame, and shuffled frames. The results confirm that GameplayQA requires genuine video understanding&mdash;language priors alone are insufficient.
+        </p>
+        <div class="mt-10 overflow-x-auto rounded-xl border border-gray-200 shadow-sm bg-white">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-gray-50 border-b border-gray-200">
+                <th class="px-5 py-3 text-left font-semibold text-gray-700">Condition</th>
+                <th class="px-5 py-3 text-center font-semibold text-gray-700">All</th>
+                <th class="px-5 py-3 text-center font-semibold text-gray-700">L1</th>
+                <th class="px-5 py-3 text-center font-semibold text-gray-700">L2</th>
+                <th class="px-5 py-3 text-center font-semibold text-gray-700">L3</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-gray-100 bg-brand-50/30">
+                <td class="px-5 py-3 font-semibold text-gray-900">Baseline (Full Video)</td>
+                <td class="px-5 py-3 text-center font-mono font-semibold text-gray-900">62.7</td>
+                <td class="px-5 py-3 text-center font-mono text-gray-700">67.2</td>
+                <td class="px-5 py-3 text-center font-mono text-gray-700">61.9</td>
+                <td class="px-5 py-3 text-center font-mono text-gray-700">60.6</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="px-5 py-3 text-gray-700">
+                  <span class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-red-400"></span>
+                    No Video
+                  </span>
+                </td>
+                <td class="px-5 py-3 text-center font-mono text-gray-600">29.4</td>
+                <td class="px-5 py-3 text-center font-mono text-gray-600">36.0</td>
+                <td class="px-5 py-3 text-center font-mono text-gray-600">29.1</td>
+                <td class="px-5 py-3 text-center font-mono text-gray-600">24.2</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="px-5 py-3 text-gray-700">
+                  <span class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                    Random Frame
+                  </span>
+                </td>
+                <td class="px-5 py-3 text-center font-mono text-gray-600">41.7</td>
+                <td class="px-5 py-3 text-center font-mono text-gray-600">52.9</td>
+                <td class="px-5 py-3 text-center font-mono text-gray-600">40.9</td>
+                <td class="px-5 py-3 text-center font-mono text-gray-600">33.7</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 text-gray-700">
+                  <span class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                    Shuffled Frames
+                  </span>
+                </td>
+                <td class="px-5 py-3 text-center font-mono text-gray-600">54.8</td>
+                <td class="px-5 py-3 text-center font-mono text-gray-600">63.1</td>
+                <td class="px-5 py-3 text-center font-mono text-gray-600">52.6</td>
+                <td class="px-5 py-3 text-center font-mono text-gray-600">53.4</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mt-8 grid sm:grid-cols-3 gap-4">
+          <div class="bg-white rounded-lg border border-gray-200 p-4 text-center">
+            <p class="text-2xl font-bold text-red-500">&minus;33.3</p>
+            <p class="text-xs text-gray-500 mt-1">No Video vs. Baseline</p>
+            <p class="text-[11px] text-gray-400 mt-0.5">Language priors alone are insufficient</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4 text-center">
+            <p class="text-2xl font-bold text-amber-500">&minus;21.0</p>
+            <p class="text-xs text-gray-500 mt-1">Random Frame vs. Baseline</p>
+            <p class="text-[11px] text-gray-400 mt-0.5">Static content helps but can&rsquo;t replace temporal dynamics</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4 text-center">
+            <p class="text-2xl font-bold text-blue-500">&minus;7.9</p>
+            <p class="text-xs text-gray-500 mt-1">Shuffled Frames vs. Baseline</p>
+            <p class="text-[11px] text-gray-400 mt-0.5">Temporal ordering is critical for reasoning tasks</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== AUTHORS ===== -->
+    <section class="py-20 px-6 bg-gray-50/70" id="authors">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="section-title">Authors</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 mt-12">
+
+          <div class="author-card">
+            <a href="https://www.linkedin.com/in/yunzhe-wang/" target="_blank">
+              <img src="/projects/gameplayqa/static/images/yunzhe.webp" alt="Yunzhe Wang" class="author-photo">
+            </a>
+            <h4 class="mt-3 text-sm font-semibold text-gray-900">Yunzhe Wang</h4>
+            <p class="text-xs text-gray-500 mt-0.5">PhD Student, USC</p>
+          </div>
+
+          <div class="author-card">
+            <a href="#" target="_blank">
+              <img src="/projects/gameplayqa/static/images/placeholder.svg" alt="Runhui Xu" class="author-photo">
+            </a>
+            <h4 class="mt-3 text-sm font-semibold text-gray-900">Runhui Xu</h4>
+            <p class="text-xs text-gray-500 mt-0.5">USC</p>
+          </div>
+
+          <div class="author-card">
+            <a href="#" target="_blank">
+              <img src="/projects/gameplayqa/static/images/placeholder.svg" alt="Kexin Zheng" class="author-photo">
+            </a>
+            <h4 class="mt-3 text-sm font-semibold text-gray-900">Kexin Zheng</h4>
+            <p class="text-xs text-gray-500 mt-0.5">USC</p>
+          </div>
+
+          <div class="author-card">
+            <a href="#" target="_blank">
+              <img src="/projects/gameplayqa/static/images/placeholder.svg" alt="Tianyi Zhang" class="author-photo">
+            </a>
+            <h4 class="mt-3 text-sm font-semibold text-gray-900">Tianyi Zhang</h4>
+            <p class="text-xs text-gray-500 mt-0.5">USC</p>
+          </div>
+
+          <div class="author-card">
+            <a href="#" target="_blank">
+              <img src="/projects/gameplayqa/static/images/placeholder.svg" alt="Jayavibhav Niranjan Kogundi" class="author-photo">
+            </a>
+            <h4 class="mt-3 text-sm font-semibold text-gray-900">Jayavibhav N. Kogundi</h4>
+            <p class="text-xs text-gray-500 mt-0.5">USC</p>
+          </div>
+
+          <div class="author-card">
+            <a href="#" target="_blank">
+              <img src="/projects/gameplayqa/static/images/soham.webp" alt="Soham Hans" class="author-photo">
+            </a>
+            <h4 class="mt-3 text-sm font-semibold text-gray-900">Soham Hans</h4>
+            <p class="text-xs text-gray-500 mt-0.5">USC</p>
+          </div>
+
+          <div class="author-card">
+            <a href="https://www.linkedin.com/in/volkan-ustun-9883a74/" target="_blank">
+              <img src="/projects/gameplayqa/static/images/volkan.webp" alt="Volkan Ustun" class="author-photo">
+            </a>
+            <h4 class="mt-3 text-sm font-semibold text-gray-900">Volkan Ustun</h4>
+            <p class="text-xs text-gray-500 mt-0.5">Director, HATS &mdash; USC ICT</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BIBTEX ===== -->
+    <section class="py-16 px-6" id="citation">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="section-title">Citation</h2>
+        <div class="relative mt-8">
+          <button onclick="copyBibtex()" id="copy-btn" class="absolute top-3 right-3 text-xs font-medium text-gray-400 hover:text-brand-600 transition-colors flex items-center gap-1.5 bg-white/80 backdrop-blur rounded-md px-2.5 py-1.5 border border-gray-200 hover:border-brand-300">
+            <i class="far fa-copy"></i>
+            <span id="copy-label">Copy</span>
+          </button>
+          <pre class="bg-gray-50 border border-gray-200 rounded-xl p-6 pr-24 text-sm leading-relaxed overflow-x-auto font-mono text-gray-700"><code id="bibtex-text">@article{wang2026gameplayqa,
+  title={GameplayQA: A Benchmarking Framework for Decision-Dense
+         POV-Synced Multi-Video Understanding of 3D Virtual Agents},
+  author={Wang, Yunzhe and Xu, Runhui and Zheng, Kexin and
+          Zhang, Tianyi and Kogundi, Jayavibhav Niranjan and
+          Hans, Soham and Ustun, Volkan},
+  year={2026}
+}</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="border-t border-gray-100 py-8 px-6">
+    <div class="max-w-5xl mx-auto text-center text-sm text-gray-400">
+      <p>&copy; 2026 University of Southern California. Built for the research community.</p>
+    </div>
+  </footer>
+
+  <script src="/projects/gameplayqa/static/js/main.js"></script>
+</body>
+</html>

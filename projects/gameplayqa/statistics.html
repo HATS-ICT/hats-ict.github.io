@@ -1,0 +1,50 @@
+---
+permalink: /gameplayqa/statistics.html
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Statistics — GameplayQA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Source Sans 3"', 'system-ui', 'sans-serif'] },
+          colors: { brand: { 600: '#1a57f5' } }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/projects/gameplayqa/static/css/style.css">
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+  <header id="site-header" class="fixed top-0 inset-x-0 z-50 scrolled">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-6 h-16">
+      <a href="/gameplayqa/" class="text-lg font-bold tracking-tight hover:text-brand-600 transition-colors">GameplayQA</a>
+      <nav class="flex items-center gap-1">
+        <a href="/gameplayqa/" class="nav-link">Home</a>
+        <a href="/gameplayqa/leaderboard.html" class="nav-link">Leaderboard</a>
+        <a href="/gameplayqa/statistics.html" class="nav-link active">Statistics</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-32 pb-20 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-3xl font-extrabold tracking-tight">Dataset Statistics</h1>
+      <p class="mt-4 text-gray-500 text-lg">Coming soon. Detailed dataset breakdowns and visualizations will be published here.</p>
+      <a href="/gameplayqa/" class="inline-block mt-8 text-sm font-semibold text-brand-600 hover:underline">&larr; Back to Home</a>
+    </div>
+  </main>
+
+  <script src="/projects/gameplayqa/static/js/main.js"></script>
+</body>
+</html>
