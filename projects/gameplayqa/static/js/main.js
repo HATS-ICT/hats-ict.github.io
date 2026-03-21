@@ -1,24 +1,49 @@
-// Header scroll effect
-const header = document.getElementById('site-header');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 10);
-}, { passive: true });
+// ===== SIDE NAV SCROLL SPY =====
+function initSideNav() {
+  const nav = document.getElementById('side-nav');
+  if (!nav) return;
 
-// Related work dropdown
-function toggleRelated() {
-  const menu = document.getElementById('related-menu');
-  const arrow = document.getElementById('related-arrow');
-  menu.classList.toggle('open');
-  arrow.classList.toggle('open');
-}
+  const items = nav.querySelectorAll('.side-nav-item');
+  const sectionIds = Array.from(items).map(el => el.dataset.section);
+  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
 
-document.addEventListener('click', (e) => {
-  const dropdown = document.getElementById('related-dropdown');
-  if (!dropdown.contains(e.target)) {
-    document.getElementById('related-menu').classList.remove('open');
-    document.getElementById('related-arrow').classList.remove('open');
+  // Show nav after scrolling past hero
+  const heroHeight = document.querySelector('main section')?.offsetHeight || 400;
+
+  function update() {
+    const scrollY = window.scrollY;
+
+    // Show/hide nav
+    nav.classList.toggle('visible', scrollY > heroHeight * 0.6);
+
+    // Find active section: the one whose top is closest above viewport center
+    const viewportMid = scrollY + window.innerHeight * 0.4;
+    let activeId = null;
+
+    for (let i = sections.length - 1; i >= 0; i--) {
+      if (sections[i].offsetTop <= viewportMid) {
+        activeId = sections[i].id;
+        break;
+      }
+    }
+
+    items.forEach(item => {
+      item.classList.toggle('active', item.dataset.section === activeId);
+    });
   }
-});
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+
+  // Smooth scroll on click
+  items.forEach(item => {
+    item.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(item.dataset.section);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+}
 
 // QA Slider
 let qaIndex = 0;
@@ -129,7 +154,7 @@ function renderLeaderboard() {
 
   function rowHtml(d, extraClass) {
     const cls = extraClass || '';
-    html += `<tr class="border-b border-gray-50 hover:bg-gray-50/50 transition-colors ${cls}">`;
+    html += `<tr class="border-b border-gray-50 transition-colors ${cls}" onmouseover="this.style.background='rgba(124,58,237,0.03)'" onmouseout="this.style.background=''">`;
     html += `<td class="lb-td-model sticky left-0 bg-white z-10">${d.model}</td>`;
     COLS.forEach(c => {
       const v = d[c];
@@ -231,7 +256,7 @@ function initCharts() {
     { label: 'No Man\'s Sky', value: 38.5 },
     { label: 'Minecraft', value: 35.6 },
     { label: 'Cyberpunk 2077', value: 30.5 },
-  ], '#1e3a5f', '#93c5fd');
+  ], '#1e3a8a', '#93c5fd');
 
   renderBarChart('chart-duration', [
     { label: '0-5s', value: 35.8 },
@@ -250,6 +275,13 @@ function initCharts() {
 
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
+  // Hero scroll cue
+  document.querySelector('.hero-scroll-cue')?.addEventListener('click', e => {
+    e.preventDefault();
+    document.getElementById('taxonomy')?.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  initSideNav();
   initSlider();
   initLeaderboard();
   initCharts();

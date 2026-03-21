@@ -17,21 +17,21 @@ layout: null
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Source Sans 3"', 'system-ui', 'sans-serif'],
+            sans: ['Rajdhani', '"Source Sans 3"', 'system-ui', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace'],
           },
           colors: {
             brand: {
-              50: '#eef5ff',
-              100: '#d9e8ff',
-              200: '#bcd7ff',
-              300: '#8ebfff',
-              400: '#599cff',
-              500: '#3478ff',
-              600: '#1a57f5',
-              700: '#1443e1',
-              800: '#1736b6',
-              900: '#19328f',
+              50: '#f3eeff',
+              100: '#e4d4ff',
+              200: '#c9aaff',
+              300: '#a87aff',
+              400: '#8a4fff',
+              500: '#7c3aed',
+              600: '#6d28d9',
+              700: '#5b21b6',
+              800: '#4c1d95',
+              900: '#3b1678',
             }
           }
         }
@@ -42,7 +42,7 @@ layout: null
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -53,240 +53,138 @@ layout: null
 </head>
 <body class="bg-white text-gray-900 font-sans antialiased">
 
-  <!-- ===== HEADER / NAVBAR ===== -->
-  <header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
-    <div class="max-w-6xl mx-auto flex items-center justify-end px-6 h-16">
-      <nav class="flex items-center gap-1">
-        <a href="/gameplayqa/" class="nav-link active">Home</a>
-        <a href="/gameplayqa/leaderboard.html" class="nav-link">Leaderboard</a>
-        <a href="/gameplayqa/statistics.html" class="nav-link">Statistics</a>
-
-        <!-- Related Work Dropdown -->
-        <div class="relative ml-2" id="related-dropdown">
-          <button onclick="toggleRelated()" class="nav-link inline-flex items-center gap-1">
-            Related Work
-            <i class="fas fa-chevron-down text-[10px] transition-transform duration-200" id="related-arrow"></i>
-          </button>
-          <div id="related-menu" class="absolute right-0 top-full mt-2 w-80 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible translate-y-1 transition-all duration-200 overflow-hidden">
-            <div class="p-2">
-              <a href="https://hats-ict.github.io/decoy/" target="_blank" class="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors group">
-                <div class="flex-1 min-w-0">
-                  <p class="text-sm font-semibold text-gray-900 group-hover:text-brand-600 transition-colors">DECOY</p>
-                  <p class="text-xs text-gray-500 mt-0.5 line-clamp-2">Data-Driven Discretized CS:GO Simulation for Multi-Agent Planning</p>
-                </div>
-                <i class="fas fa-arrow-up-right-from-square text-xs text-gray-300 mt-1 shrink-0"></i>
-              </a>
-              <a href="https://hats-ict.github.io/peba-asi/" target="_blank" class="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors group">
-                <div class="flex-1 min-w-0">
-                  <p class="text-sm font-semibold text-gray-900 group-hover:text-brand-600 transition-colors">PEBA-ASI</p>
-                  <p class="text-xs text-gray-500 mt-0.5 line-clamp-2">Implicit Behavioral Alignment of Language Agents in High-Stakes Crowd Simulations</p>
-                </div>
-                <i class="fas fa-arrow-up-right-from-square text-xs text-gray-300 mt-1 shrink-0"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </header>
+  <!-- ===== SIDE NAV ===== -->
+  <nav id="side-nav" aria-label="Page sections">
+    <ul>
+      <li><a href="#taxonomy" class="side-nav-item" data-section="taxonomy"><span class="side-nav-dash"></span><span class="side-nav-label">Taxonomy</span></a></li>
+      <li><a href="#annotation-software" class="side-nav-item" data-section="annotation-software"><span class="side-nav-dash"></span><span class="side-nav-label">Annotation</span></a></li>
+      <li><a href="#examples" class="side-nav-item" data-section="examples"><span class="side-nav-dash"></span><span class="side-nav-label">Examples</span></a></li>
+      <li><a href="#leaderboard" class="side-nav-item" data-section="leaderboard"><span class="side-nav-dash"></span><span class="side-nav-label">Leaderboard</span></a></li>
+      <li><a href="#error-analysis" class="side-nav-item" data-section="error-analysis"><span class="side-nav-dash"></span><span class="side-nav-label">Error Analysis</span></a></li>
+      <li><a href="#ablation" class="side-nav-item" data-section="ablation"><span class="side-nav-dash"></span><span class="side-nav-label">Ablation</span></a></li>
+      <li><a href="#authors" class="side-nav-item" data-section="authors"><span class="side-nav-dash"></span><span class="side-nav-label">Authors</span></a></li>
+      <li><a href="#citation" class="side-nav-item" data-section="citation"><span class="side-nav-dash"></span><span class="side-nav-label">Citation</span></a></li>
+    </ul>
+  </nav>
 
   <main>
     <!-- ===== HERO ===== -->
-    <section class="pt-28 pb-12 px-6">
-      <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
-        <div>
-          <div class="flex items-center gap-3 mb-4">
-            <img src="/projects/gameplayqa/static/images/logo.png" alt="GameplayQA logo" class="w-14 h-14 object-contain drop-shadow-sm">
-            <span class="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-600">GameplayQA</span>
-          </div>
-
-          <h1 class="text-lg sm:text-xl lg:text-[1.375rem] font-semibold leading-relaxed text-gray-500">
-            A Benchmarking Framework for Decision-Dense POV-Synced Multi-Video Understanding of 3D Virtual Agents
-          </h1>
-
-          <div class="mt-5 flex flex-wrap gap-x-3 gap-y-1 text-[0.9375rem] text-gray-700">
-            <a href="https://www.linkedin.com/in/yunzhe-wang/" target="_blank" class="author-name">Yunzhe Wang</a>
-            <a href="#" target="_blank" class="author-name">Runhui Xu</a>
-            <a href="#" target="_blank" class="author-name">Kexin Zheng</a>
-            <a href="#" target="_blank" class="author-name">Tianyi Zhang</a>
-            <a href="#" target="_blank" class="author-name">Jayavibhav Niranjan Kogundi</a>
-            <a href="#" target="_blank" class="author-name">Soham Hans</a>
-            <a href="https://www.linkedin.com/in/volkan-ustun-9883a74/" target="_blank" class="author-name">Volkan Ustun</a>
-          </div>
-
-          <p class="mt-1.5 text-sm text-gray-400 font-medium">University of Southern California</p>
-
-          <div class="mt-5 flex flex-wrap gap-2">
-            <a href="#" class="action-btn">
-              <i class="ai ai-arxiv"></i>
-              <span>arXiv</span>
-            </a>
-            <a href="#" class="action-btn">
-              <i class="fab fa-github"></i>
-              <span>Benchmark Code</span>
-            </a>
-            <a href="#" class="action-btn">
-              <i class="fab fa-github"></i>
-              <span>Annotation Software</span>
-            </a>
-            <a href="#" class="action-btn">
-              🤗
-              <span>Dataset</span>
-            </a>
-          </div>
+    <section class="hero-section">
+      <!-- Top: text content -->
+      <div class="hero-content">
+        <div class="flex items-center justify-center gap-3 mb-5">
+          <img src="/projects/gameplayqa/static/images/logo.png" alt="GameplayQA logo" class="w-12 h-12 object-contain drop-shadow-sm">
+          <span class="text-4xl sm:text-5xl font-extrabold tracking-tight text-brand-600" style="font-family:'Rajdhani',sans-serif;letter-spacing:.04em;text-transform:uppercase;">GameplayQA</span>
         </div>
 
-        <div>
-          <img src="/projects/gameplayqa/static/images/framework.webp" alt="GameplayQA framework overview" class="w-full rounded-xl">
+        <h1 class="text-base sm:text-lg font-medium leading-relaxed text-gray-400 max-w-2xl mx-auto text-center">
+          A Benchmarking Framework for Decision-Dense POV-Synced<br class="hidden sm:block"> Multi-Video Understanding of 3D Virtual Agents
+        </h1>
+
+        <div class="mt-6 flex flex-wrap justify-center gap-x-3 gap-y-1 text-[0.9375rem] text-gray-700">
+          <a href="https://www.linkedin.com/in/yunzhe-wang/" target="_blank" class="author-name">Yunzhe Wang</a>
+          <a href="https://www.linkedin.com/in/runhui-xu-a9895a2b3/" target="_blank" class="author-name">Runhui Xu</a>
+          <a href="https://www.linkedin.com/in/kexin-zheng-8b5a7a232/" target="_blank" class="author-name">Kexin Zheng</a>
+          <a href="https://www.linkedin.com/in/tianyi-mavis-zhang-3b9514128/" target="_blank" class="author-name">Tianyi Zhang</a>
+          <a href="https://www.linkedin.com/in/jayavibhav/" target="_blank" class="author-name">Jayavibhav Niranjan Kogundi</a>
+          <a href="#" target="_blank" class="author-name">Soham Hans</a>
+          <a href="https://www.linkedin.com/in/volkan-ustun-9883a74/" target="_blank" class="author-name">Volkan Ustun</a>
         </div>
-      </div>
-    </section>
 
+        <p class="mt-1.5 text-sm text-gray-400 font-medium text-center">University of Southern California</p>
 
-    <!-- ===== DECISION DENSITY ===== -->
-    <section class="py-20 px-6" id="decision-density">
-      <div class="max-w-5xl mx-auto">
-        <h2 class="section-title">Decision Density</h2>
-        <p class="mt-4 text-center text-gray-500 max-w-3xl mx-auto leading-relaxed">
-          We operationalize <strong class="text-gray-700">decision density</strong> as the temporal frequency of semantic labels&mdash;actions, states, and events&mdash;that constitute the necessary information stream for an agent&rsquo;s planning and reaction loop.
-        </p>
-
-        <div class="mt-10 max-w-3xl mx-auto">
-          <div class="bg-gray-50 rounded-xl border border-gray-200 p-8 text-center">
-            <p class="text-sm text-gray-500 mb-3">Density metric</p>
-            <p class="text-3xl font-bold text-gray-900 font-mono tracking-tight">
-              &rho; = N<sub class="text-lg">labels</sub> / T<sub class="text-lg">seconds</sub>
-            </p>
-            <div class="mt-6 flex items-center justify-center gap-3">
-              <span class="text-sm text-gray-500">2,709 labels</span>
-              <span class="text-gray-300">/</span>
-              <span class="text-sm text-gray-500">2,219.41 seconds</span>
-              <span class="text-gray-300">=</span>
-              <span class="text-2xl font-extrabold text-brand-600">1.22 <span class="text-base font-semibold">Hz</span></span>
-            </div>
-          </div>
-
-          <div class="mt-8 grid grid-cols-3 sm:grid-cols-6 gap-3">
-            <div class="bg-white rounded-lg border border-gray-200 p-3 text-center">
-              <p class="text-xs font-bold text-brand-600 uppercase tracking-wide">SA</p>
-              <p class="text-lg font-bold text-gray-900 mt-1">24.3%</p>
-              <p class="text-[10px] text-gray-400">Self-Action</p>
-            </div>
-            <div class="bg-white rounded-lg border border-gray-200 p-3 text-center">
-              <p class="text-xs font-bold text-brand-600 uppercase tracking-wide">SS</p>
-              <p class="text-lg font-bold text-gray-900 mt-1">26.9%</p>
-              <p class="text-[10px] text-gray-400">Self-State</p>
-            </div>
-            <div class="bg-white rounded-lg border border-gray-200 p-3 text-center">
-              <p class="text-xs font-bold text-brand-600 uppercase tracking-wide">OA</p>
-              <p class="text-lg font-bold text-gray-900 mt-1">5.9%</p>
-              <p class="text-[10px] text-gray-400">Other-Action</p>
-            </div>
-            <div class="bg-white rounded-lg border border-gray-200 p-3 text-center">
-              <p class="text-xs font-bold text-brand-600 uppercase tracking-wide">OS</p>
-              <p class="text-lg font-bold text-gray-900 mt-1">7.0%</p>
-              <p class="text-[10px] text-gray-400">Other-State</p>
-            </div>
-            <div class="bg-white rounded-lg border border-gray-200 p-3 text-center">
-              <p class="text-xs font-bold text-brand-600 uppercase tracking-wide">WO</p>
-              <p class="text-lg font-bold text-gray-900 mt-1">20.5%</p>
-              <p class="text-[10px] text-gray-400">World-Object</p>
-            </div>
-            <div class="bg-white rounded-lg border border-gray-200 p-3 text-center">
-              <p class="text-xs font-bold text-brand-600 uppercase tracking-wide">WE</p>
-              <p class="text-lg font-bold text-gray-900 mt-1">15.4%</p>
-              <p class="text-[10px] text-gray-400">World-Event</p>
-            </div>
-          </div>
+        <div class="mt-6 flex flex-wrap justify-center gap-2">
+          <a href="#" class="action-btn">
+            <i class="ai ai-arxiv"></i>
+            <span>arXiv</span>
+          </a>
+          <a href="#" class="action-btn">
+            <i class="fab fa-github"></i>
+            <span>Benchmark Code</span>
+          </a>
+          <a href="#" class="action-btn">
+            <i class="fab fa-github"></i>
+            <span>Annotation Software</span>
+          </a>
+          <a href="#" class="action-btn">
+            🤗
+            <span>Dataset</span>
+          </a>
+          <a href="https://www.youtube.com/watch?v=PKedELJ4XT0" target="_blank" class="action-btn">
+            <i class="fab fa-youtube"></i>
+            <span>Annotation Demo</span>
+          </a>
         </div>
       </div>
+
+      <!-- Bottom: framework image -->
+      <div class="hero-image">
+        <img src="/projects/gameplayqa/static/images/framework.webp" alt="GameplayQA framework overview" class="w-full h-full object-contain">
+      </div>
+
+      <!-- Scroll cue -->
+      <a href="#taxonomy" class="hero-scroll-cue" aria-label="Scroll to content">
+        <i class="fas fa-chevron-down"></i>
+      </a>
     </section>
+
 
     <!-- ===== SELF-OTHER-WORLD REASONING TAXONOMY ===== -->
-    <section class="py-20 px-6 bg-gray-50/70" id="taxonomy">
+    <section class="py-28 px-6 bg-gray-50" id="taxonomy">
       <div class="max-w-6xl mx-auto">
-        <h2 class="section-title mb-10">Self-Other-World Reasoning Taxonomy</h2>
+        <h2 class="section-title mb-12"><span style="color:#3b82f6">Self</span><span class="text-gray-400">&ndash;</span><span style="color:#ef4444">Other</span><span class="text-gray-400">&ndash;</span><span style="color:#22c55e">World</span> Reasoning Taxonomy</h2>
         <div class="grid lg:grid-cols-2 gap-10 items-start">
           <div>
             <p class="text-gray-500 leading-relaxed">
-              We organize perception around a triadic <strong class="text-gray-700">Self&ndash;Other&ndash;World</strong> entity decomposition. For each entity, we distinguish dynamic and static properties&mdash;<em>Action</em> vs. <em>State</em> for agents, <em>Object</em> vs. <em>Event</em> for the world&mdash;yielding six primitive label types.
+              We organize perception around a triadic <strong><span style="color:#3b82f6">Self</span><span class="text-gray-400">&ndash;</span><span style="color:#ef4444">Other</span><span class="text-gray-400">&ndash;</span><span style="color:#22c55e">World</span></strong> entity decomposition. For each entity, we distinguish dynamic and static properties&mdash;<em>Action</em> vs. <em>State</em> for agents, <em>Object</em> vs. <em>Event</em> for the world&mdash;yielding six primitive label types.
             </p>
             <p class="mt-4 text-gray-500 leading-relaxed">
-              These primitives compose into <strong class="text-gray-700">15 task categories</strong> across three cognitive levels:
+              These primitives compose into <strong class="text-gray-700">15 task categories</strong> across three entity perspectives:
             </p>
             <ul class="mt-4 space-y-3">
               <li class="flex items-start gap-3">
-                <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-brand-50 text-brand-600 text-xs font-bold flex items-center justify-center">L1</span>
-                <span class="text-sm text-gray-600"><strong class="text-gray-800">Single-reference perception</strong> &mdash; basic recognition of actions, states, objects, and events within a single video segment.</span>
+                <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg text-xs font-bold flex items-center justify-center" style="background:#eff6ff;color:#3b82f6;font-family:'Rajdhani',sans-serif;letter-spacing:.05em;">S</span>
+                <span class="text-sm text-gray-600"><strong style="color:#3b82f6">Self</strong> &mdash; questions about the agent&rsquo;s own actions, states, and decisions as seen from its first-person POV.</span>
               </li>
               <li class="flex items-start gap-3">
-                <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-amber-50 text-amber-600 text-xs font-bold flex items-center justify-center">L2</span>
-                <span class="text-sm text-gray-600"><strong class="text-gray-800">Temporal reasoning</strong> &mdash; cross-entity referring, time localization, ordering, and intent identification grounded to specific time windows.</span>
+                <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg text-xs font-bold flex items-center justify-center" style="background:#fef2f2;color:#ef4444;font-family:'Rajdhani',sans-serif;letter-spacing:.05em;">O</span>
+                <span class="text-sm text-gray-600"><strong style="color:#ef4444">Other</strong> &mdash; questions about the behavior, intent, and actions of other agents observed in the gameplay footage.</span>
               </li>
               <li class="flex items-start gap-3">
-                <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-purple-50 text-purple-600 text-xs font-bold flex items-center justify-center">L3</span>
-                <span class="text-sm text-gray-600"><strong class="text-gray-800">Cross-video understanding</strong> &mdash; sync-referring, cross-video ordering, and POV identification across synchronized multi-POV footage.</span>
+                <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg text-xs font-bold flex items-center justify-center" style="background:#f0fdf4;color:#22c55e;font-family:'Rajdhani',sans-serif;letter-spacing:.05em;">W</span>
+                <span class="text-sm text-gray-600"><strong style="color:#22c55e">World</strong> &mdash; questions about environmental objects, events, and state changes in the 3D game world.</span>
               </li>
             </ul>
           </div>
           <figure>
             <img src="/projects/gameplayqa/static/images/sow.webp" alt="Self-Other-World reasoning taxonomy" class="w-full rounded-xl border border-gray-200 shadow-sm">
-            <figcaption class="mt-4 text-sm text-gray-500 leading-relaxed">
-              <strong class="text-gray-700">Question taxonomy of GameplayQA.</strong> Questions are organized along two axes: <em>Entity</em> (Self, Other, World) and <em>Temporal Nature</em>, yielding six primitive label types that compose into 15 task categories across three cognitive levels.
-            </figcaption>
           </figure>
         </div>
       </div>
     </section>
 
     <!-- ===== ANNOTATION SOFTWARE ===== -->
-    <section class="py-20 px-6" id="annotation-software">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="section-title mb-10">Annotation Software</h2>
-        <div class="grid lg:grid-cols-2 gap-10 items-start">
-          <div>
-            <p class="text-gray-500 leading-relaxed">
-              We developed a <strong class="text-gray-700">custom multi-track timeline annotation tool</strong> purpose-built for dense, synchronized multi-POV gameplay captioning.
-            </p>
-            <p class="mt-4 text-gray-500 leading-relaxed">
-              The software supports concurrent labeling across six entity tracks with overlapping temporal spans, enabling annotators to efficiently capture the high-frequency state transitions characteristic of 3D gameplay.
-            </p>
-            <ul class="mt-6 space-y-3">
-              <li class="flex items-start gap-3">
-                <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center"><i class="fas fa-layer-group text-xs"></i></span>
-                <span class="text-sm text-gray-600"><strong class="text-gray-800">Six parallel tracks</strong> for SA, SS, OA, OS, WO, WE with independent temporal spans</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center"><i class="fas fa-video text-xs"></i></span>
-                <span class="text-sm text-gray-600"><strong class="text-gray-800">Synchronized multi-POV playback</strong> for cross-video temporal alignment</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center"><i class="fas fa-robot text-xs"></i></span>
-                <span class="text-sm text-gray-600"><strong class="text-gray-800">AI-assisted pre-labeling</strong> with human-in-the-loop verification and refinement</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center"><i class="fas fa-circle-xmark text-xs"></i></span>
-                <span class="text-sm text-gray-600"><strong class="text-gray-800">Negative label support</strong> for structured hallucination-inducing distractor candidates</span>
-              </li>
-            </ul>
-          </div>
-          <figure>
-            <div class="w-full rounded-xl border border-gray-200 shadow-sm overflow-hidden bg-gray-900">
-              <video class="w-full" controls muted playsinline preload="metadata">
-                <source src="/projects/gameplayqa/static/videos/annotation_demo.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <figcaption class="mt-4 text-sm text-gray-500 leading-relaxed">
-              <strong class="text-gray-700">Annotation tool demo.</strong> The interface supports dense multi-track timeline captioning with synchronized multi-POV video playback.
-            </figcaption>
-          </figure>
+    <section class="py-28 px-6" id="annotation-software">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="section-title mb-3">Annotation Software</h2>
+        <p class="text-center text-gray-500 leading-relaxed max-w-2xl mx-auto">
+          We developed a <strong class="text-gray-700">custom multi-track timeline annotation tool</strong> purpose-built for dense, synchronized multi-POV gameplay captioning.
+        </p>
+        <div class="mt-4 flex justify-center">
+          <a href="#" class="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-brand-600 transition-colors group">
+            <i class="fab fa-github text-base"></i>
+            <span class="group-hover:underline underline-offset-2">Open source &mdash; try it on GitHub</span>
+            <i class="fas fa-arrow-right text-xs opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200"></i>
+          </a>
+        </div>
+        <div class="mt-8 w-full rounded-xl overflow-hidden shadow-sm" style="aspect-ratio:16/9;">
+          <iframe class="w-full h-full block" src="https://www.youtube.com/embed/PKedELJ4XT0" title="Annotation tool demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
     </section>
 
     <!-- ===== EXAMPLE QUESTIONS (Slider) ===== -->
-    <section class="py-20 px-6" id="examples">
+    <section class="py-28 px-6 bg-gray-50" id="examples">
       <div class="max-w-5xl mx-auto">
         <h2 class="section-title">Example Questions</h2>
         <p class="mt-4 text-center text-gray-500 max-w-2xl mx-auto">
@@ -402,7 +300,7 @@ layout: null
 
 
     <!-- ===== LEADERBOARD ===== -->
-    <section class="py-20 px-6 bg-gray-50/70" id="leaderboard">
+    <section class="py-28 px-6" id="leaderboard">
       <div class="max-w-6xl mx-auto">
         <h2 class="section-title">Leaderboard</h2>
         <p class="mt-4 text-center text-gray-500 max-w-3xl mx-auto leading-relaxed">
@@ -441,17 +339,11 @@ layout: null
             <tbody id="leaderboard-body"></tbody>
           </table>
         </div>
-        <div class="mt-6 text-center">
-          <a href="/gameplayqa/leaderboard.html" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 hover:text-brand-700 transition-colors">
-            View full leaderboard with all metrics
-            <i class="fas fa-arrow-right text-xs"></i>
-          </a>
-        </div>
       </div>
     </section>
 
     <!-- ===== ERROR SOURCE ANALYSIS ===== -->
-    <section class="py-20 px-6" id="error-analysis">
+    <section class="py-28 px-6 bg-gray-50" id="error-analysis">
       <div class="max-w-5xl mx-auto">
         <h2 class="section-title">Error Source Analysis</h2>
         <p class="mt-4 text-center text-gray-500 max-w-3xl mx-auto leading-relaxed">
@@ -492,11 +384,11 @@ layout: null
     </section>
 
     <!-- ===== LANGUAGE PRIOR AND TEMPORAL ABLATION ===== -->
-    <section class="py-20 px-6 bg-gray-50/70" id="ablation">
+    <section class="py-28 px-6" id="ablation">
       <div class="max-w-4xl mx-auto">
         <h2 class="section-title">Language Prior and Temporal Ablation</h2>
         <p class="mt-4 text-center text-gray-500 max-w-3xl mx-auto leading-relaxed">
-          To disentangle visual grounding from temporal reasoning, we evaluate GPT-5 Mini under degraded input conditions: no video, a single random frame, and shuffled frames. The results confirm that GameplayQA requires genuine video understanding&mdash;language priors alone are insufficient.
+          To disentangle visual grounding from temporal reasoning, we evaluate GPT-5 Mini under degraded input conditions: no video, a single random frame, and shuffled frames.
         </p>
         <div class="mt-10 overflow-x-auto rounded-xl border border-gray-200 shadow-sm bg-white">
           <table class="w-full text-sm">
@@ -510,7 +402,7 @@ layout: null
               </tr>
             </thead>
             <tbody>
-              <tr class="border-b border-gray-100 bg-brand-50/30">
+              <tr class="border-b border-gray-100" style="background:rgba(124,58,237,0.04)">
                 <td class="px-5 py-3 font-semibold text-gray-900">Baseline (Full Video)</td>
                 <td class="px-5 py-3 text-center font-mono font-semibold text-gray-900">62.7</td>
                 <td class="px-5 py-3 text-center font-mono text-gray-700">67.2</td>
@@ -577,49 +469,49 @@ layout: null
     </section>
 
     <!-- ===== AUTHORS ===== -->
-    <section class="py-20 px-6 bg-gray-50/70" id="authors">
+    <section class="py-28 px-6 bg-gray-50" id="authors">
       <div class="max-w-5xl mx-auto">
         <h2 class="section-title">Authors</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 mt-12">
+        <div class="flex flex-wrap justify-center gap-8 mt-12">
 
           <div class="author-card">
             <a href="https://www.linkedin.com/in/yunzhe-wang/" target="_blank">
               <img src="/projects/gameplayqa/static/images/yunzhe.webp" alt="Yunzhe Wang" class="author-photo">
             </a>
             <h4 class="mt-3 text-sm font-semibold text-gray-900">Yunzhe Wang</h4>
-            <p class="text-xs text-gray-500 mt-0.5">PhD Student, USC</p>
+            <p class="text-xs text-gray-500 mt-0.5">PhD Student, CS</p>
           </div>
 
           <div class="author-card">
-            <a href="#" target="_blank">
+            <a href="https://www.linkedin.com/in/runhui-xu-a9895a2b3/" target="_blank">
               <img src="/projects/gameplayqa/static/images/placeholder.svg" alt="Runhui Xu" class="author-photo">
             </a>
             <h4 class="mt-3 text-sm font-semibold text-gray-900">Runhui Xu</h4>
-            <p class="text-xs text-gray-500 mt-0.5">USC</p>
+            <p class="text-xs text-gray-500 mt-0.5">MS Student, CS</p>
           </div>
 
           <div class="author-card">
-            <a href="#" target="_blank">
-              <img src="/projects/gameplayqa/static/images/placeholder.svg" alt="Kexin Zheng" class="author-photo">
+            <a href="https://www.linkedin.com/in/kexin-zheng-8b5a7a232/" target="_blank">
+              <img src="/projects/gameplayqa/static/images/kexin.jpg" alt="Kexin Zheng" class="author-photo">
             </a>
             <h4 class="mt-3 text-sm font-semibold text-gray-900">Kexin Zheng</h4>
-            <p class="text-xs text-gray-500 mt-0.5">USC</p>
+            <p class="text-xs text-gray-500 mt-0.5">PhD Student, CS</p>
           </div>
 
           <div class="author-card">
-            <a href="#" target="_blank">
-              <img src="/projects/gameplayqa/static/images/placeholder.svg" alt="Tianyi Zhang" class="author-photo">
+            <a href="https://www.linkedin.com/in/tianyi-mavis-zhang-3b9514128/" target="_blank">
+              <img src="/projects/gameplayqa/static/images/tianyi.jpg" alt="Tianyi Zhang" class="author-photo">
             </a>
             <h4 class="mt-3 text-sm font-semibold text-gray-900">Tianyi Zhang</h4>
-            <p class="text-xs text-gray-500 mt-0.5">USC</p>
+            <p class="text-xs text-gray-500 mt-0.5">PhD Student, CS</p>
           </div>
 
           <div class="author-card">
-            <a href="#" target="_blank">
-              <img src="/projects/gameplayqa/static/images/placeholder.svg" alt="Jayavibhav Niranjan Kogundi" class="author-photo">
+            <a href="https://www.linkedin.com/in/jayavibhav/" target="_blank">
+              <img src="/projects/gameplayqa/static/images/jayavibhav.jpg" alt="Jayavibhav Niranjan Kogundi" class="author-photo">
             </a>
             <h4 class="mt-3 text-sm font-semibold text-gray-900">Jayavibhav N. Kogundi</h4>
-            <p class="text-xs text-gray-500 mt-0.5">USC</p>
+            <p class="text-xs text-gray-500 mt-0.5">MS Student, CS</p>
           </div>
 
           <div class="author-card">
@@ -627,7 +519,7 @@ layout: null
               <img src="/projects/gameplayqa/static/images/soham.webp" alt="Soham Hans" class="author-photo">
             </a>
             <h4 class="mt-3 text-sm font-semibold text-gray-900">Soham Hans</h4>
-            <p class="text-xs text-gray-500 mt-0.5">USC</p>
+            <p class="text-xs text-gray-500 mt-0.5">PhD Student, CS</p>
           </div>
 
           <div class="author-card">
@@ -635,7 +527,7 @@ layout: null
               <img src="/projects/gameplayqa/static/images/volkan.webp" alt="Volkan Ustun" class="author-photo">
             </a>
             <h4 class="mt-3 text-sm font-semibold text-gray-900">Volkan Ustun</h4>
-            <p class="text-xs text-gray-500 mt-0.5">Director, HATS &mdash; USC ICT</p>
+            <p class="text-xs text-gray-500 mt-0.5">Director, HATS &mdash; ICT</p>
           </div>
 
         </div>
@@ -643,7 +535,7 @@ layout: null
     </section>
 
     <!-- ===== BIBTEX ===== -->
-    <section class="py-16 px-6" id="citation">
+    <section class="py-28 px-6" id="citation">
       <div class="max-w-3xl mx-auto">
         <h2 class="section-title">Citation</h2>
         <div class="relative mt-8">
@@ -667,7 +559,7 @@ layout: null
   <!-- ===== FOOTER ===== -->
   <footer class="border-t border-gray-100 py-8 px-6">
     <div class="max-w-5xl mx-auto text-center text-sm text-gray-400">
-      <p>&copy; 2026 University of Southern California. Built for the research community.</p>
+      <p>&copy; 2026 HATS Lab, University of Southern California. Built for the research community.</p>
     </div>
   </footer>
 
