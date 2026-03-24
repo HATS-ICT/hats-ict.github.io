@@ -8,7 +8,58 @@ layout: null
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GameplayQA: Decision-Dense POV-Synced Multi-Video Understanding of 3D Virtual Agents</title>
-  <meta name="description" content="GameplayQA is a benchmarking framework for evaluating agentic-centric perception and reasoning through decision-dense, POV-synced multi-video understanding of 3D virtual agents.">
+  <meta name="description" content="GameplayQA is a benchmarking framework for evaluating agentic-centric perception and reasoning through decision-dense, POV-synced multi-video understanding of 3D virtual agents. Features a Self–Other–World taxonomy, 15 task categories, and a leaderboard for multimodal LLMs.">
+  <meta name="keywords" content="GameplayQA, video question answering, multimodal benchmark, 3D virtual agents, gameplay understanding, POV video, multi-video reasoning, Self-Other-World taxonomy, agentic AI, multimodal LLM evaluation, USC HATS Lab">
+  <meta name="author" content="Yunzhe Wang, Runhui Xu, Kexin Zheng, Tianyi Zhang, Jayavibhav N. Kogundi, Soham Hans, Volkan Ustun">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://hats-ict.github.io/gameplayqa/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="HATS Lab">
+  <meta property="og:title" content="GameplayQA: Decision-Dense POV-Synced Multi-Video Understanding of 3D Virtual Agents">
+  <meta property="og:description" content="A benchmarking framework for evaluating agentic-centric perception and reasoning through decision-dense, POV-synced multi-video understanding of 3D virtual agents. Features a Self–Other–World taxonomy and 15 task categories.">
+  <meta property="og:url" content="https://hats-ict.github.io/gameplayqa/">
+  <meta property="og:image" content="https://hats-ict.github.io/projects/gameplayqa/static/images/framework.svg">
+  <meta property="og:image:alt" content="GameplayQA framework overview diagram">
+  <meta property="article:published_time" content="2026-01-01">
+  <meta property="article:author" content="Yunzhe Wang">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GameplayQA: Decision-Dense POV-Synced Multi-Video Understanding of 3D Virtual Agents">
+  <meta name="twitter:description" content="A benchmarking framework for evaluating agentic-centric perception and reasoning through decision-dense, POV-synced multi-video understanding of 3D virtual agents.">
+  <meta name="twitter:image" content="https://hats-ict.github.io/projects/gameplayqa/static/images/framework.svg">
+  <meta name="twitter:image:alt" content="GameplayQA framework overview diagram">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "name": "GameplayQA: A Benchmarking Framework for Decision-Dense POV-Synced Multi-Video Understanding of 3D Virtual Agents",
+    "headline": "GameplayQA: Decision-Dense POV-Synced Multi-Video Understanding of 3D Virtual Agents",
+    "description": "A benchmarking framework for evaluating agentic-centric perception and reasoning through decision-dense, POV-synced multi-video understanding of 3D virtual agents. Features a Self–Other–World taxonomy, 15 task categories, and a leaderboard for multimodal LLMs.",
+    "url": "https://hats-ict.github.io/gameplayqa/",
+    "image": "https://hats-ict.github.io/projects/gameplayqa/static/images/framework.svg",
+    "datePublished": "2026-01-01",
+    "author": [
+      {"@type": "Person", "name": "Yunzhe Wang", "affiliation": {"@type": "Organization", "name": "University of Southern California"}},
+      {"@type": "Person", "name": "Runhui Xu", "affiliation": {"@type": "Organization", "name": "University of Southern California"}},
+      {"@type": "Person", "name": "Kexin Zheng", "affiliation": {"@type": "Organization", "name": "University of Southern California"}},
+      {"@type": "Person", "name": "Tianyi Zhang", "affiliation": {"@type": "Organization", "name": "University of Southern California"}},
+      {"@type": "Person", "name": "Jayavibhav Niranjan Kogundi", "affiliation": {"@type": "Organization", "name": "University of Southern California"}},
+      {"@type": "Person", "name": "Soham Hans", "affiliation": {"@type": "Organization", "name": "University of Southern California"}},
+      {"@type": "Person", "name": "Volkan Ustun", "affiliation": {"@type": "Organization", "name": "University of Southern California"}}
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "HATS Lab, University of Southern California",
+      "url": "https://hats-ict.github.io"
+    },
+    "keywords": ["video question answering", "multimodal benchmark", "3D virtual agents", "gameplay understanding", "POV video", "multi-video reasoning", "agentic AI"]
+  }
+  </script>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -86,8 +137,8 @@ layout: null
           <a href="https://www.linkedin.com/in/runhui-xu-a9895a2b3/" target="_blank" class="author-name">Runhui Xu</a>
           <a href="https://www.linkedin.com/in/kexin-zheng-8b5a7a232/" target="_blank" class="author-name">Kexin Zheng</a>
           <a href="https://www.linkedin.com/in/tianyi-mavis-zhang-3b9514128/" target="_blank" class="author-name">Tianyi Zhang</a>
-          <a href="https://www.linkedin.com/in/jayavibhav/" target="_blank" class="author-name">Jayavibhav Niranjan Kogundi</a>
-          <a href="#" target="_blank" class="author-name">Soham Hans</a>
+          <a href="https://www.linkedin.com/in/jayavibhav/" target="_blank" class="author-name">Jayavibhav N. Kogundi</a>
+          <a href="https://www.linkedin.com/in/soham-hans-b6295215a/" target="_blank" class="author-name">Soham Hans</a>
           <a href="https://www.linkedin.com/in/volkan-ustun-9883a74/" target="_blank" class="author-name">Volkan Ustun</a>
         </div>
 
@@ -102,9 +153,13 @@ layout: null
             <i class="fab fa-github"></i>
             <span>Benchmark Code</span>
           </a>
-          <a href="#" class="action-btn">
+          <a href="https://github.com/wangyz1999/sync-video-label" target="_blank" class="action-btn">
             <i class="fab fa-github"></i>
             <span>Annotation Software</span>
+          </a>
+          <a href="https://sync-video-label.vercel.app/" target="_blank" class="action-btn">
+            <i class="fas fa-play-circle"></i>
+            <span>Live Demo</span>
           </a>
           <a href="#" class="action-btn">
             🤗
@@ -119,7 +174,7 @@ layout: null
 
       <!-- Bottom: framework image -->
       <div class="hero-image">
-        <img src="/projects/gameplayqa/static/images/framework.webp" alt="GameplayQA framework overview" class="w-full h-full object-contain">
+        <img src="/projects/gameplayqa/static/images/framework.svg" alt="GameplayQA framework overview" class="w-full h-full object-contain">
       </div>
 
       <!-- Scroll cue -->
@@ -170,10 +225,15 @@ layout: null
         <p class="text-center text-gray-500 leading-relaxed max-w-2xl mx-auto">
           We developed a <strong class="text-gray-700">custom multi-track timeline annotation tool</strong> purpose-built for dense, synchronized multi-POV gameplay captioning.
         </p>
-        <div class="mt-4 flex justify-center">
-          <a href="#" class="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-brand-600 transition-colors group">
+        <div class="mt-4 flex flex-wrap justify-center gap-4">
+          <a href="https://github.com/wangyz1999/sync-video-label" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-brand-600 transition-colors group">
             <i class="fab fa-github text-base"></i>
             <span class="group-hover:underline underline-offset-2">Open source &mdash; try it on GitHub</span>
+            <i class="fas fa-arrow-right text-xs opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200"></i>
+          </a>
+          <a href="https://sync-video-label.vercel.app/" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-brand-600 transition-colors group">
+            <i class="fas fa-play-circle text-base"></i>
+            <span class="group-hover:underline underline-offset-2">Live demo &mdash; try it in your browser</span>
             <i class="fas fa-arrow-right text-xs opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200"></i>
           </a>
         </div>
@@ -484,7 +544,7 @@ layout: null
 
           <div class="author-card">
             <a href="https://www.linkedin.com/in/runhui-xu-a9895a2b3/" target="_blank">
-              <img src="/projects/gameplayqa/static/images/placeholder.svg" alt="Runhui Xu" class="author-photo">
+              <img src="/projects/gameplayqa/static/images/runhui.webp" alt="Runhui Xu" class="author-photo">
             </a>
             <h4 class="mt-3 text-sm font-semibold text-gray-900">Runhui Xu</h4>
             <p class="text-xs text-gray-500 mt-0.5">MS Student, CS</p>
