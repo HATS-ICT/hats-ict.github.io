@@ -194,46 +194,42 @@ layout: null
     <section class="py-28 px-6" id="motivation">
       <div class="max-w-6xl mx-auto">
         <h2 class="section-title mb-4">Towards Multi-Agent Video Understanding</h2>
-        <p class="text-center text-gray-400 text-sm font-medium uppercase tracking-widest mb-16">Why synchronized multi-viewpoint reasoning matters</p>
+        <p class="text-center text-gray-400 text-sm font-medium uppercase tracking-widest mb-8">Why synchronized multi-viewpoint reasoning matters</p>
 
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Lede -->
+        <p class="text-gray-600 leading-relaxed text-[1.0625rem] text-center max-w-3xl mx-auto mb-12">
+          Many real-world tasks demand reasoning across <strong class="text-gray-900">multiple synchronized viewpoints simultaneously</strong>, where Esports and 3D gameplay offer a uniquely controlled testbed for these challenges.
+        </p>
+
+        <div class="grid lg:grid-cols-[2fr_3fr] gap-12 items-center">
 
           <!-- Left: text content -->
-          <div class="space-y-8">
+          <div class="space-y-4">
 
-            <!-- Lede -->
-            <p class="text-gray-600 leading-relaxed text-[1.0625rem]">
-              Many real-world tasks demand reasoning across <strong class="text-gray-900">multiple synchronized viewpoints simultaneously</strong>, where Esports and 3D gameplay offer a uniquely controlled testbed for these challenges.
-            </p>
-
-            <!-- Domain pills -->
-            <div class="grid grid-cols-2 gap-3">
-              <div class="flex items-start gap-3 rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <span class="mt-0.5 text-xl leading-none">🏟️</span>
+            <!-- Domain cards -->
+            <div class="grid grid-cols-1 gap-4">
+              <!-- Card 1: Robot Fleets -->
+              <div class="flex items-start gap-4 rounded-xl border border-gray-100 bg-gray-50 p-5">
+                <span class="mt-0.5 text-2xl leading-none">🤖</span>
                 <div>
-                  <p class="text-xs font-bold text-gray-800 uppercase tracking-wide">Sports Analytics</p>
-                  <p class="mt-0.5 text-xs text-gray-500 leading-snug">Multi-camera broadcast feeds fused for player tracking and tactical replay</p>
+                  <p class="text-sm font-bold text-gray-800 uppercase tracking-wide">Robot &amp; Autonomous Fleets</p>
+                  <p class="mt-1 text-xs text-gray-500 leading-snug">Self-driving cars, delivery robots, and surveillance drones share egocentric camera streams to coordinate lane changes, avoid hazards, and plan collectively across agents that each see only part of the scene.</p>
                 </div>
               </div>
-              <div class="flex items-start gap-3 rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <span class="mt-0.5 text-xl leading-none">🚗</span>
+              <!-- Card 2: Human Teams -->
+              <div class="flex items-start gap-4 rounded-xl border border-gray-100 bg-gray-50 p-5">
+                <span class="mt-0.5 text-2xl leading-none">📹</span>
                 <div>
-                  <p class="text-xs font-bold text-gray-800 uppercase tracking-wide">Autonomous Driving</p>
-                  <p class="mt-0.5 text-xs text-gray-500 leading-snug">Surround-view sensor fusion for safe navigation and scene understanding</p>
+                  <p class="text-sm font-bold text-gray-800 uppercase tracking-wide">Human Teams</p>
+                  <p class="mt-1 text-xs text-gray-500 leading-snug">Law enforcement officers wearing bodycams capture the same incident from different angles, requiring cross-pov referencing feeds to reconstruct a coherent timeline.</p>
                 </div>
               </div>
-              <div class="flex items-start gap-3 rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <span class="mt-0.5 text-xl leading-none">🤖</span>
+              <!-- Card 3: Sports / Esports Analytics -->
+              <div class="flex items-start gap-4 rounded-xl border border-gray-100 bg-gray-50 p-5">
+                <span class="mt-0.5 text-2xl leading-none">🏟️</span>
                 <div>
-                  <p class="text-xs font-bold text-gray-800 uppercase tracking-wide">Robot &amp; Drone Fleets</p>
-                  <p class="mt-0.5 text-xs text-gray-500 leading-snug">Coordinated agents sharing egocentric observations to act collectively</p>
-                </div>
-              </div>
-              <div class="flex items-start gap-3 rounded-xl border border-gray-100 bg-gray-50 p-4">
-                <span class="mt-0.5 text-xl leading-none">📹</span>
-                <div>
-                  <p class="text-xs font-bold text-gray-800 uppercase tracking-wide">Law Enforcement</p>
-                  <p class="mt-0.5 text-xs text-gray-500 leading-snug">Cross-referencing dashcam and bodycam footage for incident reconstruction</p>
+                  <p class="text-sm font-bold text-gray-800 uppercase tracking-wide">Sports &amp; Esports Analytics</p>
+                  <p class="mt-1 text-xs text-gray-500 leading-snug">Broadcast cameras and player POV feeds must be fused to understand formations, predict plays, and generate highlight commentary across synchronized viewpoints.</p>
                 </div>
               </div>
             </div>
@@ -244,14 +240,8 @@ layout: null
           <div class="space-y-3">
             <!-- Video placeholder — replace contents with a <video> tag when ready -->
             <div class="relative rounded-xl overflow-hidden bg-gray-900 border border-gray-800" style="aspect-ratio:16/9;">
-              <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-gray-600">
-                <i class="fas fa-video text-3xl"></i>
-                <span class="text-xs font-medium tracking-wide uppercase">Video Placeholder</span>
-              </div>
-              <!-- Replace the div above with:
-              <video src="/projects/gameplayqa/static/videos/motivation.mp4"
-                     class="w-full h-full object-cover" muted loop autoplay playsinline></video>
-              -->
+              <video src="/projects/gameplayqa/static/videos/synced_pov.mp4"
+                     class="w-full h-full object-cover" muted loop autoplay playsinline preload="auto"></video>
             </div>
           </div>
 
@@ -263,7 +253,7 @@ layout: null
     <!-- ===== SELF-OTHER-WORLD REASONING TAXONOMY ===== -->
     <section class="py-28 px-6 bg-gray-50" id="taxonomy">
       <div class="max-w-6xl mx-auto">
-        <h2 class="section-title mb-12"><span style="color:#3b82f6">Self</span><span class="text-gray-400">&ndash;</span><span style="color:#ef4444">Other</span><span class="text-gray-400">&ndash;</span><span style="color:#22c55e">World</span> Reasoning Taxonomy</h2>
+        <h2 class="section-title mb-12">Reasoning Taxonomy</h2>
         <div class="grid lg:grid-cols-2 gap-10 items-start">
           <div>
             <p class="text-gray-500 leading-relaxed">
@@ -712,27 +702,62 @@ layout: null
   <script>
   (function () {
     const QUESTIONS = [
-      "What weapon is the player holding at 0:12?",
-      "Which agent initiated the engagement at bombsite B?",
-      "What did the enemy do before throwing the flashbang?",
-      "How many players are visible in Player 2's POV?",
-      "What world event occurred between 0:08 and 0:15?",
-      "Which player reached the objective first?",
-      "Was the smoke grenade thrown by a teammate or enemy?",
-      "What is the player's current health status?",
-      "Did Player 1 or Player 2 spot the sniper first?",
-      "What tactical decision did the team make at 0:30?",
-      "How many enemies are visible across all POVs?",
-      "What item did the agent pick up at the crate?",
-      "Which direction did the squad rotate after the bomb plant?",
-      "Was the flashbang effective against Player 3?",
-      "What was the score when the round ended?",
+      "Which of the following actions did the NPC horse perform in the video?",
+      "Which action did the POV player perform in the video?",
+      "Which of these objects appeared in the video?",
+      "Between 00:00 and 00:04, was the other player looting the downed guard's body?",
+      "Which action did the POV player NOT perform during the video?",
+      "How many Rowa Fruit bushes are visible in this scene?",
+      "What is the primary reason the POV player places down the torch?",
+      "The POV player in which video enters the ambulance?",
+      "Which of the following sequences of events is correct?",
+      "How many times did the teammate throw a flashbang in total?",
+      "Which of the following is the correct chronological order of events across Video 1 and Video 2?",
+      "While the player in Video 4 was throwing a grenade, what was the player in Video 1 doing at the same time?",
+      "Which of the following actions did the teammate Jason perform in the video?",
+      "Which action did the POV driver perform in the video?",
+      "Which of these objects showed up in the video?",
+      "Between 00:10 and 00:24, was the enemy using an ultimate ability?",
+      "Which action did the teammate NOT perform during the video?",
+      "How many diamond blocks are visible in this scene?",
+      "What is the primary reason the POV player enters the building?",
+      "The POV player in which video called the supply box?",
+      "Which of the following sequences of events is in the correct chronological order?",
+      "How many times did the teammate fire a gun in total?",
+      "Which of the following is the correct chronological order of events across Video 3 and Video 4?",
+      "While the player in Video 2 was planting the bomb, what was the player in Video 3 doing at the same time?",
+      "Which of the following actions did the enemy sniper perform in the video?",
+      "Which action did the POV player perform immediately after reloading?",
+      "Which of these environmental objects appeared in the video?",
+      "Between 00:15 and 00:22, was the teammate reviving the downed ally?",
+      "Between 00:19 and 00:26, Which action did the POV player NOT perform?",
+      "How many explosive barrels are visible in this scene?",
+      "What is the primary reason the POV player switches to a melee weapon?",
+      "The POV player in which video activates the control panel?",
+      "Which of the following sequences of events is in the correct chronological order?",
+      "How many times did the enemy team use a smoke grenade in total?",
+      "Which of the following is the correct chronological order of events across Video 2 and Video 3?",
+      "While the player in Video 1 was defusing the bomb, what was the player in Video 2 doing at the same time?",
+      "Which of the following timestamps did the POV player throw a flashbang?",
+      "Which of the following actions did the allied NPC perform in the video?",
+      "Which action did the POV player perform right before the explosion?",
+      "Which of these weapons appeared in the video?",
+      "Between 00:05 and 00:18, was the POV player crouching behind cover?",
+      "Which action did the enemy NOT perform during the video?",
+      "How many health packs are visible on the ground in this scene?",
+      "What is the primary reason the POV player falls back to the second floor?",
+      "The POV player in which video opens the locked door?",
+      "How many times did the POV player swap weapons in total?",
+      "Which of the following is the correct chronological order of events across Video 1 and Video 4?",
+      "While the player in Video 3 was scouting the rooftop, what was the player in Video 2 doing at the same time?",
+      "Which of the following actions did the boss enemy perform in the video?",
+      "Which action did the POV player perform after picking up the key item?",
     ];
 
     const container = document.getElementById('hero-bubbles');
     if (!container) return;
 
-    const BUBBLE_COUNT = 6;
+    const BUBBLE_COUNT = 8;
     const MIN_DELAY = 800;   // ms between spawns
     const MAX_DELAY = 2800;
     const LINGER    = 6500;  // ms visible before fade-out
@@ -742,8 +767,8 @@ layout: null
     function randomPos() {
       let x, y, attempts = 0;
       do {
-        x = 4 + Math.random() * 88;   // 4%–92%
-        y = 4 + Math.random() * 88;
+        x = 4 + Math.random() * 86;   // 4%–90% 
+        y = 4 + Math.random() * 86;
         attempts++;
       } while (
         attempts < 20 &&
