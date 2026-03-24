@@ -42,7 +42,7 @@ layout: null
     "description": "A benchmarking framework for evaluating agentic-centric perception and reasoning through decision-dense, POV-synced multi-video understanding of 3D virtual agents. Features a Self–Other–World taxonomy, 15 task categories, and a leaderboard for multimodal LLMs.",
     "url": "https://hats-ict.github.io/gameplayqa/",
     "image": "https://hats-ict.github.io/projects/gameplayqa/static/images/framework.svg",
-    "datePublished": "2026-01-01",
+    "datePublished": "2026-03-20",
     "author": [
       {"@type": "Person", "name": "Yunzhe Wang", "affiliation": {"@type": "Organization", "name": "University of Southern California"}},
       {"@type": "Person", "name": "Runhui Xu", "affiliation": {"@type": "Organization", "name": "University of Southern California"}},
@@ -107,13 +107,14 @@ layout: null
   <!-- ===== SIDE NAV ===== -->
   <nav id="side-nav" aria-label="Page sections">
     <ul>
+      <li><a href="#motivation" class="side-nav-item" data-section="motivation"><span class="side-nav-dash"></span><span class="side-nav-label">Motivation</span></a></li>
       <li><a href="#taxonomy" class="side-nav-item" data-section="taxonomy"><span class="side-nav-dash"></span><span class="side-nav-label">Taxonomy</span></a></li>
       <li><a href="#annotation-software" class="side-nav-item" data-section="annotation-software"><span class="side-nav-dash"></span><span class="side-nav-label">Annotation</span></a></li>
       <li><a href="#examples" class="side-nav-item" data-section="examples"><span class="side-nav-dash"></span><span class="side-nav-label">Examples</span></a></li>
       <li><a href="#leaderboard" class="side-nav-item" data-section="leaderboard"><span class="side-nav-dash"></span><span class="side-nav-label">Leaderboard</span></a></li>
       <li><a href="#error-analysis" class="side-nav-item" data-section="error-analysis"><span class="side-nav-dash"></span><span class="side-nav-label">Error Analysis</span></a></li>
       <li><a href="#ablation" class="side-nav-item" data-section="ablation"><span class="side-nav-dash"></span><span class="side-nav-label">Ablation</span></a></li>
-      <li><a href="#authors" class="side-nav-item" data-section="authors"><span class="side-nav-dash"></span><span class="side-nav-label">Authors</span></a></li>
+      <li><a href="#team" class="side-nav-item" data-section="team"><span class="side-nav-dash"></span><span class="side-nav-label">Team</span></a></li>
       <li><a href="#citation" class="side-nav-item" data-section="citation"><span class="side-nav-dash"></span><span class="side-nav-label">Citation</span></a></li>
     </ul>
   </nav>
@@ -121,66 +122,141 @@ layout: null
   <main>
     <!-- ===== HERO ===== -->
     <section class="hero-section">
-      <!-- Top: text content -->
+
+      <!-- Background video -->
+      <video class="hero-bg-video" autoplay muted loop playsinline>
+        <source src="/projects/gameplayqa/static/videos/banner.mp4" type="video/mp4">
+      </video>
+      <!-- Layered overlay: dark base + subtle vignette -->
+      <div class="hero-overlay"></div>
+
+      <!-- Floating question bubbles (populated by JS) -->
+      <div id="hero-bubbles" aria-hidden="true"></div>
+
+      <!-- Centered text content -->
       <div class="hero-content">
-        <div class="flex items-center justify-center gap-3 mb-5">
-          <img src="/projects/gameplayqa/static/images/logo.png" alt="GameplayQA logo" class="w-12 h-12 object-contain drop-shadow-sm">
-          <span class="text-4xl sm:text-5xl font-extrabold tracking-tight text-brand-600" style="font-family:'Rajdhani',sans-serif;letter-spacing:.04em;text-transform:uppercase;">GameplayQA</span>
+        <p class="hero-eyebrow">University of Southern California</p>
+
+        <h1 class="hero-title">GameplayQA</h1>
+
+        <p class="hero-subtitle">
+          A Benchmarking Framework for Decision-Dense<br class="hidden sm:block">
+          POV-Synced Multi-Video Understanding<br class="hidden sm:block">
+          of 3D Virtual Agents
+        </p>
+
+        <div class="hero-authors">
+          <a href="https://www.linkedin.com/in/yunzhe-wang/" target="_blank" class="author-name author-name--light">Yunzhe Wang</a>
+          <span class="hero-author-sep">·</span>
+          <a href="https://www.linkedin.com/in/runhui-xu-a9895a2b3/" target="_blank" class="author-name author-name--light">Runhui Xu</a>
+          <span class="hero-author-sep">·</span>
+          <a href="https://www.linkedin.com/in/kexin-zheng-8b5a7a232/" target="_blank" class="author-name author-name--light">Kexin Zheng</a>
+          <span class="hero-author-sep">·</span>
+          <a href="https://www.linkedin.com/in/tianyi-mavis-zhang-3b9514128/" target="_blank" class="author-name author-name--light">Tianyi Zhang</a>
+          <span class="hero-author-sep">·</span>
+          <a href="https://www.linkedin.com/in/jayavibhav/" target="_blank" class="author-name author-name--light">Jayavibhav N. Kogundi</a>
+          <span class="hero-author-sep">·</span>
+          <a href="https://www.linkedin.com/in/soham-hans-b6295215a/" target="_blank" class="author-name author-name--light">Soham Hans</a>
+          <span class="hero-author-sep">·</span>
+          <a href="https://www.linkedin.com/in/volkan-ustun-9883a74/" target="_blank" class="author-name author-name--light">Volkan Ustun</a>
         </div>
 
-        <h1 class="text-base sm:text-lg font-medium leading-relaxed text-gray-400 max-w-2xl mx-auto text-center">
-          A Benchmarking Framework for Decision-Dense POV-Synced<br class="hidden sm:block"> Multi-Video Understanding of 3D Virtual Agents
-        </h1>
-
-        <div class="mt-6 flex flex-wrap justify-center gap-x-3 gap-y-1 text-[0.9375rem] text-gray-700">
-          <a href="https://www.linkedin.com/in/yunzhe-wang/" target="_blank" class="author-name">Yunzhe Wang</a>
-          <a href="https://www.linkedin.com/in/runhui-xu-a9895a2b3/" target="_blank" class="author-name">Runhui Xu</a>
-          <a href="https://www.linkedin.com/in/kexin-zheng-8b5a7a232/" target="_blank" class="author-name">Kexin Zheng</a>
-          <a href="https://www.linkedin.com/in/tianyi-mavis-zhang-3b9514128/" target="_blank" class="author-name">Tianyi Zhang</a>
-          <a href="https://www.linkedin.com/in/jayavibhav/" target="_blank" class="author-name">Jayavibhav N. Kogundi</a>
-          <a href="https://www.linkedin.com/in/soham-hans-b6295215a/" target="_blank" class="author-name">Soham Hans</a>
-          <a href="https://www.linkedin.com/in/volkan-ustun-9883a74/" target="_blank" class="author-name">Volkan Ustun</a>
-        </div>
-
-        <p class="mt-1.5 text-sm text-gray-400 font-medium text-center">University of Southern California</p>
-
-        <div class="mt-6 flex flex-wrap justify-center gap-2">
-          <a href="#" class="action-btn">
-            <i class="ai ai-arxiv"></i>
-            <span>arXiv</span>
+        <div class="mt-8 flex flex-wrap justify-center gap-2">
+          <a href="#" class="action-btn action-btn--glass">
+            <i class="ai ai-arxiv"></i><span>arXiv</span>
           </a>
-          <a href="#" class="action-btn">
-            <i class="fab fa-github"></i>
-            <span>Benchmark Code</span>
+          <a href="#" class="action-btn action-btn--glass">
+            <i class="fab fa-github"></i><span>Benchmark Code</span>
           </a>
-          <a href="https://github.com/wangyz1999/sync-video-label" target="_blank" class="action-btn">
-            <i class="fab fa-github"></i>
-            <span>Annotation Software</span>
+          <a href="https://github.com/wangyz1999/sync-video-label" target="_blank" class="action-btn action-btn--glass">
+            <i class="fab fa-github"></i><span>Annotation Software</span>
           </a>
-          <a href="https://sync-video-label.vercel.app/" target="_blank" class="action-btn">
-            <i class="fas fa-play-circle"></i>
-            <span>Live Demo</span>
+          <a href="https://sync-video-label.vercel.app/" target="_blank" class="action-btn action-btn--glass">
+            <i class="fas fa-play-circle"></i><span>Annotation Live Demo</span>
           </a>
-          <a href="#" class="action-btn">
-            🤗
-            <span>Dataset</span>
+          <a href="https://huggingface.co/datasets/wangyz1999/GameplayQA" class="action-btn action-btn--glass">
+            🤗<span>Dataset</span>
           </a>
-          <a href="https://www.youtube.com/watch?v=PKedELJ4XT0" target="_blank" class="action-btn">
-            <i class="fab fa-youtube"></i>
-            <span>Annotation Demo</span>
+          <a href="https://www.youtube.com/watch?v=PKedELJ4XT0" target="_blank" class="action-btn action-btn--glass">
+            <i class="fab fa-youtube"></i><span>Annotation Demo</span>
           </a>
         </div>
-      </div>
-
-      <!-- Bottom: framework image -->
-      <div class="hero-image">
-        <img src="/projects/gameplayqa/static/images/framework.svg" alt="GameplayQA framework overview" class="w-full h-full object-contain">
       </div>
 
       <!-- Scroll cue -->
-      <a href="#taxonomy" class="hero-scroll-cue" aria-label="Scroll to content">
+      <a href="#motivation" class="hero-scroll-cue" aria-label="Scroll to content">
         <i class="fas fa-chevron-down"></i>
       </a>
+    </section>
+
+
+    <!-- ===== TOWARDS MULTI-AGENT VIDEO UNDERSTANDING ===== -->
+    <section class="py-28 px-6" id="motivation">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="section-title mb-4">Towards Multi-Agent Video Understanding</h2>
+        <p class="text-center text-gray-400 text-sm font-medium uppercase tracking-widest mb-16">Why synchronized multi-viewpoint reasoning matters</p>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+          <!-- Left: text content -->
+          <div class="space-y-8">
+
+            <!-- Lede -->
+            <p class="text-gray-600 leading-relaxed text-[1.0625rem]">
+              Many real-world tasks demand reasoning across <strong class="text-gray-900">multiple synchronized viewpoints simultaneously</strong>, where Esports and 3D gameplay offer a uniquely controlled testbed for these challenges.
+            </p>
+
+            <!-- Domain pills -->
+            <div class="grid grid-cols-2 gap-3">
+              <div class="flex items-start gap-3 rounded-xl border border-gray-100 bg-gray-50 p-4">
+                <span class="mt-0.5 text-xl leading-none">🏟️</span>
+                <div>
+                  <p class="text-xs font-bold text-gray-800 uppercase tracking-wide">Sports Analytics</p>
+                  <p class="mt-0.5 text-xs text-gray-500 leading-snug">Multi-camera broadcast feeds fused for player tracking and tactical replay</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 rounded-xl border border-gray-100 bg-gray-50 p-4">
+                <span class="mt-0.5 text-xl leading-none">🚗</span>
+                <div>
+                  <p class="text-xs font-bold text-gray-800 uppercase tracking-wide">Autonomous Driving</p>
+                  <p class="mt-0.5 text-xs text-gray-500 leading-snug">Surround-view sensor fusion for safe navigation and scene understanding</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 rounded-xl border border-gray-100 bg-gray-50 p-4">
+                <span class="mt-0.5 text-xl leading-none">🤖</span>
+                <div>
+                  <p class="text-xs font-bold text-gray-800 uppercase tracking-wide">Robot &amp; Drone Fleets</p>
+                  <p class="mt-0.5 text-xs text-gray-500 leading-snug">Coordinated agents sharing egocentric observations to act collectively</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 rounded-xl border border-gray-100 bg-gray-50 p-4">
+                <span class="mt-0.5 text-xl leading-none">📹</span>
+                <div>
+                  <p class="text-xs font-bold text-gray-800 uppercase tracking-wide">Law Enforcement</p>
+                  <p class="mt-0.5 text-xs text-gray-500 leading-snug">Cross-referencing dashcam and bodycam footage for incident reconstruction</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right: single video placeholder -->
+          <div class="space-y-3">
+            <!-- Video placeholder — replace contents with a <video> tag when ready -->
+            <div class="relative rounded-xl overflow-hidden bg-gray-900 border border-gray-800" style="aspect-ratio:16/9;">
+              <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-gray-600">
+                <i class="fas fa-video text-3xl"></i>
+                <span class="text-xs font-medium tracking-wide uppercase">Video Placeholder</span>
+              </div>
+              <!-- Replace the div above with:
+              <video src="/projects/gameplayqa/static/videos/motivation.mp4"
+                     class="w-full h-full object-cover" muted loop autoplay playsinline></video>
+              -->
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
 
 
@@ -221,24 +297,33 @@ layout: null
     <!-- ===== ANNOTATION SOFTWARE ===== -->
     <section class="py-28 px-6" id="annotation-software">
       <div class="max-w-4xl mx-auto">
-        <h2 class="section-title mb-3">Annotation Software</h2>
+        <h2 class="section-title mb-4">Annotation Software</h2>
         <p class="text-center text-gray-500 leading-relaxed max-w-2xl mx-auto">
           We developed a <strong class="text-gray-700">custom multi-track timeline annotation tool</strong> purpose-built for dense, synchronized multi-POV gameplay captioning.
         </p>
-        <div class="mt-4 flex flex-wrap justify-center gap-4">
-          <a href="https://github.com/wangyz1999/sync-video-label" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-brand-600 transition-colors group">
-            <i class="fab fa-github text-base"></i>
-            <span class="group-hover:underline underline-offset-2">Open source &mdash; try it on GitHub</span>
-            <i class="fas fa-arrow-right text-xs opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200"></i>
-          </a>
-          <a href="https://sync-video-label.vercel.app/" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-brand-600 transition-colors group">
-            <i class="fas fa-play-circle text-base"></i>
-            <span class="group-hover:underline underline-offset-2">Live demo &mdash; try it in your browser</span>
-            <i class="fas fa-arrow-right text-xs opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200"></i>
-          </a>
-        </div>
-        <div class="mt-8 w-full rounded-xl overflow-hidden shadow-sm" style="aspect-ratio:16/9;">
-          <iframe class="w-full h-full block" src="https://www.youtube.com/embed/PKedELJ4XT0" title="Annotation tool demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        <!-- Two-column: video left, cards right -->
+        <div class="mt-10 grid lg:grid-cols-[1fr_260px] gap-6 items-stretch">
+
+          <!-- Video embed -->
+          <div class="w-full rounded-xl overflow-hidden shadow-sm" style="aspect-ratio:16/9;">
+            <iframe class="w-full h-full block" src="https://www.youtube.com/embed/PKedELJ4XT0" title="Annotation tool demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+
+          <!-- Buttons stacked vertically -->
+          <div class="flex flex-col justify-center gap-3">
+            <a href="https://github.com/wangyz1999/sync-video-label" target="_blank"
+               class="group flex items-center justify-center gap-2.5 rounded-lg bg-gray-900 hover:bg-gray-700 text-white text-sm font-semibold px-4 py-3 transition-colors">
+              <i class="fab fa-github text-base"></i>
+              <span>View on GitHub</span>
+            </a>
+            <a href="https://sync-video-label.vercel.app/" target="_blank"
+               class="group flex items-center justify-center gap-2.5 rounded-lg border border-gray-300 hover:border-brand-400 hover:text-brand-600 text-gray-700 text-sm font-semibold px-4 py-3 transition-colors">
+              <i class="fas fa-play-circle text-base"></i>
+              <span>Play around the app live</span>
+            </a>
+          </div>
+
         </div>
       </div>
     </section>
@@ -528,10 +613,10 @@ layout: null
       </div>
     </section>
 
-    <!-- ===== AUTHORS ===== -->
-    <section class="py-28 px-6 bg-gray-50" id="authors">
+    <!-- ===== TEAM ===== -->
+    <section class="py-28 px-6 bg-gray-50" id="team">
       <div class="max-w-5xl mx-auto">
-        <h2 class="section-title">Authors</h2>
+        <h2 class="section-title">Team</h2>
         <div class="flex flex-wrap justify-center gap-8 mt-12">
 
           <div class="author-card">
@@ -624,5 +709,95 @@ layout: null
   </footer>
 
   <script src="/projects/gameplayqa/static/js/main.js"></script>
+  <script>
+  (function () {
+    const QUESTIONS = [
+      "What weapon is the player holding at 0:12?",
+      "Which agent initiated the engagement at bombsite B?",
+      "What did the enemy do before throwing the flashbang?",
+      "How many players are visible in Player 2's POV?",
+      "What world event occurred between 0:08 and 0:15?",
+      "Which player reached the objective first?",
+      "Was the smoke grenade thrown by a teammate or enemy?",
+      "What is the player's current health status?",
+      "Did Player 1 or Player 2 spot the sniper first?",
+      "What tactical decision did the team make at 0:30?",
+      "How many enemies are visible across all POVs?",
+      "What item did the agent pick up at the crate?",
+      "Which direction did the squad rotate after the bomb plant?",
+      "Was the flashbang effective against Player 3?",
+      "What was the score when the round ended?",
+    ];
+
+    const container = document.getElementById('hero-bubbles');
+    if (!container) return;
+
+    const BUBBLE_COUNT = 6;
+    const MIN_DELAY = 800;   // ms between spawns
+    const MAX_DELAY = 2800;
+    const LINGER    = 6500;  // ms visible before fade-out
+    const FADE      = 700;   // fade duration (must match CSS)
+
+    // Zones: avoid the center band (30%–70% x, 25%–75% y)
+    function randomPos() {
+      let x, y, attempts = 0;
+      do {
+        x = 4 + Math.random() * 88;   // 4%–92%
+        y = 4 + Math.random() * 88;
+        attempts++;
+      } while (
+        attempts < 20 &&
+        x > 22 && x < 78 &&
+        y > 20 && y < 80
+      );
+      return { x, y };
+    }
+
+    let active = 0;
+    let usedIndices = [];
+
+    function nextQuestion() {
+      if (usedIndices.length === QUESTIONS.length) usedIndices = [];
+      let idx;
+      do { idx = Math.floor(Math.random() * QUESTIONS.length); }
+      while (usedIndices.includes(idx));
+      usedIndices.push(idx);
+      return QUESTIONS[idx];
+    }
+
+    function spawnBubble() {
+      if (active >= BUBBLE_COUNT) return;
+      active++;
+
+      const { x, y } = randomPos();
+      const el = document.createElement('div');
+      el.className = 'hero-bubble';
+      el.textContent = nextQuestion();
+      el.style.left = x + '%';
+      el.style.top  = y + '%';
+
+      container.appendChild(el);
+
+      // Trigger fade-in on next frame
+      requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('visible')));
+
+      setTimeout(() => {
+        el.classList.remove('visible');
+        setTimeout(() => { el.remove(); active--; }, FADE);
+      }, LINGER);
+    }
+
+    function scheduleNext() {
+      const delay = MIN_DELAY + Math.random() * (MAX_DELAY - MIN_DELAY);
+      setTimeout(() => { spawnBubble(); scheduleNext(); }, delay);
+    }
+
+    // Stagger initial burst
+    for (let i = 0; i < 3; i++) {
+      setTimeout(spawnBubble, i * 600);
+    }
+    scheduleNext();
+  })();
+  </script>
 </body>
 </html>
