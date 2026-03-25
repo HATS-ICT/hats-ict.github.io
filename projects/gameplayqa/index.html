@@ -111,6 +111,7 @@ layout: null
     <ul>
       <li><a href="#motivation" class="side-nav-item" data-section="motivation"><span class="side-nav-dash"></span><span class="side-nav-label">Motivation</span></a></li>
       <li><a href="#taxonomy" class="side-nav-item" data-section="taxonomy"><span class="side-nav-dash"></span><span class="side-nav-label">Taxonomy</span></a></li>
+      <li><a href="#qa-demo" class="side-nav-item" data-section="qa-demo"><span class="side-nav-dash"></span><span class="side-nav-label">QA Demo</span></a></li>
       <li><a href="#annotation-software" class="side-nav-item" data-section="annotation-software"><span class="side-nav-dash"></span><span class="side-nav-label">Annotation</span></a></li>
       <li><a href="#examples" class="side-nav-item" data-section="examples"><span class="side-nav-dash"></span><span class="side-nav-label">Examples</span></a></li>
       <li><a href="#leaderboard" class="side-nav-item" data-section="leaderboard"><span class="side-nav-dash"></span><span class="side-nav-label">Leaderboard</span></a></li>
@@ -267,15 +268,30 @@ layout: null
             <ul class="mt-4 space-y-3">
               <li class="flex items-start gap-3">
                 <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg text-xs font-bold flex items-center justify-center" style="background:#eff6ff;color:#3b82f6;font-family:'Rajdhani',sans-serif;letter-spacing:.05em;">S</span>
-                <span class="text-sm text-gray-600"><strong style="color:#3b82f6">Self</strong> &mdash; questions about the agent&rsquo;s own actions, states, and decisions as seen from its first-person POV.</span>
+                <span class="text-sm text-gray-600"><strong style="color:#3b82f6">Self</strong> &mdash; questions about the agent&rsquo;s own actions, states, and decisions as seen from its first-person POV.
+                  <span class="inline-flex gap-1.5 mt-1.5 flex-wrap">
+                    <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-xs font-semibold" style="background:#dbeafe;color:#1d4ed8;"><strong>SA</strong><span class="font-normal opacity-75">Self Action</span></span>
+                    <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-xs font-semibold" style="background:#dbeafe;color:#1d4ed8;"><strong>SS</strong><span class="font-normal opacity-75">Self State</span></span>
+                  </span>
+                </span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg text-xs font-bold flex items-center justify-center" style="background:#fef2f2;color:#ef4444;font-family:'Rajdhani',sans-serif;letter-spacing:.05em;">O</span>
-                <span class="text-sm text-gray-600"><strong style="color:#ef4444">Other</strong> &mdash; questions about the behavior, intent, and actions of other agents observed in the gameplay footage.</span>
+                <span class="text-sm text-gray-600"><strong style="color:#ef4444">Other</strong> &mdash; questions about the behavior, intent, and actions of other agents observed in the gameplay footage.
+                  <span class="inline-flex gap-1.5 mt-1.5 flex-wrap">
+                    <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-xs font-semibold" style="background:#fee2e2;color:#b91c1c;"><strong>OA</strong><span class="font-normal opacity-75">Other Action</span></span>
+                    <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-xs font-semibold" style="background:#fee2e2;color:#b91c1c;"><strong>OS</strong><span class="font-normal opacity-75">Other State</span></span>
+                  </span>
+                </span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="flex-shrink-0 mt-0.5 w-7 h-7 rounded-lg text-xs font-bold flex items-center justify-center" style="background:#f0fdf4;color:#22c55e;font-family:'Rajdhani',sans-serif;letter-spacing:.05em;">W</span>
-                <span class="text-sm text-gray-600"><strong style="color:#22c55e">World</strong> &mdash; questions about environmental objects, events, and state changes in the 3D game world.</span>
+                <span class="text-sm text-gray-600"><strong style="color:#22c55e">World</strong> &mdash; questions about environmental objects, events, and state changes in the 3D game world.
+                  <span class="inline-flex gap-1.5 mt-1.5 flex-wrap">
+                    <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-xs font-semibold" style="background:#dcfce7;color:#15803d;"><strong>WO</strong><span class="font-normal opacity-75">World Object</span></span>
+                    <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-xs font-semibold" style="background:#dcfce7;color:#15803d;"><strong>WE</strong><span class="font-normal opacity-75">World Event</span></span>
+                  </span>
+                </span>
               </li>
             </ul>
           </div>
@@ -283,6 +299,64 @@ layout: null
             <img src="/projects/gameplayqa/static/images/sow.webp" alt="Self-Other-World reasoning taxonomy" class="w-full rounded-xl border border-gray-200 shadow-sm">
           </figure>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== INTERACTIVE QA DEMO ===== -->
+    <section class="py-28 px-6" id="qa-demo">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="section-title mb-4">Combinatorial QA Generation</h2>
+        <p class="text-center text-gray-400 text-sm font-medium uppercase tracking-widest mb-4">From timeline labels to question-answer pairs</p>
+        <p class="text-gray-600 leading-relaxed text-[1.0625rem] text-center max-w-3xl mx-auto mb-12">
+          The simplified interactive demo below on Cross-Entity Referring questions shows how questions can be combinatorially created based on multi-track timeline labels and question templates. Select a <strong class="text-gray-900">question template</strong> and click an <strong class="text-gray-900">anchor label</strong> on the timeline to see how a question is composed.
+        </p>
+
+        <div class="grid lg:grid-cols-[1fr_2fr] gap-6">
+
+          <!-- Left: Template Selection -->
+          <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+            <h3 class="text-base font-bold text-gray-900 mb-4 flex items-center gap-2 font-sans uppercase tracking-wide" style="font-family:'Rajdhani',sans-serif;">
+              <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:linear-gradient(135deg,#7c3aed,#a855f7);">1</span>
+              Select Template
+            </h3>
+            <select id="demo-template-select" class="w-full p-2.5 bg-gray-50 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none font-sans">
+            </select>
+            <div id="demo-template-info" class="mt-4 p-3 rounded-lg text-sm border" style="background:#f3eeff;border-color:#ddd6fe;color:#4c1d95;">
+            </div>
+          </div>
+
+          <!-- Right: Generated QA -->
+          <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+            <h3 class="text-base font-bold text-gray-900 mb-4 flex items-center gap-2 font-sans uppercase tracking-wide" style="font-family:'Rajdhani',sans-serif;">
+              <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:linear-gradient(135deg,#7c3aed,#a855f7);">3</span>
+              Generated QA Pair
+            </h3>
+            <div id="demo-qa-output">
+              <div class="text-gray-400 text-sm text-center py-8">Select a template and click an anchor on the timeline&hellip;</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Timeline -->
+        <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm mt-6">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-2">
+            <h3 class="text-base font-bold text-gray-900 flex items-center gap-2 font-sans uppercase tracking-wide" style="font-family:'Rajdhani',sans-serif;">
+              <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white" style="background:linear-gradient(135deg,#7c3aed,#a855f7);">2</span>
+              Timeline Annotation
+            </h3>
+            <p id="demo-timeline-hint" class="text-xs text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full font-medium"></p>
+          </div>
+          <div class="overflow-x-auto demo-scroll pb-4 pt-2">
+            <div class="min-w-[600px]">
+              <!-- Timeline header -->
+              <div class="demo-timeline-header" id="demo-timeline-header"></div>
+              <!-- Tracks -->
+              <div class="mt-2 space-y-1 relative" id="demo-timeline-tracks"></div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -324,9 +398,6 @@ layout: null
     <section class="py-28 px-6 bg-gray-50" id="examples">
       <div class="max-w-6xl mx-auto">
         <h2 class="section-title">Example Questions</h2>
-        <p class="mt-4 text-center text-gray-500 max-w-2xl mx-auto">
-          Browse diagnostic QA pairs across cognitive levels. Each slide pairs a gameplay video clip with its corresponding question.
-        </p>
 
         <!-- Slider container -->
         <div class="mt-12 relative">
