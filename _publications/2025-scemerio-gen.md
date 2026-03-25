@@ -5,7 +5,7 @@ venue: "Interservice/Industry Training, Simulation, and Education Conference"
 venueshort: "I/ITSEC"
 year: 2025
 date: 2025-12-01
-thumbnail: /assets/images/empty-paper.webp 
+thumbnail: /assets/images/work/scenario-gen.webp
 pdf: "https://arxiv.org/pdf/2511.07690"
 arxiv: "https://arxiv.org/abs/2511.07690"
 code: 
