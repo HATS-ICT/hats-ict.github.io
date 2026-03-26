@@ -6,8 +6,8 @@ venueshort: "arXiv"
 year: 2026
 date: 2026-03-20
 thumbnail: /assets/images/work/gameplayqa.jpg
-pdf: 
-arxiv: 
+pdf: "https://arxiv.org/pdf/2603.24329"
+arxiv: "https://arxiv.org/abs/2603.24329"
 code: "https://github.com/HATS-ICT/GameplayQA"
 dataset: "https://huggingface.co/datasets/wangyz1999/GameplayQA"
 website: "https://hats-ict.github.io/gameplayqa/"
