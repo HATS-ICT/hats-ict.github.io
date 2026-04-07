@@ -1,8 +1,8 @@
 ---
 title: "GameplayQA: A Benchmarking Framework for Decision-Dense POV-Synced Multi-Video Understanding of 3D Virtual Agents"
 authors: "Yunzhe Wang, Runhui Xu, Kexin Zheng, Tianyi Zhang, Jayavibhav N. Kogundi, Soham Hans, Volkan Ustun"
-venue: "arXiv preprint"
-venueshort: "arXiv"
+venue: "Association for Computational Linguistics"
+venueshort: "ACL"
 year: 2026
 date: 2026-03-20
 thumbnail: /assets/images/work/gameplayqa.jpg
