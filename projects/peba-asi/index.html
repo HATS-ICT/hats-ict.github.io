@@ -266,11 +266,15 @@ layout: null
   </div>
 
   <main id="main-content">
-  <section class="hero">
+  <section class="hero publication-hero">
+    <div class="hero-glow" aria-hidden="true"></div>
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
+            <span class="venue-badge">
+              <i class="fas fa-award"></i> EMNLP 2025 &nbsp;&middot;&nbsp; Main Conference
+            </span>
             <h1 class="title is-1 publication-title">Implicit Behavioral Alignment of Language Agents in High-Stakes Crowd Simulations</h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
@@ -284,8 +288,8 @@ layout: null
                   </span>
                   </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">University of Southern California & USC Institute for Creative Technologies<br>EMNLP 2025</span>
+                  <div class="is-size-6 publication-affiliation">
+                    <span class="author-block">University of Southern California &nbsp;&middot;&nbsp; USC Institute for Creative Technologies</span>
                   </div>
 
                   <div class="column has-text-centered">
@@ -367,6 +371,31 @@ layout: null
 </section>
 <!-- End demo video -->
 
+<!-- Key metrics band -->
+<section class="section stats-section">
+  <div class="container is-max-desktop">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">84%</div>
+        <div class="stat-label">Reduction in distributional divergence vs. no steering</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">34%</div>
+        <div class="stat-label">Improvement over explicit instruction baselines</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">97.5%</div>
+        <div class="stat-label">KL reduction when transferred to novel environments</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">&lt;$10</div>
+        <div class="stat-label">Cost for a full 15-iteration optimization run</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End key metrics band -->
+
 <!-- Paper abstract -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
@@ -387,36 +416,35 @@ layout: null
 <!-- Key Takeaways -->
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Key Takeaways</h2>
-        <div class="content has-text-left">
-          
-          <div class="takeaway-item">
-            <h3 class="title is-5"><span class="takeaway-number">1.</span> Generative Agents Enable Scalable Social Science</h3>
-            <p class="has-text-justified">
-              LLM-driven generative agents make it possible to simulate and test social theories at scale, offering a practical realization of 
-              <a href="https://www.degruyterbrill.com/document/doi/10.1515/9781400842872/html" target="_blank">Generative Social Science</a>, 
-              enabling research on scenarios that are otherwise infeasible or unethical with human participants.
-            </p>
-          </div>
-          
-          <div class="takeaway-item">
-            <h3 class="title is-5"><span class="takeaway-number">2.</span> Unity-Based Active Shooter Incident Simulator</h3>
-            <p class="has-text-justified">
-              We developed a Unity-based <b>Active Shooter Incident</b> simulation to explore high-stakes crowd dynamics, providing a flexible environment for testing generative agent behaviors under stress.
-            </p>
-          </div>
-          
-          <div class="takeaway-item">
-            <h3 class="title is-5"><span class="takeaway-number">3.</span> Closing the Behavior-Realism Gap with PEBA–PEvo</h3>
-            <p class="has-text-justified">
-              To address the <b>Behavioral-Realism Gap</b>, we introduced the PEBA-PEvo framework, which refines agent personas for implicit alignment with expert behavioral distributions in critical simulations.
-            </p>
-          </div>
-          
-        </div>
+    <h2 class="title is-3 has-text-centered">Key Takeaways</h2>
+    <div class="takeaways-grid">
+
+      <div class="takeaway-item">
+        <div class="takeaway-icon"><i class="fas fa-flask"></i></div>
+        <h3 class="title is-5">Generative Agents Enable Scalable Social Science</h3>
+        <p>
+          LLM-driven generative agents make it possible to simulate and test social theories at scale, offering a practical realization of
+          <a href="https://www.degruyterbrill.com/document/doi/10.1515/9781400842872/html" target="_blank">Generative Social Science</a>,
+          enabling research on scenarios that are otherwise infeasible or unethical with human participants.
+        </p>
       </div>
+
+      <div class="takeaway-item">
+        <div class="takeaway-icon"><i class="fas fa-cube"></i></div>
+        <h3 class="title is-5">Unity-Based Active Shooter Incident Simulator</h3>
+        <p>
+          We developed a Unity-based <b>Active Shooter Incident</b> simulation to explore high-stakes crowd dynamics, providing a flexible environment for testing generative agent behaviors under stress.
+        </p>
+      </div>
+
+      <div class="takeaway-item">
+        <div class="takeaway-icon"><i class="fas fa-bullseye"></i></div>
+        <h3 class="title is-5">Closing the Behavior-Realism Gap with PEBA–PEvo</h3>
+        <p>
+          To address the <b>Behavior-Realism Gap</b>, we introduced the PEBA-PEvo framework, which refines agent personas for implicit alignment with expert behavioral distributions in critical simulations.
+        </p>
+      </div>
+
     </div>
   </div>
 </section>
