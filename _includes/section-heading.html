@@ -1,0 +1,13 @@
+{% comment %}
+  Editorial section heading.
+  Usage: {% include section-heading.html number="01" title="People" %}
+{% endcomment %}
+<div class="flex items-baseline gap-4 mb-10 pb-4 border-b border-stone-200">
+    {% if include.number %}
+    <span class="font-mono text-xs text-cardinal tracking-[0.15em]">{{ include.number }}</span>
+    {% endif %}
+    <h2 class="font-display text-3xl font-medium text-ink tracking-tight">{{ include.title }}</h2>
+    {% if include.aside %}
+    <span class="ml-auto font-mono text-[11px] uppercase tracking-[0.15em] text-stone-400 hidden sm:block">{{ include.aside }}</span>
+    {% endif %}
+</div>

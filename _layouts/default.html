@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
-    
+
+    <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -12,43 +14,24 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: {
-                            50: '#f0f7ff',
-                            100: '#e0efff',
-                            200: '#b9dfff',
-                            300: '#7cc4ff',
-                            400: '#36a5ff',
-                            500: '#0c87f2',
-                            600: '#006ad0',
-                            700: '#0054a8',
-                            800: '#05488b',
-                            900: '#0a3d73',
-                            950: '#07264c',
+                        paper: '#faf9f6',
+                        ink: '#1c1917',
+                        cardinal: {
+                            DEFAULT: '#990000',
+                            50: '#faf1f0',
+                            100: '#f2dcda',
+                            600: '#990000',
+                            700: '#7a0000',
                         },
-                        accent: {
-                            50: '#fef3f2',
-                            100: '#fee4e2',
-                            200: '#ffcdc9',
-                            300: '#fda9a3',
-                            400: '#f97970',
-                            500: '#f04d42',
-                            600: '#de3024',
-                            700: '#bb241a',
-                            800: '#9a2119',
-                            900: '#80221c',
-                            950: '#460d09',
-                        },
-                        slate: {
-                            850: '#172033',
-                        }
                     },
                     fontFamily: {
-                        'display': ['Outfit', 'system-ui', 'sans-serif'],
-                        'body': ['Source Sans 3', 'system-ui', 'sans-serif'],
+                        'display': ['Newsreader', 'Georgia', 'serif'],
+                        'body': ['IBM Plex Sans', 'system-ui', 'sans-serif'],
+                        'mono': ['IBM Plex Mono', 'ui-monospace', 'monospace'],
                     },
                     animation: {
-                        'fade-in': 'fadeIn 0.6s ease-out forwards',
-                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'slide-up': 'slideUp 0.5s ease-out forwards',
                     },
                     keyframes: {
                         fadeIn: {
@@ -56,7 +39,7 @@
                             '100%': { opacity: '1' },
                         },
                         slideUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
                         },
                     },
@@ -64,63 +47,88 @@
             }
         }
     </script>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
     {% include google-analytics.html %}
 </head>
-<body class="font-body text-slate-700 bg-gradient-to-br from-slate-50 via-white to-primary-50/30 min-h-screen">
-    <!-- Decorative background elements -->
-    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div class="absolute -top-40 -right-40 w-96 h-96 bg-primary-200/20 rounded-full blur-3xl"></div>
-        <div class="absolute top-1/2 -left-40 w-80 h-80 bg-accent-200/10 rounded-full blur-3xl"></div>
-    </div>
+<body class="font-body text-stone-700 bg-paper min-h-screen antialiased">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:px-3 focus:py-2 focus:bg-ink focus:text-white focus:text-sm">Skip to content</a>
 
-    <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 border-b border-slate-200/50">
-        <div class="max-w-6xl mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <a href="{{ '/' | relative_url }}" class="group flex items-center gap-3">
-                    <div class="relative">
-                        <span class="font-display text-2xl font-bold bg-gradient-to-r from-primary-700 to-primary-500 bg-clip-text text-transparent">HATS</span>
-                        <span class="font-display text-2xl font-light text-slate-400 ml-1">Lab</span>
-                    </div>
-                </a>
-                
-                <nav class="flex items-center gap-8">
-                    {% for item in site.navigation %}
-                    {% assign is_active = false %}
-                    {% if item.url == "/" %}
-                        {% if page.url == "/" or page.url == "/index.html" %}
-                            {% assign is_active = true %}
-                        {% endif %}
-                    {% else %}
-                        {% if page.url contains item.url %}
-                            {% assign is_active = true %}
-                        {% endif %}
+    <header class="sticky top-0 z-50 bg-paper/95 backdrop-blur-sm border-b border-stone-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+            <a href="{{ '/' | relative_url }}" class="flex items-baseline gap-3 min-w-0">
+                <span class="font-display text-2xl font-semibold tracking-tight text-ink">HATS<span class="text-cardinal">.</span></span>
+                <span class="hidden lg:block font-mono text-[11px] uppercase tracking-[0.18em] text-stone-500 truncate">Human-inspired Adaptive Teaming Systems</span>
+            </a>
+
+            <nav class="flex items-center gap-4 sm:gap-6 font-mono text-[11px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.15em]">
+                {% for item in site.navigation %}
+                {% assign is_active = false %}
+                {% if item.url == "/" %}
+                    {% if page.url == "/" or page.url == "/index.html" %}
+                        {% assign is_active = true %}
                     {% endif %}
-                    <a href="{{ item.url | relative_url }}" 
-                       class="relative font-medium {% if is_active %}text-primary-600{% else %}text-slate-600{% endif %}
-                              after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:bg-primary-500 
-                              {% if is_active %}after:w-full{% else %}after:w-0{% endif %}">
-                        {{ item.title }}
-                    </a>
-                    {% endfor %}
-                </nav>
-            </div>
+                {% else %}
+                    {% if page.url contains item.url %}
+                        {% assign is_active = true %}
+                    {% endif %}
+                {% endif %}
+                <a href="{{ item.url | relative_url }}"
+                   class="relative py-1 transition-colors {% if is_active %}text-cardinal{% else %}text-stone-500 hover:text-ink{% endif %}
+                          after:absolute after:-bottom-0.5 after:left-0 after:h-px after:bg-cardinal after:transition-all
+                          {% if is_active %}after:w-full{% else %}after:w-0 hover:after:w-full{% endif %}">
+                    {{ item.title }}
+                </a>
+                {% endfor %}
+            </nav>
         </div>
     </header>
 
-    <main class="animate-fade-in">
+    <main id="main" class="animate-fade-in">
         {{ content }}
     </main>
 
-    <div class="mt-20 py-8 text-center">
-        <p class="text-slate-400 text-sm">&copy; {{ 'now' | date: "%Y" }} {{ site.lab_name }}. All rights reserved.</p>
-    </div>
+    <footer class="mt-24 border-t border-stone-200 bg-white">
+        <div class="max-w-6xl mx-auto px-6 py-14 grid gap-10 md:grid-cols-3">
+            <div>
+                <p class="font-display text-xl font-semibold text-ink mb-3">HATS<span class="text-cardinal">.</span></p>
+                <p class="text-sm text-stone-500 leading-relaxed max-w-xs">
+                    Human-inspired Adaptive Teaming Systems — building synthetic teammates
+                    that perceive, reason, and adapt alongside people.
+                </p>
+            </div>
+            <div>
+                <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-stone-400 mb-4">Index</p>
+                <ul class="space-y-2 text-sm">
+                    {% for item in site.navigation %}
+                    <li><a href="{{ item.url | relative_url }}" class="text-stone-600 hover:text-cardinal transition-colors">{{ item.title }}</a></li>
+                    {% endfor %}
+                    <li><a href="https://github.com/HATS-ICT" class="text-stone-600 hover:text-cardinal transition-colors">GitHub</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-stone-400 mb-4">Affiliation</p>
+                <p class="text-sm text-stone-600 leading-relaxed">
+                    <a href="https://ict.usc.edu" class="hover:text-cardinal transition-colors">Institute for Creative Technologies</a><br>
+                    University of Southern California<br>
+                    Playa Vista, California
+                </p>
+                <p class="mt-3 text-sm">
+                    <a href="mailto:{{ site.email }}" class="font-mono text-xs text-stone-500 hover:text-cardinal transition-colors">{{ site.email }}</a>
+                </p>
+            </div>
+        </div>
+        <div class="border-t border-stone-100">
+            <div class="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row justify-between gap-2">
+                <p class="font-mono text-[11px] text-stone-400">&copy; {{ 'now' | date: "%Y" }} {{ site.lab_name }} · USC Institute for Creative Technologies</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

@@ -1,0 +1,17 @@
+{% comment %}
+  Resource links for a publication, rendered as uniform mono tags.
+  Usage: {% include pub-links.html pub=pub %}
+{% endcomment %}
+{% assign pub = include.pub %}
+<div class="flex flex-wrap gap-2">
+    {% if pub.pdf %}<a href="{{ pub.pdf }}" class="pub-link">PDF</a>{% endif %}
+    {% if pub.arxiv %}<a href="{{ pub.arxiv }}" class="pub-link">arXiv</a>{% endif %}
+    {% if pub.code %}<a href="{{ pub.code }}" class="pub-link">Code</a>{% endif %}
+    {% if pub.dataset %}<a href="{{ pub.dataset }}" class="pub-link">Dataset</a>{% endif %}
+    {% if pub.website %}<a href="{{ pub.website }}" class="pub-link">Website</a>{% endif %}
+    {% if pub.demo %}<a href="{{ pub.demo }}" class="pub-link">Demo</a>{% endif %}
+    {% if pub.slides %}<a href="{{ pub.slides }}" class="pub-link">Slides</a>{% endif %}
+    {% if pub.video %}<a href="{{ pub.video }}" class="pub-link">Video</a>{% endif %}
+    {% if pub.doi %}<a href="{{ pub.doi }}" class="pub-link">DOI</a>{% endif %}
+    {% if pub.bibtex %}<a href="{{ pub.bibtex }}" class="pub-link">BibTeX</a>{% endif %}
+</div>

@@ -3,33 +3,126 @@ layout: default
 title: Home
 ---
 
-<!-- Hero Section -->
-<section class="relative py-20 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6">
-        <div class="max-w-3xl animate-slide-up" style="animation-delay: 0.1s;">
-            <h1 class="font-display text-5xl md:text-6xl font-bold text-slate-900 mb-4 leading-tight">
-                HATS <span class="bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">Lab</span>
-            </h1>
-            <h2 class="font-display text-xl md:text-2xl font-medium text-slate-500 mb-8">
-                Human-inspired Adaptive Teaming Systems
-            </h2>
-            <p class="text-lg text-slate-600 leading-relaxed max-w-2xl">
-                We develop autonomous synthetic characters and intelligent agents for military training simulations using multi-agent reinforcement learning, graph neural networks, and cognitive architectures.
+<!-- Hero -->
+<section class="relative border-b border-stone-200 overflow-hidden">
+    <canvas id="swarm-canvas" class="absolute inset-0 w-full h-full" aria-hidden="true"></canvas>
+    <div class="absolute inset-0 bg-gradient-to-r from-paper via-paper/85 to-paper/30 pointer-events-none"></div>
+
+    <div class="relative max-w-6xl mx-auto px-6 py-24 md:py-32">
+        <div class="max-w-3xl animate-slide-up">
+            <p class="font-mono text-xs uppercase tracking-[0.2em] text-cardinal mb-6">
+                USC Institute for Creative Technologies
             </p>
+            <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-medium text-ink tracking-tight leading-[1.05] mb-8">
+                Human-inspired <br class="hidden sm:block">Adaptive Teaming Systems
+            </h1>
+            <p class="text-lg text-stone-600 leading-relaxed max-w-2xl mb-10">
+                We build autonomous synthetic characters and intelligent agents for
+                military training simulations — teammates that perceive, reason,
+                and adapt the way people do.
+            </p>
+            <div class="flex flex-wrap gap-2">
+                {% assign areas = "Multi-Agent RL,Cognitive Architectures,LLM Agents,Human-AI Teaming,Scenario Generation,Simulation Environments" | split: "," %}
+                {% for area in areas %}
+                <span class="font-mono text-[11px] uppercase tracking-[0.12em] text-stone-500 border border-stone-300 bg-paper/70 px-3 py-1.5">{{ area }}</span>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </section>
 
-<!-- People Preview -->
-<section class="py-16 bg-white/60 backdrop-blur-sm border-y border-slate-100">
+<!-- Research -->
+<section class="py-20">
     <div class="max-w-6xl mx-auto px-6">
-        <h2 class="font-display text-2xl font-semibold text-slate-900 mb-8 flex items-center gap-3">
-            <span class="w-10 h-1 bg-primary-500 rounded-full"></span>
-            People
-        </h2>
-        
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-            {% assign featured_people = site.people | where_exp: "p", "p.category != 'alumni'" | where_exp: "p", "p.hide != true" | sort: "order" | limit: 4 %}
+        {% include section-heading.html number="01" title="Research" %}
+
+        <div class="grid md:grid-cols-2 gap-px bg-stone-200 border border-stone-200">
+            <div class="bg-paper p-8 animate-slide-up" style="animation-delay: 0.05s;">
+                <p class="font-mono text-xs text-cardinal mb-3">A</p>
+                <h3 class="font-display text-xl font-medium text-ink mb-3">Multi-Agent Reinforcement Learning</h3>
+                <p class="text-sm text-stone-600 leading-relaxed">
+                    Training teams of agents that coordinate, navigate, and fight as a unit —
+                    from graph-based terrain reasoning and GNN policies to organizational
+                    hierarchies and emergent tactical behaviors like ambush and cover.
+                </p>
+            </div>
+            <div class="bg-paper p-8 animate-slide-up" style="animation-delay: 0.1s;">
+                <p class="font-mono text-xs text-cardinal mb-3">B</p>
+                <h3 class="font-display text-xl font-medium text-ink mb-3">Cognitive Architectures &amp; Human-like Behavior</h3>
+                <p class="text-sm text-stone-600 leading-relaxed">
+                    Synthetic characters grounded in how people actually think — theory of mind,
+                    cognitive modeling with Sigma and PySigma, and decision-making that
+                    remains believable to the humans training alongside it.
+                </p>
+            </div>
+            <div class="bg-paper p-8 animate-slide-up" style="animation-delay: 0.15s;">
+                <p class="font-mono text-xs text-cardinal mb-3">C</p>
+                <h3 class="font-display text-xl font-medium text-ink mb-3">LLM-driven Agents &amp; Evaluation</h3>
+                <p class="text-sm text-stone-600 leading-relaxed">
+                    Language models as reasoning engines for embodied agents — and rigorous
+                    benchmarks for what they can and cannot do, from gameplay understanding
+                    to deception detection and egocentric tactical reasoning.
+                </p>
+            </div>
+            <div class="bg-paper p-8 animate-slide-up" style="animation-delay: 0.2s;">
+                <p class="font-mono text-xs text-cardinal mb-3">D</p>
+                <h3 class="font-display text-xl font-medium text-ink mb-3">Simulation &amp; Scenario Generation</h3>
+                <p class="text-sm text-stone-600 leading-relaxed">
+                    The environments where it all comes together — the RIDE rapid integration
+                    and development environment, geo-specific terrain, and automated
+                    generation of training scenarios.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- News -->
+<section class="py-20 bg-white border-y border-stone-200">
+    <div class="max-w-6xl mx-auto px-6">
+        {% include section-heading.html number="02" title="News" %}
+
+        <div class="max-w-3xl">
+            {% for item in site.data.news limit: 6 %}
+            <div class="flex gap-6 py-4 {% unless forloop.last %}border-b border-stone-100{% endunless %} animate-slide-up" style="animation-delay: {{ forloop.index | times: 0.06 }}s;">
+                <time class="flex-shrink-0 font-mono text-xs text-stone-400 w-20 pt-1">{{ item.date | date: "%b %Y" }}</time>
+                <p class="text-stone-700 leading-relaxed">{{ item.headline }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Selected Publications -->
+<section class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+        {% include section-heading.html number="03" title="Selected Publications" %}
+
+        <div class="border-t border-stone-200 mb-10">
+            {% assign recent_pubs = site.publications | sort: "date" | reverse %}
+            {% assign pub_count = 0 %}
+            {% for pub in recent_pubs %}
+            {% if pub.hide %}{% continue %}{% endif %}
+            {% if pub_count >= 4 %}{% break %}{% endif %}
+            {% assign pub_count = pub_count | plus: 1 %}
+            {% include pub-card.html pub=pub index=pub_count %}
+            {% endfor %}
+        </div>
+
+        <a href="{{ '/publications' | relative_url }}"
+           class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-ink border border-stone-300 px-5 py-3 hover:border-cardinal hover:text-cardinal transition-colors">
+            All publications <span aria-hidden="true">→</span>
+        </a>
+    </div>
+</section>
+
+<!-- People -->
+<section class="py-20 bg-white border-t border-stone-200">
+    <div class="max-w-6xl mx-auto px-6">
+        {% include section-heading.html number="04" title="People" %}
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-stone-200 border border-stone-200 mb-10">
+            {% assign featured_people = site.people | where_exp: "p", "p.category != 'alumni'" | where_exp: "p", "p.hide != true" | sort: "order" %}
             {% for person in featured_people limit: 4 %}
             {% assign person_link = nil %}
             {% if person.website %}
@@ -37,187 +130,37 @@ title: Home
             {% elsif person.google_scholar %}
                 {% assign person_link = person.google_scholar %}
             {% endif %}
-            <div class="text-center animate-slide-up" style="animation-delay: {{ forloop.index | times: 0.1 }}s;">
-                <div class="relative w-32 h-32 mx-auto mb-4 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm">
+            <div class="bg-white p-6 text-center animate-slide-up" style="animation-delay: {{ forloop.index | times: 0.06 }}s;">
+                <div class="w-28 h-28 mx-auto mb-4 overflow-hidden border border-stone-200 bg-stone-100">
                     {% if person_link %}
                     <a href="{{ person_link }}" class="block w-full h-full">
-                        <img src="{{ person.photo | default: '/assets/images/empty-people.jpg' | relative_url }}" 
-                             alt="{{ person.name }}"
+                        <img src="{{ person.photo | default: '/assets/images/empty-people.jpg' | relative_url }}"
+                             alt="{{ person.name }}" loading="lazy"
                              class="w-full h-full object-cover hover:opacity-90 transition-opacity">
                     </a>
                     {% else %}
-                    <img src="{{ person.photo | default: '/assets/images/empty-people.jpg' | relative_url }}" 
-                         alt="{{ person.name }}"
+                    <img src="{{ person.photo | default: '/assets/images/empty-people.jpg' | relative_url }}"
+                         alt="{{ person.name }}" loading="lazy"
                          class="w-full h-full object-cover">
                     {% endif %}
                 </div>
-                <h3 class="font-display font-semibold text-slate-900">
+                <h3 class="font-display font-medium text-ink">
                     {% if person_link %}
-                    <a href="{{ person_link }}" class="hover:text-primary-600 transition-colors">{{ person.name }}</a>
+                    <a href="{{ person_link }}" class="hover:text-cardinal transition-colors">{{ person.name }}</a>
                     {% else %}
                     {{ person.name }}
                     {% endif %}
                 </h3>
-                <p class="text-sm text-slate-500 mt-1">{{ person.title }}</p>
+                <p class="font-mono text-[11px] uppercase tracking-[0.12em] text-stone-500 mt-1">{{ person.title }}</p>
             </div>
             {% endfor %}
         </div>
-        
-        <a href="{{ '/people' | relative_url }}" 
-           class="inline-flex items-center gap-2 text-primary-600 font-medium">
-            View all team members →
+
+        <a href="{{ '/people' | relative_url }}"
+           class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-ink border border-stone-300 px-5 py-3 hover:border-cardinal hover:text-cardinal transition-colors">
+            Full team <span aria-hidden="true">→</span>
         </a>
     </div>
 </section>
 
-<!-- News Section -->
-<section class="py-16">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="font-display text-2xl font-semibold text-slate-900 mb-8 flex items-center gap-3">
-            <span class="w-10 h-1 bg-accent-500 rounded-full"></span>
-            News
-        </h2>
-        
-        <div class="max-w-3xl border-l-2 border-slate-200 pl-6 space-y-4">
-            {% for item in site.data.news limit: 5 %}
-            <div class="relative flex gap-4 items-baseline animate-slide-up" style="animation-delay: {{ forloop.index | times: 0.1 }}s;">
-                <div class="absolute -left-[31px] top-2 w-3 h-3 rounded-full bg-primary-500 border-2 border-white"></div>
-                <time class="flex-shrink-0 text-sm font-medium text-slate-400 w-24">{{ item.date | date: "%b %Y" }}</time>
-                <p class="text-slate-700">{{ item.headline }}</p>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
-
-<!-- Publications Preview -->
-<section class="py-16 bg-white/60 backdrop-blur-sm border-y border-slate-100">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="font-display text-2xl font-semibold text-slate-900 mb-8 flex items-center gap-3">
-            <span class="w-10 h-1 bg-primary-500 rounded-full"></span>
-            Recent Publications
-        </h2>
-        
-        <div class="space-y-6 mb-8">
-            {% assign recent_pubs = site.publications | sort: "date" | reverse %}
-            {% assign pub_count = 0 %}
-            {% for pub in recent_pubs %}
-            {% if pub.hide %}{% continue %}{% endif %}
-            {% if pub_count >= 5 %}{% break %}{% endif %}
-            {% assign pub_count = pub_count | plus: 1 %}
-            
-            {% assign pub_link = nil %}
-            {% if pub.website %}
-                {% assign pub_link = pub.website %}
-            {% elsif pub.arxiv %}
-                {% assign pub_link = pub.arxiv %}
-            {% elsif pub.pdf %}
-                {% assign pub_link = pub.pdf %}
-            {% endif %}
-            
-            <div class="flex flex-col md:flex-row gap-6 p-6 rounded-2xl bg-white border border-slate-100 shadow-sm animate-slide-up" style="animation-delay: {{ pub_count | times: 0.1 }}s;">
-                <!-- Thumbnail -->
-                <div class="flex-shrink-0 w-full md:w-56 h-36 rounded-xl overflow-hidden bg-gradient-to-br from-slate-100 to-slate-50 border border-slate-200 flex items-center justify-center">
-                    {% if pub_link %}
-                    <a href="{{ pub_link }}" class="w-full h-full">
-                        <img src="{{ pub.thumbnail | default: '/assets/images/paper-placeholder.jpg' | relative_url }}" 
-                             alt="Paper thumbnail"
-                             class="w-full h-full object-cover hover:opacity-90 transition-opacity">
-                    </a>
-                    {% else %}
-                    <img src="{{ pub.thumbnail | default: '/assets/images/paper-placeholder.jpg' | relative_url }}" 
-                         alt="Paper thumbnail"
-                         class="w-full h-full object-cover">
-                    {% endif %}
-                </div>
-                
-                <!-- Content -->
-                <div class="flex-1 min-w-0">
-                    <h3 class="font-display font-semibold text-slate-900 text-lg mb-2 leading-snug">
-                        {% if pub_link %}
-                        <a href="{{ pub_link }}" class="hover:text-primary-600 transition-colors">{{ pub.title }}</a>
-                        {% else %}
-                        {{ pub.title }}
-                        {% endif %}
-                    </h3>
-                    <p class="text-slate-600 text-sm mb-2">{{ pub.authors }}</p>
-                    <p class="text-slate-500 text-sm mb-4">
-                        <span class="italic">{{ pub.venue }}</span>
-                        {% if pub.venueshort %}
-                        <span class="font-semibold text-primary-600 ml-1">({{ pub.venueshort }})</span>
-                        {% endif %}
-                        <span class="mx-1">•</span>
-                        <span>{{ pub.year }}</span>
-                    </p>
-                    
-                    <!-- Links -->
-                    <div class="flex flex-wrap gap-2">
-                        {% if pub.pdf %}
-                        <a href="{{ pub.pdf }}" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-primary-700 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                            </svg>
-                            PDF
-                        </a>
-                        {% endif %}
-                        {% if pub.arxiv %}
-                        <a href="{{ pub.arxiv }}" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-orange-700 bg-orange-50 rounded-lg hover:bg-orange-100 transition-colors">
-                            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                            </svg>
-                            arXiv
-                        </a>
-                        {% endif %}
-                        {% if pub.code %}
-                        <a href="{{ pub.code }}" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                            </svg>
-                            Code
-                        </a>
-                        {% endif %}
-                        {% if pub.dataset %}
-                        <a href="{{ pub.dataset }}" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-yellow-700 bg-yellow-50 rounded-lg hover:bg-yellow-100 transition-colors">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
-                            </svg>
-                            Dataset
-                        </a>
-                        {% endif %}
-                        {% if pub.website %}
-                        <a href="{{ pub.website }}" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-emerald-700 bg-emerald-50 rounded-lg hover:bg-emerald-100 transition-colors">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
-                            </svg>
-                            Website
-                        </a>
-                        {% endif %}
-                        {% if pub.slides %}
-                        <a href="{{ pub.slides }}" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-purple-700 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-                            </svg>
-                            Slides
-                        </a>
-                        {% endif %}
-                        {% if pub.video %}
-                        <a href="{{ pub.video }}" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-red-700 bg-red-50 rounded-lg hover:bg-red-100 transition-colors">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            Video
-                        </a>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-        
-        <a href="{{ '/publications' | relative_url }}" 
-           class="inline-flex items-center gap-2 text-primary-600 font-medium">
-            View all publications →
-        </a>
-    </div>
-</section>
+<script src="{{ '/assets/js/swarm.js' | relative_url }}" defer></script>

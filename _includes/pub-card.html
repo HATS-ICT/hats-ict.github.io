@@ -1,0 +1,53 @@
+{% comment %}
+  Publication entry.
+  Usage: {% include pub-card.html pub=pub index=forloop.index show_abstract=true %}
+{% endcomment %}
+{% assign pub = include.pub %}
+{% assign pub_link = nil %}
+{% if pub.website %}
+    {% assign pub_link = pub.website %}
+{% elsif pub.arxiv %}
+    {% assign pub_link = pub.arxiv %}
+{% elsif pub.pdf %}
+    {% assign pub_link = pub.pdf %}
+{% endif %}
+
+<article class="group flex flex-col md:flex-row gap-6 py-7 border-b border-stone-200 animate-slide-up"
+         {% if include.index %}style="animation-delay: {{ include.index | times: 0.06 }}s;"{% endif %}>
+    <!-- Thumbnail -->
+    <div class="flex-shrink-0 w-full md:w-52 h-32 overflow-hidden border border-stone-200 bg-stone-100">
+        {% if pub_link %}
+        <a href="{{ pub_link }}" class="block w-full h-full" tabindex="-1" aria-hidden="true">
+            <img src="{{ pub.thumbnail | default: '/assets/images/empty-paper.webp' | relative_url }}"
+                 alt=""
+                 loading="lazy"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]">
+        </a>
+        {% else %}
+        <img src="{{ pub.thumbnail | default: '/assets/images/empty-paper.webp' | relative_url }}"
+             alt=""
+             loading="lazy"
+             class="w-full h-full object-cover">
+        {% endif %}
+    </div>
+
+    <!-- Content -->
+    <div class="flex-1 min-w-0">
+        <p class="font-mono text-[11px] uppercase tracking-[0.15em] text-stone-400 mb-2">
+            {% if pub.venueshort %}<span class="text-cardinal font-medium">{{ pub.venueshort }}</span> · {% endif %}{{ pub.year }}
+        </p>
+        <h3 class="font-display text-xl font-medium text-ink leading-snug mb-2">
+            {% if pub_link %}
+            <a href="{{ pub_link }}" class="hover:text-cardinal transition-colors">{{ pub.title }}</a>
+            {% else %}
+            {{ pub.title }}
+            {% endif %}
+        </h3>
+        <p class="text-sm text-stone-600 mb-1">{{ pub.authors }}</p>
+        <p class="text-sm text-stone-400 italic mb-4">{{ pub.venue }}</p>
+        {% if include.show_abstract and pub.abstract %}
+        <p class="text-sm text-stone-500 leading-relaxed mb-4 line-clamp-2">{{ pub.abstract }}</p>
+        {% endif %}
+        {% include pub-links.html pub=pub %}
+    </div>
+</article>

@@ -1,5 +1,5 @@
 title: HATS Lab
-description: Human-inspired Adaptive Teaming Systems
+description: Human-inspired Adaptive Teaming Systems Lab at the USC Institute for Creative Technologies
 url: https://hats-ict.github.io
 baseurl: ""
 
@@ -17,8 +17,8 @@ plugins:
 lab_name: HATS Lab
 lab_full_name: Human-inspired Adaptive Teaming Systems
 research_lead: Dr. Volkan Ustun
-institution: Your Institution Name
-email: contact@hatslab.edu
+institution: USC Institute for Creative Technologies
+email: ustun@ict.usc.edu
 
 # Collections
 collections:
@@ -57,4 +57,6 @@ exclude:
   - Gemfile.lock
   - node_modules
   - vendor
+  - README.md
+  - SETUP.md
 
