@@ -34,43 +34,49 @@ title: Home
 <!-- Research -->
 <section class="py-20">
     <div class="max-w-6xl mx-auto px-6">
-        {% include section-heading.html number="01" title="Research" %}
+        {% include section-heading.html number="01" title="Research" aside="Embodied Team AI" %}
 
-        <div class="grid md:grid-cols-2 gap-px bg-stone-200 border border-stone-200">
+        <p class="max-w-3xl text-stone-600 leading-relaxed mb-12 animate-slide-up">
+            Our organizing claim: <span class="text-ink">coordination is fundamentally a representational problem</span>.
+            Agents that maintain aligned internal models of their environment, teammates, and tasks can coordinate
+            fluently, even without explicit communication — agents whose representations are misaligned cannot,
+            regardless of how well-tuned their individual policies are. We study this across three layers that any
+            teaming system must integrate.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-px bg-stone-200 border border-stone-200">
             <div class="bg-paper p-8 animate-slide-up" style="animation-delay: 0.05s;">
-                <p class="font-mono text-xs text-cardinal mb-3">A</p>
-                <h3 class="font-display text-xl font-medium text-ink mb-3">Multi-Agent Reinforcement Learning</h3>
+                <p class="font-mono text-xs text-cardinal mb-3">01</p>
+                <h3 class="font-display text-xl font-medium text-ink mb-1">Intent &rarr; Structured Representations</h3>
+                <p class="font-mono text-[11px] uppercase tracking-[0.12em] text-stone-400 mb-3">Translating objectives into actionable form</p>
                 <p class="text-sm text-stone-600 leading-relaxed">
-                    Training teams of agents that coordinate, navigate, and fight as a unit —
-                    from graph-based terrain reasoning and GNN policies to organizational
-                    hierarchies and emergent tactical behaviors like ambush and cover.
+                    Doctrine, preferences, and stakeholder goals are rarely expressed in forms agents can act on
+                    directly. We study how to translate them into structured, actionable representations — from
+                    persona-driven behavioral alignment (<a href="{{ '/peba-asi/' | relative_url }}" class="text-ink hover:text-cardinal underline">PEBA-ASI</a>)
+                    to AI-assisted scenario generation from commander intent, to preference-conditioned
+                    multi-objective policy learning (GraphAllocBench).
                 </p>
             </div>
             <div class="bg-paper p-8 animate-slide-up" style="animation-delay: 0.1s;">
-                <p class="font-mono text-xs text-cardinal mb-3">B</p>
-                <h3 class="font-display text-xl font-medium text-ink mb-3">Cognitive Architectures &amp; Human-like Behavior</h3>
+                <p class="font-mono text-xs text-cardinal mb-3">02</p>
+                <h3 class="font-display text-xl font-medium text-ink mb-1">Local Observations &rarr; Shared Awareness</h3>
+                <p class="font-mono text-[11px] uppercase tracking-[0.12em] text-stone-400 mb-3">Building team-level situational awareness</p>
                 <p class="text-sm text-stone-600 leading-relaxed">
-                    Synthetic characters grounded in how people actually think — theory of mind,
-                    cognitive modeling with Sigma and PySigma, and decision-making that
-                    remains believable to the humans training alongside it.
+                    Agents in real environments observe only fragments of the world. Through cross-egocentric
+                    contrastive learning on synchronized teammate viewpoints, we show representations can undergo
+                    an "Allocentric Shift" toward team-aware, Self-Other-World structure — evaluated with
+                    benchmarks like <a href="{{ '/gameplayqa/' | relative_url }}" class="text-ink hover:text-cardinal underline">GamePlayQA</a>.
                 </p>
             </div>
             <div class="bg-paper p-8 animate-slide-up" style="animation-delay: 0.15s;">
-                <p class="font-mono text-xs text-cardinal mb-3">C</p>
-                <h3 class="font-display text-xl font-medium text-ink mb-3">LLM-driven Agents &amp; Evaluation</h3>
+                <p class="font-mono text-xs text-cardinal mb-3">03</p>
+                <h3 class="font-display text-xl font-medium text-ink mb-1">Shared Representations &rarr; Decentralized Action</h3>
+                <p class="font-mono text-[11px] uppercase tracking-[0.12em] text-stone-400 mb-3">Grounding alignment in real-time execution</p>
                 <p class="text-sm text-stone-600 leading-relaxed">
-                    Language models as reasoning engines for embodied agents — and rigorous
-                    benchmarks for what they can and cannot do, from gameplay understanding
-                    to deception detection and egocentric tactical reasoning.
-                </p>
-            </div>
-            <div class="bg-paper p-8 animate-slide-up" style="animation-delay: 0.2s;">
-                <p class="font-mono text-xs text-cardinal mb-3">D</p>
-                <h3 class="font-display text-xl font-medium text-ink mb-3">Simulation &amp; Scenario Generation</h3>
-                <p class="text-sm text-stone-600 leading-relaxed">
-                    The environments where it all comes together — the RIDE rapid integration
-                    and development environment, geo-specific terrain, and automated
-                    generation of training scenarios.
+                    Aligned representations must still propagate to decentralized, partially-observable execution.
+                    In <a href="{{ '/decoy/' | relative_url }}" class="text-ink hover:text-cardinal underline">DECOY</a>, our
+                    instrumented Counter-Strike 2 testbed, we co-optimize representational alignment and policy
+                    learning by adding a cross-ego contrastive regularizer directly to the MAPPO objective.
                 </p>
             </div>
         </div>
