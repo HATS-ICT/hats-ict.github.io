@@ -9,9 +9,6 @@ google_scholar: https://scholar.google.com/citations?user=fmqi35EAAAAJ
 website: 
 hide: false
 bio: >
-  Dr. Ustun leads the HATS Lab with expertise in cognitive architectures, 
-  multi-agent systems, and reinforcement learning. His research focuses on 
-  creating intelligent synthetic entities for military training simulations 
-  and decision support systems.
+  Dr. Ustun leads the HATS Lab with expertise in multi-agent systems, reinforcement learning, and cognitive models. His research bridges multi-agent reinforcement learning, generative AI, and graph-based representations to build decentralized architectures for autonomous teams.
 ---
 
