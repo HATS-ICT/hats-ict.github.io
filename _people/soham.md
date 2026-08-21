@@ -9,6 +9,6 @@ google_scholar: https://scholar.google.com/citations?user=oUNP06MAAAAJ&hl=en
 website: https://www.linkedin.com/in/soham-hans-b6295215a/
 hide: false
 bio: >
-  Scenerio Generation, Generative Models
+  Scenario Generation, Generative Models
 ---
 
