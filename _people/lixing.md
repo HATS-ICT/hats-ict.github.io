@@ -1,7 +1,7 @@
 ---
 name: Lixing Liu
 title: Ph.D. Student
-category: phd
+category: past-members
 order: 14
 photo: 
 email: 

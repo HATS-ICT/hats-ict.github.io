@@ -1,7 +1,7 @@
 ---
 name: Rajay Kumar
 title: Research Programmer
-category: staff  # pi, staff, phd, masters, alumni
+category: staff  # pi, staff, phd, masters, collaborators, past-members
 order: 31
 photo: /assets/images/people/rajay.jpg
 email: 

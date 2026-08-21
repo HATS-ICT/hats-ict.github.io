@@ -1,7 +1,7 @@
 ---
 name: Lakshay Gopal
 title: Research Assistant
-category: masters  # pi, phd, masters, alumni
+category: past-members  # pi, staff, phd, masters, collaborators, past-members
 order: 22
 photo: /assets/images/people/lakshay.jpg
 email: 

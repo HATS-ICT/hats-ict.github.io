@@ -136,7 +136,7 @@ title: Home
         {% include section-heading.html number="04" title="People" %}
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-stone-200 border border-stone-200 mb-10">
-            {% assign featured_people = site.people | where_exp: "p", "p.category != 'alumni'" | where_exp: "p", "p.hide != true" | sort: "order" %}
+            {% assign featured_people = site.people | where_exp: "p", "p.category != 'past-members'" | where_exp: "p", "p.hide != true" | sort: "order" %}
             {% for person in featured_people limit: 4 %}
             {% assign person_link = nil %}
             {% if person.website %}

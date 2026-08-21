@@ -1,7 +1,7 @@
 ---
 name: Zhiheng Jiang
 title: Research Intern
-category: alumni  # pi, staff, phd, masters, alumni
+category: past-members  # pi, staff, phd, masters, collaborators, past-members
 order: 40
 photo: 
 email: 
