@@ -65,7 +65,7 @@ title: People
         {% endif %}
 
         <!-- Member groups -->
-        {% assign group_keys = "staff|02|Research Staff,phd|03|Ph.D. Students,masters|04|Master's Students" | split: "," %}
+        {% assign group_keys = "staff|02|Research Staff,phd|03|Ph.D. Students,masters|04|Master's Students,collaborators|05|Collaborators" | split: "," %}
         {% for group in group_keys %}
         {% assign parts = group | split: "|" %}
         {% assign group_category = parts[0] %}
@@ -84,14 +84,14 @@ title: People
         {% endif %}
         {% endfor %}
 
-        <!-- Alumni -->
-        {% assign alumni = site.people | where: "category", "alumni" | where_exp: "p", "p.hide != true" | sort: "order" %}
-        {% if alumni.size > 0 %}
+        <!-- Past Members -->
+        {% assign past_members = site.people | where: "category", "past-members" | where_exp: "p", "p.hide != true" | sort: "order" %}
+        {% if past_members.size > 0 %}
         <div class="mb-16">
-            {% include section-heading.html number="05" title="Alumni" %}
+            {% include section-heading.html number="06" title="Past Members" %}
 
             <div class="max-w-3xl border-t border-stone-200">
-                {% for person in alumni %}
+                {% for person in past_members %}
                 {% assign person_link = nil %}
                 {% if person.website %}
                     {% assign person_link = person.website %}

@@ -1,7 +1,7 @@
 ---
 name: Nikolos Gurney
 title: Research Scientist
-category: staff  # pi, staff, phd, masters, alumni
+category: collaborators  # pi, staff, phd, masters, collaborators, past-members
 order: 32
 photo: /assets/images/people/nik.jpg
 email: 

@@ -1,7 +1,7 @@
 ---
 name: Volkan Ustun
 title: Research Lead, Principal Investigator
-category: pi  # pi, phd, masters, alumni
+category: pi  # pi, staff, phd, masters, collaborators, past-members
 order: 1
 photo: /assets/images/people/volkan.webp
 email: ustun@ict.usc.edu

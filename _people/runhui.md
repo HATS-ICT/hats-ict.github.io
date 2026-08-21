@@ -1,7 +1,7 @@
 ---
 name: Runhui Xu
 title: Research Assistant
-category: masters  # pi, phd, masters, alumni
+category: masters  # pi, staff, phd, masters, collaborators, past-members
 order: 21
 photo: /assets/images/people/runhui.webp
 email: 

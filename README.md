@@ -21,7 +21,7 @@ Create `_people/name.md`:
 ---
 name: Full Name
 title: Job Title
-category: staff  # pi, staff, phd, masters, alumni
+category: staff  # pi, staff, phd, masters, collaborators, past-members
 order: 10
 photo: /assets/images/people/name.webp
 email: email@usc.edu
