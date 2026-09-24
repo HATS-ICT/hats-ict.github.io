@@ -1,6 +1,6 @@
 ---
 name: Ryan Marr
-title: 
+title: Master's Student
 category: past-members  # pi, staff, phd, masters, collaborators, past-members
 order: 43
 photo: 
