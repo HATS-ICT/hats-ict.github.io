@@ -105,8 +105,8 @@ title: People
                     <span class="font-display font-medium text-ink">{{ person.name }}</span>
                     {% endif %}
                     <span class="text-sm text-stone-500">{{ person.title }}</span>
-                    {% if person.current_position %}
-                    <span class="sm:ml-auto font-mono text-[11px] uppercase tracking-[0.12em] text-stone-400">Now · {{ person.current_position }}</span>
+                    {% if person.year %}
+                    <span class="sm:ml-auto font-mono text-[11px] uppercase tracking-[0.12em] text-stone-400">{{ person.year }}</span>
                     {% endif %}
                 </div>
                 {% endfor %}

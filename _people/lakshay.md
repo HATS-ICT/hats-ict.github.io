@@ -8,6 +8,7 @@ email:
 google_scholar: 
 website: 
 hide: false
+year: 2026
 bio: >
 ---
 

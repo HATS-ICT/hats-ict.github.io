@@ -8,7 +8,7 @@ email:
 google_scholar: 
 website: 
 hide: false
-current_position: Summer Intern 2026
+year: 2026
 bio: >
 ---
 
